@@ -30,7 +30,7 @@ app.layout = html.Div(
     ],style = {"display":"flex", "justifyContent":"center"}),
 
     # Add menu title:
-    html.H1('Pharmacy Sales Report Menu', style = {"text-align":"center", "color":"black", 'background-color':'white'}),
+    html.H1('Pharmacy Sales Report Menu', style = {"text-align":"center", "color":"black"}),
 
     # Create menu as a horizontal table of buttons:
     html.Table([
