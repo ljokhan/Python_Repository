@@ -29,17 +29,19 @@ conn_str = (
 # Establish connection
 with connect(conn_str) as conn:
        
-    query = '''SELECT LEFT(CAST([ReportTimestamp] as VARCHAR), 7) as YearMonth, sum([SalicylicAcidDerivatives]) as TotalSales 
-        FROM dbo.PharmaDrugSalesbyHour
-        WHERE Year([ReportTimestamp]) >= year(getdate()) -8
-        GROUP BY LEFT(CAST([ReportTimestamp] as VARCHAR), 7) '''
+    query = '''SELECT CAST([ReportTimestamp] as date) as ReportDate, sum([SalicylicAcidDerivatives]) as TotalSales
+            FROM dbo.PharmaDrugSalesbyHour
+            WHERE [ReportTimestamp] >= '2019-10-01'
+            GROUP BY CAST([ReportTimestamp] as date) '''
 
-    df = pd.read_sql_query(query, conn)   
+    df = pd.read_sql_query(query, conn)  
+    df.sort_values(by='ReportDate')
     
-    # Create bar chart:
-    fig = px.bar(df, x='YearMonth', y='TotalSales',
-             title='<b>Total Pharmaceutical Drug Sales by Month</b>',
-            color_discrete_sequence=['#c74d06'])
+    # Create line chart:
+    fig = px.line(df, x="ReportDate", y="TotalSales", 
+              title='<b> Daily Sales Across All Product Lines',
+              markers=True)
+    fig.update_traces(line_color="#c74d06")
 
 # Configure webpage:
 layout = html.Div([
