@@ -30,19 +30,19 @@ app.layout = html.Div(
     ],style = {"display":"flex", "justifyContent":"center"}),
 
     # Add menu title:
-    html.H1('Pharmacy Sales Report Menu', style = {"text-align":"center", "color":"black", 'background-color':'white'}),
+    html.H1('Pharmacy Sales Report Menu', style = {"text-align":"center", "color":"white"}),
 
     # Create menu as a horizontal table of buttons:
     html.Table([
         html.Tr([
             html.Td([
-                dcc.Link("Daily Sales", href="/PharmaSales-SalesByDay", style = {'color':'black', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
+                dcc.Link("Daily Sales", href="/PharmaSales-SalesByDay", style = {'color':'white', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
             ], style = {'text-align':'center'}),
             html.Td([
-                dcc.Link("Monthly Sales", href="/PharmaSales-SalesByMonth", style = {'color':'black', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
+                dcc.Link("Monthly Sales", href="/PharmaSales-SalesByMonth", style = {'color':'white', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
             ], style = {'text-align':'center'}),
             html.Td([
-                dcc.Link("Yearly Sales", href="/PharmaSales-SalesByYear", style = {'color':'black', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
+                dcc.Link("Yearly Sales", href="/PharmaSales-SalesByYear", style = {'color':'white', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
             ], style = {'text-align':'center'}),
         ])
     ], style={'width':'100%'}),
