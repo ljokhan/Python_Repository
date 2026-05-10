@@ -26,7 +26,7 @@ app.layout = html.Div(
 
     # Add logo:
     html.Div(children=[
-        html.Img(src='/assets/logo.png', style={'width': '150px'})
+        html.Img(src='/assets/logo.png', style={'width': '80px'})
     ],style = {"display":"flex", "justifyContent":"center"}),
 
     # Add menu title:
