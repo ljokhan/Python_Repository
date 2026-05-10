@@ -31,18 +31,19 @@ app.layout = html.Div(
 
     # Add menu title:
     html.H1('Pharmacy Sales Report Menu', style = {"text-align":"center", "color":"white"}),
+    html.H4('(click on any menu item below)', style = {"text-align":"center", "color":"white"}),
 
     # Create menu as a horizontal table of buttons:
     html.Table([
         html.Tr([
             html.Td([
-                dcc.Link("Daily Sales", href="/PharmaSales-SalesByDay", style = {'color':'white', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
+                dcc.Link("Daily Sales Line Chart", href="/PharmaSales-SalesByDay", style = {'color':'white', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
             ], style = {'text-align':'center'}),
             html.Td([
-                dcc.Link("Monthly Sales", href="/PharmaSales-SalesByMonth", style = {'color':'white', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
+                dcc.Link("Monthly Sales Bar Chart", href="/PharmaSales-SalesByMonth", style = {'color':'white', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
             ], style = {'text-align':'center'}),
             html.Td([
-                dcc.Link("Yearly Sales", href="/PharmaSales-SalesByYear", style = {'color':'white', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
+                dcc.Link("Yearly Sales Pie Chart", href="/PharmaSales-SalesByYear", style = {'color':'white', 'font-size':24, 'text-align':'center', 'font-weight':'bold'})
             ], style = {'text-align':'center'}),
         ])
     ], style={'width':'100%'}),
