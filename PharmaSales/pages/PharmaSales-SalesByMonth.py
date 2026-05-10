@@ -29,16 +29,17 @@ conn_str = (
 # Establish connection
 with connect(conn_str) as conn:
        
-    query = '''SELECT Year([ReportTimestamp]) as Year, sum([SalicylicAcidDerivatives]) as TotalSales 
-        FROM dbo.PharmaDrugSalesbyHour 
-        GROUP BY Year([ReportTimestamp])
-        ORDER BY Year'''
+    query = '''SELECT LEFT(CAST([ReportTimestamp] as VARCHAR), 7) as YearMonth, sum([SalicylicAcidDerivatives]) as TotalSales 
+        FROM dbo.PharmaDrugSalesbyHour
+        WHERE Year([ReportTimestamp]) >= year(getdate()) -8
+        GROUP BY LEFT(CAST([ReportTimestamp] as VARCHAR), 7) '''
 
     df = pd.read_sql_query(query, conn)   
     
-    # Create pie chart:
-    fig = px.pie(df, values='TotalSales', names='Year', 
-             title='<b>Total Pharmaceutical Drug Sales by Year</b>')    
+    # Create bar chart:
+    fig = px.bar(df, x='YearMonth', y='TotalSales',
+             title='<b>Total Pharmaceutical Drug Sales by Month</b>',
+            color_discrete_sequence=['#c74d06'])
 
 # Configure webpage:
 layout = html.Div([
