@@ -3,6 +3,7 @@ import pandas as pd
 import urllib
 import plotly.express as px
 import os
+import dash_bootstrap_components as dbc
 from dash import html
 from dash import Dash, dcc, html
 from mssql_python import connect
@@ -44,6 +45,11 @@ with connect(conn_str) as conn:
 # Configure webpage:
 layout = html.Div([
     html.Br(),
-    html.Br(),
-    dcc.Graph(figure=fig)
+    html.Table([
+        html.Tr([
+            html.Td("", style={'width':'30%'}),
+            html.Td(dcc.Graph(figure=fig), style={'width':'30%'}),
+            html.Td("", style={'width':'30%'})
+        ])
+    ],style={'width':'100%','border':'0px solid black'})
 ])
