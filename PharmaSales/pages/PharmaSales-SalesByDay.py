@@ -42,6 +42,7 @@ with connect(conn_str) as conn:
               title='<b> Daily Pharmaceutical Drug Sales - All Product Lines',
               markers=True)
     fig.update_traces(line_color="#c74d06")
+    fig.update_layout(title_x=0.5) # Center title
 
 # Configure webpage:
 layout = html.Div([
