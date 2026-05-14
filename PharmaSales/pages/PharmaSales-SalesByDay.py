@@ -39,7 +39,7 @@ with connect(conn_str) as conn:
     
     # Create line chart:
     fig = px.line(df, x="ReportDate", y="TotalSales", 
-              title='<b> Daily Sales Across All Product Lines',
+              title='<b> Daily Pharmaceutical Drug Sales - All Product Lines',
               markers=True)
     fig.update_traces(line_color="#c74d06")
 
