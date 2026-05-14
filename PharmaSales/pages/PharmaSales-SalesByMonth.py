@@ -29,7 +29,9 @@ conn_str = (
 # Establish connection
 with connect(conn_str) as conn:
        
-    query = '''SELECT LEFT(CAST([ReportTimestamp] as VARCHAR), 7) as YearMonth, sum([SalicylicAcidDerivatives]) as TotalSales 
+    query = '''SELECT LEFT(CAST([ReportTimestamp] as VARCHAR), 7) as YearMonth,
+        sum([AceticAcidDerivatives] + [PropionicAcidDerivatives] + [SalicylicAcidDerivatives] + [PyrazolonesAndAnilides] + [AnxiolyticDrugs]
+                + [HypnoticsSndSedativesDrugs] + [ObstructiveAirwayDrugs] + [Antihistamines] ) as TotalSales
         FROM dbo.PharmaDrugSalesbyHour
         WHERE Year([ReportTimestamp]) >= year(getdate()) -8
         GROUP BY LEFT(CAST([ReportTimestamp] as VARCHAR), 7) '''
