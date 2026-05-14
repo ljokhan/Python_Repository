@@ -29,7 +29,9 @@ conn_str = (
 # Establish connection
 with connect(conn_str) as conn:
        
-    query = '''SELECT CAST([ReportTimestamp] as date) as ReportDate, sum([SalicylicAcidDerivatives]) as TotalSales
+    query = '''SELECT CAST([ReportTimestamp] as date) as ReportDate, 
+            sum([AceticAcidDerivatives] + [PropionicAcidDerivatives] + [SalicylicAcidDerivatives] + [PyrazolonesAndAnilides] + [AnxiolyticDrugs]
+                + [HypnoticsSndSedativesDrugs] + [ObstructiveAirwayDrugs] + [Antihistamines] ) as TotalSales
             FROM dbo.PharmaDrugSalesbyHour
             WHERE [ReportTimestamp] >= '2019-10-01'
             GROUP BY CAST([ReportTimestamp] as date) '''

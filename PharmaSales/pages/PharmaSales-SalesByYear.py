@@ -31,7 +31,9 @@ conn_str = (
 # Establish connection
 with connect(conn_str) as conn:
        
-    query = '''SELECT Year([ReportTimestamp]) as Year, sum([SalicylicAcidDerivatives]) as TotalSales 
+    query = '''SELECT Year([ReportTimestamp]) as Year, 
+        sum([AceticAcidDerivatives] + [PropionicAcidDerivatives] + [SalicylicAcidDerivatives] + [PyrazolonesAndAnilides] + [AnxiolyticDrugs]
+                + [HypnoticsSndSedativesDrugs] + [ObstructiveAirwayDrugs] + [Antihistamines] ) as TotalSales
         FROM dbo.PharmaDrugSalesbyHour 
         GROUP BY Year([ReportTimestamp])
         ORDER BY Year'''
