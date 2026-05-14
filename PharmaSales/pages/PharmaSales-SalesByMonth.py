@@ -40,7 +40,8 @@ with connect(conn_str) as conn:
     fig = px.bar(df, x='YearMonth', y='TotalSales',
              title='<b>Total Pharmaceutical Drug Sales by Month</b>',
             color_discrete_sequence=['#c74d06'])
-
+    fig.update_layout(title_x=0.5) # Center title
+    
 # Configure webpage:
 layout = html.Div([
     html.Br(),

@@ -41,6 +41,7 @@ with connect(conn_str) as conn:
     # Create pie chart:
     fig = px.pie(df, values='TotalSales', names='Year', 
              title='<b>Total Pharmaceutical Drug Sales by Year</b>')    
+    fig.update_layout(title_x=0.5) # Center title
 
 # Configure webpage:
 layout = html.Div([
