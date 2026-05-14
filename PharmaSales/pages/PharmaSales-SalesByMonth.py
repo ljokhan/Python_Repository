@@ -44,6 +44,11 @@ with connect(conn_str) as conn:
 # Configure webpage:
 layout = html.Div([
     html.Br(),
-    html.Br(),
-    dcc.Graph(figure=fig)
+    html.Table([
+        html.Tr([
+            html.Td("", style={'width':'5%'}),
+            html.Td(dcc.Graph(figure=fig), style={'width':'90%'}),
+            html.Td("", style={'width':'5%'})
+        ])
+    ],style={'width':'100%','border':'0px solid black'})
 ])

@@ -48,7 +48,7 @@ layout = html.Div([
     html.Table([
         html.Tr([
             html.Td("", style={'width':'30%'}),
-            html.Td(dcc.Graph(figure=fig), style={'width':'30%'}),
+            html.Td(dcc.Graph(figure=fig), style={'width':'40%'}),
             html.Td("", style={'width':'30%'})
         ])
     ],style={'width':'100%','border':'0px solid black'})
