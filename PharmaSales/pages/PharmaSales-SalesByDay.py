@@ -26,11 +26,8 @@ connection_string = (
     "Encrypt=yes;"
     "TrustServerCertificate=no;"
 )
-
-# Establish connection
-#with connect(conn_str) as conn:
-    
-# This is the query used to generate the chart:
+   
+# This is the query used to generate the dataframe:
 query = '''SELECT CAST([ReportTimestamp] as date) as ReportDate, 
             sum([AceticAcidDerivatives] + [PropionicAcidDerivatives] + [SalicylicAcidDerivatives] + [PyrazolonesAndAnilides] + [AnxiolyticDrugs]
                 + [HypnoticsSndSedativesDrugs] + [ObstructiveAirwayDrugs] + [Antihistamines] ) as TotalSales
@@ -38,7 +35,8 @@ query = '''SELECT CAST([ReportTimestamp] as date) as ReportDate,
             WHERE [ReportTimestamp] >= '2019-10-01'
             GROUP BY CAST([ReportTimestamp] as date) '''
 
-conn = connect(connection_string, timeout=30)
+# Establish connection with a timeout:
+conn = connect(connection_string, timeout=120)
 
 # Create data frame using query above:
 df = pd.read_sql_query(query, conn)  
