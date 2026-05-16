@@ -1,3 +1,4 @@
+# Import libraries:
 import dash
 import pandas as pd
 import urllib
@@ -8,7 +9,7 @@ from dash import html
 from dash import Dash, dcc, html
 from mssql_python import connect
 
-# Register this page with the Dash Application:
+# Register this page with Dash, so we can display it on the main menu:
 dash.register_page(__name__, path='/PharmaSales-SalesByYear')
 
 # Configure connection to Azure SQL Database:
@@ -18,7 +19,7 @@ username = 'ljokhan'
 password = 'NissanAltima2013#'
 
 # Build the connection string for SQL Authentication:
-conn_str = (
+connection_string = (
     f"Server={server},1433;"
     f"Database={database};"
     f"UID={username};"
@@ -28,24 +29,28 @@ conn_str = (
     ###"login_timeout=30"
 )
 
-# Establish connection
-with connect(conn_str) as conn:
-       
-    query = '''SELECT Year([ReportTimestamp]) as Year, 
+# This is the query used to generate the dataframe:
+query = '''SELECT Year([ReportTimestamp]) as Year, 
         sum([AceticAcidDerivatives] + [PropionicAcidDerivatives] + [SalicylicAcidDerivatives] + [PyrazolonesAndAnilides] + [AnxiolyticDrugs]
                 + [HypnoticsSndSedativesDrugs] + [ObstructiveAirwayDrugs] + [Antihistamines] ) as TotalSales
         FROM dbo.PharmaDrugSalesbyHour 
         GROUP BY Year([ReportTimestamp])
         ORDER BY Year'''
 
-    df = pd.read_sql_query(query, conn)   
-    
-    # Create pie chart:
-    fig = px.pie(df, values='TotalSales', names='Year', 
-             title='<b>Total Pharmaceutical Drug Sales by Year</b>')    
-    fig.update_layout(title_x=0.5) # Center title
+# Establish connection with a timeout:
+conn = connect(connection_string, timeout=120)
 
-# Configure webpage:
+# Create data frame using query above:
+df = pd.read_sql_query(query, conn)   
+   
+# Create pie chart:
+fig = px.pie(df, values='TotalSales', names='Year', 
+             title='<b>Total Pharmaceutical Drug Sales by Year</b>')    
+
+# Format the pie chart:
+fig.update_layout(title_x=0.5) # Center title
+
+# Display page:
 layout = html.Div([
     html.Br(),
     html.Table([
