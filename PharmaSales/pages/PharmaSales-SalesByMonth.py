@@ -1,3 +1,4 @@
+# Import libraries:
 import dash
 import pandas as pd
 import urllib
@@ -7,6 +8,7 @@ from dash import html
 from dash import Dash, dcc, html
 from mssql_python import connect
 
+# Register this page with Dash, so we can display it on the main menu:
 dash.register_page(__name__, path='/PharmaSales-SalesByMonth')
 
 # Configure connection to Azure SQL Database:
@@ -16,35 +18,38 @@ username = 'ljokhan'
 password = 'NissanAltima2013#'
 
 # Build the connection string for SQL Authentication:
-conn_str = (
+connection_string = (
     f"Server={server},1433;"
     f"Database={database};"
     f"UID={username};"
     f"PWD={password};"
     "Encrypt=yes;"
     "TrustServerCertificate=no;"
-    ###"login_timeout=30"
 )
 
-# Establish connection
-with connect(conn_str) as conn:
-       
-    query = '''SELECT LEFT(CAST([ReportTimestamp] as VARCHAR), 7) as YearMonth,
+# This is the query used to generate the dataframe:
+query = '''SELECT LEFT(CAST([ReportTimestamp] as VARCHAR), 7) as YearMonth,
         sum([AceticAcidDerivatives] + [PropionicAcidDerivatives] + [SalicylicAcidDerivatives] + [PyrazolonesAndAnilides] + [AnxiolyticDrugs]
                 + [HypnoticsSndSedativesDrugs] + [ObstructiveAirwayDrugs] + [Antihistamines] ) as TotalSales
         FROM dbo.PharmaDrugSalesbyHour
         WHERE Year([ReportTimestamp]) >= year(getdate()) -8
         GROUP BY LEFT(CAST([ReportTimestamp] as VARCHAR), 7) '''
 
-    df = pd.read_sql_query(query, conn)   
+# Establish connection with a timeout:
+conn = connect(connection_string, timeout=120)
+
+# Create data frame using query above:
+df = pd.read_sql_query(query, conn)   
     
-    # Create bar chart:
-    fig = px.bar(df, x='YearMonth', y='TotalSales',
-             title='<b>Total Pharmaceutical Drug Sales by Month</b>',
-            color_discrete_sequence=['#c74d06'])
-    fig.update_layout(title_x=0.5) # Center title
+# Create bar chart:
+fig = px.bar(df, x='YearMonth', y='TotalSales',
+                title='<b>Total Pharmaceutical Drug Sales by Month</b>',
+                color_discrete_sequence=['#c74d06'])
+
+# Format the bar chart  chart:
+fig.update_layout(title_x=0.5) # Center title
     
-# Configure webpage:
+# Display page:
 layout = html.Div([
     html.Br(),
     html.Table([
