@@ -13,10 +13,10 @@ from mssql_python import connect
 dash.register_page(__name__, path='/PharmaSales-SalesByYear')
 
 # Configure connection to Azure SQL Database:
-server = 'sql-db-02-free-healthcare-server.database.windows.net'
-database = 'sql-db-02-free-healthcare'
-username = 'ljokhan'
-password = 'NissanAltima2013#'
+server = 'sql-db-01-ljokhan-server.database.windows.net'
+database = 'sql-db-01-ljokhan'
+username = 'PythonUser'
+password = 'ILovePython2026!'
 
 # Build the connection string for SQL Authentication:
 connection_string = (
