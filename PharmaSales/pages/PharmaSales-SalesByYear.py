@@ -38,7 +38,7 @@ query = '''SELECT Year([ReportTimestamp]) as Year,
         ORDER BY Year'''
 
 # Establish connection with a timeout:
-conn = connect(connection_string, timeout=120)
+conn = connect(connection_string, timeout=180)
 
 # Create data frame using query above:
 df = pd.read_sql_query(query, conn)   
