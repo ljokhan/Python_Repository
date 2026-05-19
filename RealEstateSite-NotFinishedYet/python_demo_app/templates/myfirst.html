@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+body 	{ 
+	background-image: url('{% static 'aibackgroundimage.jpg' %}');
+	font-family:Trebuchet MS
+	}
+
+</style>
+</head>
+
+<body>
+
+<br>
+<div style="width:100%;font-size:45px;text-align:center;color:white"> 
+Python Artificial Intelligence - Optimization <br>
+</div>
+<br>
+
+
+<table style="width:100%;font-size:25px;border:0px solid black;text-top; color:white;">
+<tr>
+
+<td style="width:70%; vertical-align:text-top">
+<br>
+<b><u> Problem: </u></b> <br> 
+Given a geographic area, calculate the optimal location for a brand new EV charging station. The location should service the geographic area as fairly as possible.
+<br><br>
+
+<b><u> Solution: </u></b> <br> 
+Use Python to calculate a latitude/longitude coordinate which is central to the geographic area. Then display it on a map.
+<br><br>
+
+<b><u> Algorithm: </u></b> </br>
+
+<ol>
+<li> Use Python's Geopy library to geocode addresses within New Jersey. This assigns latitudes & longitudes to each address.</li>
+<li> Use a custom Haversine function to calculate the distances from each coordinate to all other coordinates. </li>
+<li> For each coordinate, calculate the distance from that coordinate to all coordinates. </li>
+<li> Select the coordinate with the lowest maximum distance to all other points. This will be the coordinate which is central to all coordinates. </li>
+<li> Use Python's Folium library to map each coordinate in red on the map. 
+<li> Use Python's Folium library to map the solution, the central point, in green on the map. </li>
+</ol>
+</td>
+
+<td style="width:30%">
+<div style = "text-align:center"> Interactive map </div>
+<iframe src="{% static 'NJCentralLocationMap.html' %}" width="90%" height="650px" frameborder="10"></iframe>
+</td>
+
+</tr>
+</table>
+
+</body>
+</html>
