@@ -1,5 +1,6 @@
 from chatterbot import ChatBot
 
+
 chatbot = ChatBot("Chatpot")
 
 exit_conditions = (":q", "quit", "exit")
