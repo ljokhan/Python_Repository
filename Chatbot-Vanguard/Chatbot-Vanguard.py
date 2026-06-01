@@ -18,7 +18,7 @@ trainer = CsvFileTrainer(
 
 # Train the bot using a local CSV file:
 trainer.train(
-    "./Chatbot-InDevelopment/data/conversations.csv"
+    "./Chatbot-Vanguard/conversations.csv"
 )
 
 # Chatbot response loop
