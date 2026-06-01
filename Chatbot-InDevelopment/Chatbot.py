@@ -1,27 +1,35 @@
 from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import CsvFileTrainer
 
-chatbot = ChatBot("Chatpot")
+# Initialize the primary chatbot instance
+bot = ChatBot('DataBot')
 
-trainer = ListTrainer(chatbot)
-trainer.train([
-    "Hi",
-    "Welcome, my friend",
-])
-trainer.train([
-    "Are you a plant?",
-    "No, I'm the pot below the plant!",
-])
-trainer.train([
-    "What type of plan are you?",
-    "Rose!",
-])
+# Bind the CSV File Trainer to your chatbot
+trainer = CsvFileTrainer(
+    bot,
+    field_map={
+         #'created_at': 0,
+         #'persona': 0,
+         'text': 0
+         #'conversation': 1
+    }
+)
 
+# Train the bot using a local file path
+trainer.train(
+    "./Chatbot-InDevelopment/data/conversations.csv"
+)
 
-exit_conditions = (":q", "quit", "exit")
+# Test the chatbot response loop
+print("Chatbot is ready! Type 'exit' to quit.")
 while True:
-    query = input("> ")
-    if query in exit_conditions:
+    try:
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            break
+            
+        bot_response = bot.get_response(user_input)
+        print(f"Bot: {bot_response}")
+        
+    except (KeyboardInterrupt, EOFError, SystemExit):
         break
-    else:
-        print(f"🪴 {chatbot.get_response(query)}")
