@@ -50,6 +50,14 @@ def deal_cards():
         computer_hand.append (one_card)
         deck_of_cards.remove (one_card)
 
+def kick_trump_card():
+    # Pick a random card:
+    one_card = random.choice(deck_of_cards)
+
+    # Give the random card to the trump card:
+    trump_card.append (one_card)
+    deck_of_cards.remove (one_card)
+
 # Configure the outer screen:
 root = Tk()
 root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
@@ -74,10 +82,17 @@ create_new_deck()
 # Deal the cards to all players:
 deal_cards()
 
+# Kick the trump card:
+kick_trump_card()
+
 print ("Player 1 hand")
 print (player_1_hand)
 print ("Computer hand")
 print (computer_hand)
+print ("Trump card")
+print (trump_card)
+
+
 
 # Put cards in dealer frame:
 dealer_label = Label(dealer_frame, text ="Test1")
