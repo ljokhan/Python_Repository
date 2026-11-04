@@ -13,10 +13,10 @@ no_cards_per_player = 3
 
 # These set the size of the frames which holds the cards:
 global frame_width
-frame_width = 300
+frame_width = 50
 
 global frame_height
-frame_height = 300
+frame_height = 150
 
 # These global variables hold the cards for each player and the trump card:
 player_1_hand = []
@@ -31,7 +31,7 @@ def configure_main_screen():
     global root
     root = Tk()
     root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
-    root.geometry("1200x700")
+    root.geometry("1600x800")
     root.configure(background="green")
 
 ###########################################################################################
@@ -46,7 +46,7 @@ def create_frames():
     # Create frame for trump card:
     global trump_frame
     trump_frame = LabelFrame(my_frame, width = frame_width, height = frame_height, text ="Trump Card",bd=0)
-    trump_frame.grid(row=0, column=0, padx=20, ipadx=40, pady=20)
+    trump_frame.grid(row=0, column=1, padx=20, ipadx=40, pady=20)
 
     # Create frame for dealer cards:
     global dealer_frame_card_1
@@ -87,43 +87,43 @@ def create_frames():
       # Initial population of all frames:
     global dealer_label
     dealer_label = Label(dealer_frame_card_1, text ="Dealer Card 1")
-    dealer_label.pack(pady=30)
+    dealer_label.pack_propagate(False)
 
     global dealer_label_2
     dealer_label_2 = Label(dealer_frame_card_2, text ="Dealer Card 2")
-    dealer_label_2.pack(pady=30)
+    dealer_label_2.pack_propagate(False)
 
     global dealer_label_3
     dealer_label_3 = Label(dealer_frame_card_3, text ="Dealer Card 3")
-    dealer_label_3.pack(pady=30)
+    dealer_label_3.pack_propagate(False)
 
 
 
     global round_frame_card1_label
     round_frame_card1_label = Label(round_frame_card_1, text = "Round Card 1")
-    round_frame_card1_label.pack(pady=30)
+    round_frame_card1_label.pack_propagate(False)
 
     global round_frame_card2_label
     round_frame_card2_label = Label(round_frame_card_2, text = "Round Card 2")
-    round_frame_card2_label.pack(pady=30)
+    round_frame_card2_label.pack_propagate(False)
 
 
 
     global player_label
     player_label = Label(player_frame_card_1, text = "Player Card 1")
-    player_label.pack(pady=30)
+    player_label.pack_propagate(False)
 
     global player_label_2
     player_label_2 = Label(player_frame_card_2, text = "Player Card 2")
-    player_label_2.pack(pady=30)
+    player_label_2.pack_propagate(False)
 
     global player_label_3
     player_label_3 = Label(player_frame_card_3, text = "Player Card 3")
-    player_label_3.pack(pady=30)
+    player_label_3.pack_propagate(False)
 
     global trump_label
     trump_label = Label(trump_frame, text = "Trump Card")
-    trump_label.pack(pady=30)
+    trump_label.pack_propagate(False)
 
 ###########################################################################################
 
