@@ -110,13 +110,10 @@ player_label.pack(pady=30)
 trump_label = Label(trump_frame, text = "Trump Card")
 trump_label.pack(pady=30)
 
-# Put cards in dealer frame:
-#dealer_label.configure = Label(dealer_frame, text ="Ace of Hearts")
-#dealer_label.pack(pady=30)
-
-# Put cards in player frame:
-#player_label.configure = Label(player_frame, text = "Ace of Spades")
-#player_label.pack(pady=50)
+# Put cards in frames:
+dealer_label.configure(text ="Ace of Hearts")
+player_label.configure(text = "Ace of Spades")
+trump_label.configure(text = "Ace of Diamonds")
 
 # Create button to shuffle the deck:
 #shuffle_button = Button(root, text="Shuffle the Deck")
