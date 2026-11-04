@@ -99,23 +99,23 @@ trump_frame = LabelFrame(my_frame, text ="Trump Card",bd=0)
 trump_frame.grid(row=0, column=2, padx=20, ipadx=40)
 
 # Populate dealer frame:
-dealer_label = Label(dealer_frame, text ="Dealer Label")
+dealer_label = Label(dealer_frame, text ="Dealer Card")
 dealer_label.pack(pady=30)
 
 # Populate player frame:
-player_label = Label(player_frame, text = "Player Label")
+player_label = Label(player_frame, text = "Player Card")
 player_label.pack(pady=30)
 
 # Populate trump frame:
-trump_label = Label(trump_frame, text = "Trump")
+trump_label = Label(trump_frame, text = "Trump Card")
 trump_label.pack(pady=30)
 
 # Put cards in dealer frame:
-#dealer_label = Label(dealer_frame, text ="Test1")
-#dealer_label.pack(pady=50)
+#dealer_label.configure = Label(dealer_frame, text ="Ace of Hearts")
+#dealer_label.pack(pady=30)
 
 # Put cards in player frame:
-#player_label = Label(player_frame, text = "Test2")
+#player_label.configure = Label(player_frame, text = "Ace of Spades")
 #player_label.pack(pady=50)
 
 # Create button to shuffle the deck:
