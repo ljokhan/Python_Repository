@@ -5,6 +5,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 import random
 
+
 ###########################################################################################
 
 # Declare global variables:
@@ -13,7 +14,7 @@ no_cards_per_player = 3
 
 # These set the size of the frames which holds the cards:
 global frame_width
-frame_width = 50
+frame_width = 150
 
 global frame_height
 frame_height = 150
@@ -34,6 +35,14 @@ def configure_main_screen():
     root.geometry("1600x800")
     root.configure(background="green")
 
+    #bg_image = Image.open("./bg.jpg")  # Supports PNG, JPG, etc.
+    #bg_photo = ImageTk.PhotoImage(bg_image)
+    #bg_label = Label(root, image=bg_photo)
+    #bg_label.place(relwidth=1, relheight=1)
+    # Keep a reference to prevent the image from being garbage collected
+    # bg_label.image = bg_photo
+
+
 ###########################################################################################
 
 def create_frames():
@@ -42,6 +51,8 @@ def create_frames():
     global my_frame 
     my_frame = Frame(root, bg="green")
     my_frame.pack(pady=20)
+
+#
 
     # Create frame for trump card:
     global trump_frame
@@ -84,24 +95,24 @@ def create_frames():
     player_frame_card_3 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand",bd=0)
     player_frame_card_3.grid(row=3, column=2, padx=20, ipadx=40, pady=20)
 
-      # Initial population of all frames:
+     # Initial population of all frames:
     global dealer_label
     dealer_label = Label(dealer_frame_card_1, text ="Dealer Card 1")
-    dealer_label.pack_propagate(False)
+    dealer_label.grid_propagate()
 
     global dealer_label_2
     dealer_label_2 = Label(dealer_frame_card_2, text ="Dealer Card 2")
-    dealer_label_2.pack_propagate(False)
+    dealer_label_2.grid_propagate(True)
 
     global dealer_label_3
     dealer_label_3 = Label(dealer_frame_card_3, text ="Dealer Card 3")
-    dealer_label_3.pack_propagate(False)
+    dealer_label_3.grid_propagate(False)
 
 
 
     global round_frame_card1_label
     round_frame_card1_label = Label(round_frame_card_1, text = "Round Card 1")
-    round_frame_card1_label.pack_propagate(False)
+    round_frame_card1_label.pack()
 
     global round_frame_card2_label
     round_frame_card2_label = Label(round_frame_card_2, text = "Round Card 2")
@@ -111,7 +122,7 @@ def create_frames():
 
     global player_label
     player_label = Label(player_frame_card_1, text = "Player Card 1")
-    player_label.pack_propagate(False)
+    player_label.pack()
 
     global player_label_2
     player_label_2 = Label(player_frame_card_2, text = "Player Card 2")
@@ -199,7 +210,7 @@ def create_buttons(root):
 
 def put_cards_in_frames(dealer_label, player_label, trump_label):
 
-    trump_label.configure(text = trump_card[0])
+    trump_label.configure(text = "ccc")
 
     dealer_label.configure(text = computer_hand[0])
     dealer_label_2.configure(text = computer_hand[1])
