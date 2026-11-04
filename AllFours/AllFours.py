@@ -59,6 +59,16 @@ def kick_trump_card():
     trump_card.append (one_card)
     deck_of_cards.remove (one_card)
 
+def create_buttons(root):
+
+    # Create button to shuffle the deck:
+    shuffle_button = Button(root, text="Shuffle the Deck")
+    shuffle_button.pack(pady=20)
+
+    # Create button to deal the cards:
+    deal_button = Button(root, text="Deal the Cards")
+    deal_button.pack(pady=20)
+
 # Create a new deck of cards:
 create_new_deck()
 
@@ -113,13 +123,9 @@ dealer_label.configure(text ="Ace of Hearts")
 player_label.configure(text = "Ace of Spades")
 trump_label.configure(text = "Ace of Diamonds")
 
-# Create button to shuffle the deck:
-#shuffle_button = Button(root, text="Shuffle the Deck")
-#shuffle_button.pack(pady=20)
+# Create buttons for the game:
+create_buttons(root)
 
-# Create button to deal the cards:
-#deal_button = Button(root, text="Deal the Cards")
-#deal_button.pack(pady=20)
 
 
 root.mainloop()
