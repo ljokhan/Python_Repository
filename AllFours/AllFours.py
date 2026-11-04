@@ -33,22 +33,22 @@ def create_frames():
     my_frame = Frame(root, bg="green")
     my_frame.pack(pady=20)
 
+    # Create frame for trump card:
+    global trump_frame
+    trump_frame = LabelFrame(my_frame, text ="Trump Card",bd=0)
+    trump_frame.grid(row=0, column=0, padx=20, ipadx=40)
+
     # Create frame for dealer cards:
     global dealer_frame
     dealer_frame = LabelFrame(my_frame, text="Dealer Hand",bd=0)
-    dealer_frame.grid(row=0, column=0, padx=20, ipadx=40)
+    dealer_frame.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
 
     # Create frame for player cards:
     global player_frame
     player_frame = LabelFrame(my_frame, text="Your Hand",bd=0)
-    player_frame.grid(row=0, column=1, ipadx=40)
+    player_frame.grid(row=2, column=0, ipadx=40, pady=20)
 
-    # Create frame for trump card:
-    global trump_frame
-    trump_frame = LabelFrame(my_frame, text ="Trump Card",bd=0)
-    trump_frame.grid(row=0, column=2, padx=20, ipadx=40)
-
-    # Initial population of all frames:
+      # Initial population of all frames:
     global dealer_label
     dealer_label = Label(dealer_frame, text ="Dealer Card")
     dealer_label.pack(pady=30)
