@@ -9,7 +9,7 @@ import random
 
 # Declare global variables:
 deck_of_cards = []
-no_cards_per_player = 6
+no_cards_per_player = 3
 player_1_hand = []
 computer_hand = []
 trump_card = []
@@ -22,7 +22,7 @@ def configure_main_screen():
     global root
     root = Tk()
     root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
-    root.geometry("900x500")
+    root.geometry("1200x500")
     root.configure(background="green")
 
 ###########################################################################################
@@ -40,9 +40,17 @@ def create_frames():
     trump_frame.grid(row=0, column=0, padx=20, ipadx=40)
 
     # Create frame for dealer cards:
-    global dealer_frame
-    dealer_frame = LabelFrame(my_frame, text="Dealer Hand",bd=0)
-    dealer_frame.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
+    global dealer_frame_card_1
+    dealer_frame_card_1 = LabelFrame(my_frame, text="Dealer Hand",bd=0)
+    dealer_frame_card_1.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
+
+    global dealer_frame_card_2
+    dealer_frame_card_2 = LabelFrame(my_frame, text="Dealer Hand",bd=0)
+    dealer_frame_card_2.grid(row=1, column=1, padx=20, ipadx=40, pady=20)
+
+    global dealer_frame_card_3
+    dealer_frame_card_3 = LabelFrame(my_frame, text="Dealer Hand",bd=0)
+    dealer_frame_card_3.grid(row=1, column=2, padx=20, ipadx=40, pady=20)
 
     # Create frame for player cards:
     global player_frame_card_1
@@ -53,18 +61,34 @@ def create_frames():
     player_frame_card_2 = LabelFrame(my_frame, text="Your Hand",bd=0)
     player_frame_card_2.grid(row=2, column=1, ipadx=40, pady=20)
 
+    global player_frame_card_3
+    player_frame_card_3 = LabelFrame(my_frame, text="Your Hand",bd=0)
+    player_frame_card_3.grid(row=2, column=2, ipadx=40, pady=20)
+
       # Initial population of all frames:
     global dealer_label
-    dealer_label = Label(dealer_frame, text ="Dealer Card")
+    dealer_label = Label(dealer_frame_card_1, text ="Dealer Card")
     dealer_label.pack(pady=30)
 
+    global dealer_label_2
+    dealer_label_2 = Label(dealer_frame_card_2, text ="Dealer Card")
+    dealer_label_2.pack(pady=30)
+
+    global dealer_label_3
+    dealer_label_3 = Label(dealer_frame_card_3, text ="Dealer Card")
+    dealer_label_3.pack(pady=30)
+
     global player_label
-    player_label = Label(player_frame_card_1, text = "Player Card")
+    player_label = Label(player_frame_card_1, text = "Player Card 1")
     player_label.pack(pady=30)
 
     global player_label2
-    player_label2 = Label(player_frame_card_2, text = "Player Card")
+    player_label2 = Label(player_frame_card_2, text = "Player Card 2")
     player_label2.pack(pady=30)
+
+    global player_label3
+    player_label3 = Label(player_frame_card_3, text = "Player Card 3")
+    player_label3.pack(pady=30)
 
     global trump_label
     trump_label = Label(trump_frame, text = "Trump Card")
