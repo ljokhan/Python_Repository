@@ -67,15 +67,15 @@ def create_frames():
 
       # Initial population of all frames:
     global dealer_label
-    dealer_label = Label(dealer_frame_card_1, text ="Dealer Card")
+    dealer_label = Label(dealer_frame_card_1, text ="Dealer Card 1")
     dealer_label.pack(pady=30)
 
     global dealer_label_2
-    dealer_label_2 = Label(dealer_frame_card_2, text ="Dealer Card")
+    dealer_label_2 = Label(dealer_frame_card_2, text ="Dealer Card 2")
     dealer_label_2.pack(pady=30)
 
     global dealer_label_3
-    dealer_label_3 = Label(dealer_frame_card_3, text ="Dealer Card")
+    dealer_label_3 = Label(dealer_frame_card_3, text ="Dealer Card 3")
     dealer_label_3.pack(pady=30)
 
     global player_label
@@ -126,7 +126,7 @@ def create_new_deck():
 
 def deal_cards():
 
-    for i in range(1,no_cards_per_player):
+    for i in range(1, 1 + no_cards_per_player):
 
         # Pick a random card:
         one_card = random.choice(deck_of_cards)
@@ -168,9 +168,15 @@ def create_buttons(root):
 
 def put_cards_in_frames(dealer_label, player_label, trump_label):
 
-    dealer_label.configure(text = computer_hand[0])
-    player_label.configure(text = player_1_hand[0])
     trump_label.configure(text = trump_card[0])
+
+    dealer_label.configure(text = computer_hand[0])
+    dealer_label_2.configure(text = computer_hand[1])
+    dealer_label_3.configure(text = computer_hand[2])
+    
+
+    player_label.configure(text = player_1_hand[0])
+    
 
 ###########################################################################################
 
