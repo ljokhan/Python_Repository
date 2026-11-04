@@ -2,6 +2,7 @@
 from tkinter import *
 import random
 
+
 # Declare global variables:
 deck_of_cards = []
 no_cards_per_player = 6
@@ -58,7 +59,24 @@ def kick_trump_card():
     trump_card.append (one_card)
     deck_of_cards.remove (one_card)
 
-# Configure the outer screen:
+# Create a new deck of cards:
+create_new_deck()
+
+# Deal the cards to all players:
+deal_cards()
+
+print ("Player 1 hand")
+print (player_1_hand)
+print ("Computer hand")
+print (computer_hand)
+
+# Kick the trump card:
+kick_trump_card()
+
+print ("Trump card")
+print (trump_card)
+
+# Configure the main screen:
 root = Tk()
 root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
 root.geometry("900x500")
@@ -76,39 +94,37 @@ dealer_frame.grid(row=0, column=0, padx=20, ipadx=40)
 player_frame = LabelFrame(my_frame, text="Your Hand",bd=0)
 player_frame.grid(row=0, column=1, ipadx=40)
 
-# Create a new deck of cards:
-create_new_deck()
+# Create frame for trump card:
+trump_frame = LabelFrame(my_frame, text ="Trump Card",bd=0)
+trump_frame.grid(row=0, column=2, padx=20, ipadx=40)
 
-# Deal the cards to all players:
-deal_cards()
+# Populate dealer frame:
+dealer_label = Label(dealer_frame, text ="Dealer Label")
+dealer_label.pack(pady=30)
 
-# Kick the trump card:
-kick_trump_card()
+# Populate player frame:
+player_label = Label(player_frame, text = "Player Label")
+player_label.pack(pady=30)
 
-print ("Player 1 hand")
-print (player_1_hand)
-print ("Computer hand")
-print (computer_hand)
-print ("Trump card")
-print (trump_card)
-
-
+# Populate trump frame:
+trump_label = Label(trump_frame, text = "Trump")
+trump_label.pack(pady=30)
 
 # Put cards in dealer frame:
-dealer_label = Label(dealer_frame, text ="Test1")
-dealer_label.pack(pady=50)
+#dealer_label = Label(dealer_frame, text ="Test1")
+#dealer_label.pack(pady=50)
 
 # Put cards in player frame:
-player_label = Label(player_frame, text = "Test2")
-player_label.pack(pady=50)
+#player_label = Label(player_frame, text = "Test2")
+#player_label.pack(pady=50)
 
 # Create button to shuffle the deck:
-shuffle_button = Button(root, text="Shuffle the Deck")
-shuffle_button.pack(pady=20)
+#shuffle_button = Button(root, text="Shuffle the Deck")
+#shuffle_button.pack(pady=20)
 
 # Create button to deal the cards:
-deal_button = Button(root, text="Deal the Cards")
-deal_button.pack(pady=20)
+#deal_button = Button(root, text="Deal the Cards")
+#deal_button.pack(pady=20)
 
 
 root.mainloop()
