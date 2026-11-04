@@ -98,15 +98,13 @@ player_frame.grid(row=0, column=1, ipadx=40)
 trump_frame = LabelFrame(my_frame, text ="Trump Card",bd=0)
 trump_frame.grid(row=0, column=2, padx=20, ipadx=40)
 
-# Populate dealer frame:
+# Populate all frames:
 dealer_label = Label(dealer_frame, text ="Dealer Card")
 dealer_label.pack(pady=30)
 
-# Populate player frame:
 player_label = Label(player_frame, text = "Player Card")
 player_label.pack(pady=30)
 
-# Populate trump frame:
 trump_label = Label(trump_frame, text = "Trump Card")
 trump_label.pack(pady=30)
 
