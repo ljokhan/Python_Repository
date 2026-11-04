@@ -10,6 +10,11 @@ import random
 # Declare global variables:
 deck_of_cards = []
 no_cards_per_player = 3
+
+# These set the size of the frames which holds the cards:
+frame_width = 500
+frame_height = 500
+
 player_1_hand = []
 computer_hand = []
 trump_card = []
@@ -36,34 +41,34 @@ def create_frames():
 
     # Create frame for trump card:
     global trump_frame
-    trump_frame = LabelFrame(my_frame, text ="Trump Card",bd=0)
-    trump_frame.grid(row=0, column=0, padx=20, ipadx=40)
+    trump_frame = LabelFrame(my_frame, width = frame_width, height = frame_height, text ="Trump Card",bd=0)
+    trump_frame.grid(row=0, column=0, padx=20, ipadx=40, pady=20)
 
     # Create frame for dealer cards:
     global dealer_frame_card_1
-    dealer_frame_card_1 = LabelFrame(my_frame, text="Dealer Hand",bd=0)
+    dealer_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Dealer Hand",bd=0)
     dealer_frame_card_1.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_2
-    dealer_frame_card_2 = LabelFrame(my_frame, text="Dealer Hand",bd=0)
+    dealer_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Dealer Hand",bd=0)
     dealer_frame_card_2.grid(row=1, column=1, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_3
-    dealer_frame_card_3 = LabelFrame(my_frame, text="Dealer Hand",bd=0)
+    dealer_frame_card_3 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Dealer Hand",bd=0)
     dealer_frame_card_3.grid(row=1, column=2, padx=20, ipadx=40, pady=20)
 
     # Create frame for player cards:
     global player_frame_card_1
-    player_frame_card_1 = LabelFrame(my_frame, text="Your Hand",bd=0)
-    player_frame_card_1.grid(row=2, column=0, ipadx=40, pady=20)
+    player_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand",bd=0)
+    player_frame_card_1.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
 
     global player_frame_card_2
-    player_frame_card_2 = LabelFrame(my_frame, text="Your Hand",bd=0)
-    player_frame_card_2.grid(row=2, column=1, ipadx=40, pady=20)
+    player_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand",bd=0)
+    player_frame_card_2.grid(row=2, column=1, padx=20, ipadx=40, pady=20)
 
     global player_frame_card_3
-    player_frame_card_3 = LabelFrame(my_frame, text="Your Hand",bd=0)
-    player_frame_card_3.grid(row=2, column=2, ipadx=40, pady=20)
+    player_frame_card_3 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand",bd=0)
+    player_frame_card_3.grid(row=2, column=2, padx=20, ipadx=40, pady=20)
 
       # Initial population of all frames:
     global dealer_label
@@ -82,13 +87,13 @@ def create_frames():
     player_label = Label(player_frame_card_1, text = "Player Card 1")
     player_label.pack(pady=30)
 
-    global player_label2
-    player_label2 = Label(player_frame_card_2, text = "Player Card 2")
-    player_label2.pack(pady=30)
+    global player_label_2
+    player_label_2 = Label(player_frame_card_2, text = "Player Card 2")
+    player_label_2.pack(pady=30)
 
-    global player_label3
-    player_label3 = Label(player_frame_card_3, text = "Player Card 3")
-    player_label3.pack(pady=30)
+    global player_label_3
+    player_label_3 = Label(player_frame_card_3, text = "Player Card 3")
+    player_label_3.pack(pady=30)
 
     global trump_label
     trump_label = Label(trump_frame, text = "Trump Card")
@@ -174,9 +179,9 @@ def put_cards_in_frames(dealer_label, player_label, trump_label):
     dealer_label_2.configure(text = computer_hand[1])
     dealer_label_3.configure(text = computer_hand[2])
     
-
     player_label.configure(text = player_1_hand[0])
-    
+    player_label_2.configure(text = player_1_hand[1])
+    player_label_3.configure(text = player_1_hand[2])
 
 ###########################################################################################
 
