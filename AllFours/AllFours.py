@@ -10,6 +10,43 @@ player_1_hand = []
 computer_hand = []
 trump_card = []
 
+###########################################################################################
+
+def configure_main_screen():
+
+    # Configure the main screen:
+    global root
+    root = Tk()
+    root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
+    root.geometry("900x500")
+    root.configure(background="green")
+
+###########################################################################################
+
+def create_frames():
+
+    # Create outer frame for the game:
+    global my_frame 
+    my_frame = Frame(root, bg="green")
+    my_frame.pack(pady=20)
+
+    # Create frame for dealer cards:
+    global dealer_frame
+    dealer_frame = LabelFrame(my_frame, text="Dealer Hand",bd=0)
+    dealer_frame.grid(row=0, column=0, padx=20, ipadx=40)
+
+    # Create frame for player cards:
+    global player_frame
+    player_frame = LabelFrame(my_frame, text="Your Hand",bd=0)
+    player_frame.grid(row=0, column=1, ipadx=40)
+
+    # Create frame for trump card:
+    global trump_frame
+    trump_frame = LabelFrame(my_frame, text ="Trump Card",bd=0)
+    trump_frame.grid(row=0, column=2, padx=20, ipadx=40)
+
+###########################################################################################
+
 def create_new_deck():
     
     # Create a suits and individual cards:
@@ -33,6 +70,8 @@ def create_new_deck():
 
     #print (deck_of_cards)
 
+###########################################################################################
+
 def deal_cards():
 
     for i in range(1,no_cards_per_player):
@@ -51,6 +90,8 @@ def deal_cards():
         computer_hand.append (one_card)
         deck_of_cards.remove (one_card)
 
+###########################################################################################
+
 def kick_trump_card():
     # Pick a random card:
     one_card = random.choice(deck_of_cards)
@@ -58,6 +99,8 @@ def kick_trump_card():
     # Give the random card to the trump card:
     trump_card.append (one_card)
     deck_of_cards.remove (one_card)
+
+###########################################################################################
 
 def create_buttons(root):
 
@@ -68,6 +111,28 @@ def create_buttons(root):
     # Create button to deal the cards:
     deal_button = Button(root, text="Deal the Cards")
     deal_button.pack(pady=20)
+
+###########################################################################################
+
+def put_cards_in_frames(dealer_frame, player_frame, trump_frame):
+
+    # Create labels for the cards:
+    dealer_label = Label(dealer_frame, text ="Dealer Card")
+    dealer_label.pack(pady=30)
+
+    player_label = Label(player_frame, text = "Player Card")
+    player_label.pack(pady=30)
+
+    trump_label = Label(trump_frame, text = "Trump Card")
+    trump_label.pack(pady=30)
+
+###########################################################################################
+
+# Configure the main screen:
+configure_main_screen()
+
+# Create the frames for the game:
+create_frames()
 
 # Create a new deck of cards:
 create_new_deck()
@@ -86,29 +151,11 @@ kick_trump_card()
 print ("Trump card")
 print (trump_card)
 
-# Configure the main screen:
-root = Tk()
-root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
-root.geometry("900x500")
-root.configure(background="green")
 
-# Create outer frame for the game:
-my_frame = Frame(root, bg="green")
-my_frame.pack(pady=20)
 
-# Create frame for dealer cards:
-dealer_frame = LabelFrame(my_frame, text="Dealer Hand",bd=0)
-dealer_frame.grid(row=0, column=0, padx=20, ipadx=40)
 
-# Create frame for player cards:
-player_frame = LabelFrame(my_frame, text="Your Hand",bd=0)
-player_frame.grid(row=0, column=1, ipadx=40)
 
-# Create frame for trump card:
-trump_frame = LabelFrame(my_frame, text ="Trump Card",bd=0)
-trump_frame.grid(row=0, column=2, padx=20, ipadx=40)
-
-# Populate all frames:
+# Initial population of all frames:
 dealer_label = Label(dealer_frame, text ="Dealer Card")
 dealer_label.pack(pady=30)
 
@@ -118,13 +165,11 @@ player_label.pack(pady=30)
 trump_label = Label(trump_frame, text = "Trump Card")
 trump_label.pack(pady=30)
 
-# Put cards in frames:
-dealer_label.configure(text ="Ace of Hearts")
-player_label.configure(text = "Ace of Spades")
-trump_label.configure(text = "Ace of Diamonds")
-
 # Create buttons for the game:
 create_buttons(root)
+
+# Place cards in the frames:
+put_cards_in_frames(dealer_frame, player_frame, trump_frame)
 
 
 
