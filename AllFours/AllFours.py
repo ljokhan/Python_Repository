@@ -2,6 +2,7 @@
 
 # Import libraries:
 from tkinter import *
+from PIL import Image, ImageTk
 import random
 
 ###########################################################################################
@@ -44,9 +45,13 @@ def create_frames():
     dealer_frame.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
 
     # Create frame for player cards:
-    global player_frame
-    player_frame = LabelFrame(my_frame, text="Your Hand",bd=0)
-    player_frame.grid(row=2, column=0, ipadx=40, pady=20)
+    global player_frame_card_1
+    player_frame_card_1 = LabelFrame(my_frame, text="Your Hand",bd=0)
+    player_frame_card_1.grid(row=2, column=0, ipadx=40, pady=20)
+
+    global player_frame_card_2
+    player_frame_card_2 = LabelFrame(my_frame, text="Your Hand",bd=0)
+    player_frame_card_2.grid(row=2, column=1, ipadx=40, pady=20)
 
       # Initial population of all frames:
     global dealer_label
@@ -54,12 +59,21 @@ def create_frames():
     dealer_label.pack(pady=30)
 
     global player_label
-    player_label = Label(player_frame, text = "Player Card")
+    player_label = Label(player_frame_card_1, text = "Player Card")
     player_label.pack(pady=30)
+
+    global player_label2
+    player_label2 = Label(player_frame_card_2, text = "Player Card")
+    player_label2.pack(pady=30)
 
     global trump_label
     trump_label = Label(trump_frame, text = "Trump Card")
     trump_label.pack(pady=30)
+
+###########################################################################################
+
+def resize_card(card_image):
+    pass
 
 ###########################################################################################
 
