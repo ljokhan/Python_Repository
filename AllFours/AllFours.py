@@ -1,7 +1,10 @@
+###########################################################################################
+
 # Import libraries:
 from tkinter import *
 import random
 
+###########################################################################################
 
 # Declare global variables:
 deck_of_cards = []
@@ -45,6 +48,19 @@ def create_frames():
     trump_frame = LabelFrame(my_frame, text ="Trump Card",bd=0)
     trump_frame.grid(row=0, column=2, padx=20, ipadx=40)
 
+    # Initial population of all frames:
+    global dealer_label
+    dealer_label = Label(dealer_frame, text ="Dealer Card")
+    dealer_label.pack(pady=30)
+
+    global player_label
+    player_label = Label(player_frame, text = "Player Card")
+    player_label.pack(pady=30)
+
+    global trump_label
+    trump_label = Label(trump_frame, text = "Trump Card")
+    trump_label.pack(pady=30)
+
 ###########################################################################################
 
 def create_new_deck():
@@ -67,8 +83,6 @@ def create_new_deck():
             else:
                 tempcard = (f"{one_card} of {one_suit}")
             deck_of_cards.append(tempcard)
-
-    #print (deck_of_cards)
 
 ###########################################################################################
 
@@ -114,17 +128,11 @@ def create_buttons(root):
 
 ###########################################################################################
 
-def put_cards_in_frames(dealer_frame, player_frame, trump_frame):
+def put_cards_in_frames(dealer_label, player_label, trump_label):
 
-    # Create labels for the cards:
-    dealer_label = Label(dealer_frame, text ="Dealer Card")
-    dealer_label.pack(pady=30)
-
-    player_label = Label(player_frame, text = "Player Card")
-    player_label.pack(pady=30)
-
-    trump_label = Label(trump_frame, text = "Trump Card")
-    trump_label.pack(pady=30)
+    dealer_label.configure(text = computer_hand[0])
+    player_label.configure(text = player_1_hand[0])
+    trump_label.configure(text = trump_card[0])
 
 ###########################################################################################
 
@@ -133,6 +141,9 @@ configure_main_screen()
 
 # Create the frames for the game:
 create_frames()
+
+# Create buttons for the game:
+create_buttons(root)
 
 # Create a new deck of cards:
 create_new_deck()
@@ -151,26 +162,8 @@ kick_trump_card()
 print ("Trump card")
 print (trump_card)
 
-
-
-
-
-# Initial population of all frames:
-dealer_label = Label(dealer_frame, text ="Dealer Card")
-dealer_label.pack(pady=30)
-
-player_label = Label(player_frame, text = "Player Card")
-player_label.pack(pady=30)
-
-trump_label = Label(trump_frame, text = "Trump Card")
-trump_label.pack(pady=30)
-
-# Create buttons for the game:
-create_buttons(root)
-
 # Place cards in the frames:
-put_cards_in_frames(dealer_frame, player_frame, trump_frame)
-
+put_cards_in_frames(dealer_label, player_label, trump_label)
 
 
 root.mainloop()
