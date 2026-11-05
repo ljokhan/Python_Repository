@@ -35,7 +35,7 @@ def exit_fullscreen(event=None):
 
 ###########################################################################################
 
-def configure_main_screen():
+def create_main_screen():
 
     # Configure the main screen:
     global root
@@ -137,7 +137,6 @@ def create_frames():
     player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
     player_frame_card_3_label.place(x=0, y=5)
 
-
 ###########################################################################################
 
 def resize_card(card_image):
@@ -226,8 +225,8 @@ def put_cards_in_frames():
 # Main program:
 ###########################################################################################
 
-# Configure the main screen:
-configure_main_screen()
+# Create the application:
+create_main_screen()
 
 # Create frames to hold the cards:
 create_frames()
@@ -241,20 +240,11 @@ create_new_deck()
 # Deal the cards to all players:
 deal_cards()
 
-print ("Player 1 hand")
-print (player_1_hand)
-print ("Computer hand")
-print (computer_hand)
-
 # Kick the trump card:
 kick_trump_card()
 
-print ("Trump card")
-print (trump_card)
-
 # Place cards in the frames:
 put_cards_in_frames()
-
 
 root.mainloop()
 
