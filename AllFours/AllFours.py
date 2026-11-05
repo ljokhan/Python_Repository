@@ -13,25 +13,15 @@ no_cards_per_player = 3
 
 # These set the size of the frames which holds the cards:
 global frame_width
-frame_width = 150
+frame_width = 80
 
 global frame_height
-frame_height = 151
+frame_height = 150
 
 # These global variables hold the cards for each player and the trump card:
 player_1_hand = []
 computer_hand = []
 trump_card = []
-
-###########################################################################################
-
-def exit_fullscreen(event=None):
-
-    # Toggle off fullscreen or close the application
-    root.attributes('-fullscreen', False)
-
-     # Uncomment to close the app entirely:
-    ########root.destroy() 
 
 ###########################################################################################
 
@@ -46,11 +36,11 @@ def create_application():
     root.configure(background="green")
 
     # Enable fullscreen mode:
-    root.attributes('-fullscreen', True)
-    #root.geometry("1600x800")
+    #root.attributes('-fullscreen', True)
+    root.geometry("1600x800")
     
     # Bind the Escape key to exit fullscreen mode:
-    root.bind('<Escape>', exit_fullscreen)
+    #root.bind('<Escape>', exit_fullscreen)
 
     #bg_image = Image.open("./bg.jpg")  # Supports PNG, JPG, etc.
     #bg_photo = ImageTk.PhotoImage(bg_image)
@@ -61,17 +51,28 @@ def create_application():
 
 ###########################################################################################
 
+def exit_fullscreen(event=None):
+
+    # Toggle off fullscreen or close the application
+    root.attributes('-fullscreen', False)
+
+     # Uncomment to close the app entirely:
+    ########root.destroy() 
+
+###########################################################################################
+
 def create_frames():
 
     # Create outer frame for the game:
     global my_frame
-    my_frame = Frame(root, bg="yellow", bd=2)
+    my_frame = Frame(root, bg="green", bd=2)
     my_frame.pack(pady=20)
 
     # Create frame for trump card:
     global trump_frame
     trump_frame = LabelFrame(my_frame, width = frame_width, height = frame_height, bd=0, text="Trump Card frame")
     trump_frame.grid(row=0, column=1, padx=20, ipadx=40, pady=20)
+    #trump_frame.bind("<Button-1>",handle_frame_click)
 
     global trump_label
     trump_label = Label(trump_frame, text='1. This is a Label.')
@@ -116,6 +117,7 @@ def create_frames():
     global player_frame_card_1
     player_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand frame 3",bd=0)
     player_frame_card_1.grid(row=3, column=0, padx=20, ipadx=40, pady=20)
+    player_frame_card_1.bind("<Button-1>",player_frame_card_1_click)
 
     global player_frame_card_1_label
     player_frame_card_1_label = Label(player_frame_card_1, text='1. This is a Label.')
@@ -137,6 +139,13 @@ def create_frames():
     player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
     player_frame_card_3_label.place(x=0, y=5)
 
+###########################################################################################
+
+def player_frame_card_1_click (event):
+
+    print("Frame was clicked")
+    print(event.widget)
+    
 ###########################################################################################
 
 def resize_card(card_image):
