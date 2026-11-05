@@ -26,9 +26,12 @@ trump_card = []
 ###########################################################################################
 
 def exit_fullscreen(event=None):
+
     # Toggle off fullscreen or close the application
     root.attributes('-fullscreen', False)
-    # root.destroy()  # Uncomment to close the app entirely
+
+     # Uncomment to close the app entirely:
+    ########root.destroy() 
 
 ###########################################################################################
 
@@ -61,93 +64,79 @@ def configure_main_screen():
 def create_frames():
 
     # Create outer frame for the game:
-    global my_frame 
-    my_frame = Frame(root, bg="green")
+    global my_frame
+    my_frame = Frame(root, bg="yellow", bd=2)
     my_frame.pack(pady=20)
-
-#
 
     # Create frame for trump card:
     global trump_frame
-    trump_frame = LabelFrame(my_frame, width = frame_width, height = frame_height, text ="Trump Card",bd=0)
+    trump_frame = LabelFrame(my_frame, width = frame_width, height = frame_height, bd=0, text="Trump Card frame")
     trump_frame.grid(row=0, column=1, padx=20, ipadx=40, pady=20)
+
+    global trump_label
+    trump_label = Label(trump_frame, text='1. This is a Label.')
+    trump_label.place(x=0, y=5)
 
     # Create frame for dealer cards:
     global dealer_frame_card_1
-    dealer_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Dealer Hand",bd=0)
+    dealer_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Dealer Hand frame 1",bd=0)
     dealer_frame_card_1.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
 
+    global dealer_frame_card_1_label
+    dealer_frame_card_1_label = Label(dealer_frame_card_1, text='1. This is a Label.')
+    dealer_frame_card_1_label.place(x=0, y=5)
+
     global dealer_frame_card_2
-    dealer_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Dealer Hand",bd=0)
-    dealer_frame_card_2.grid(row=1, column=1, padx=20, ipadx=40, pady=20)
+    dealer_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Dealer Hand frame 2",bd=0)
+    dealer_frame_card_2.grid(row=1, column=1    , padx=20, ipadx=40, pady=20)
+
+    global dealer_frame_card_2_label
+    dealer_frame_card_2_label = Label(dealer_frame_card_2, text='1. This is a Label.')
+    dealer_frame_card_2_label.place(x=0, y=5)
 
     global dealer_frame_card_3
-    dealer_frame_card_3 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Dealer Hand",bd=0)
+    dealer_frame_card_3 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Dealer Hand frame 3",bd=0)
     dealer_frame_card_3.grid(row=1, column=2, padx=20, ipadx=40, pady=20)
+
+    global dealer_frame_card_3_label
+    dealer_frame_card_3_label = Label(dealer_frame_card_3, text='1. This is a Label.')
+    dealer_frame_card_3_label.place(x=0, y=5)
 
     # Create frame to hold card 1 for each round:
     global round_frame_card_1
-    round_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Round Card 1",bd=0)    
+    round_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Round Card frame 1",bd=0)    
     round_frame_card_1.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
 
-    # Create frame to hold card 2 for each round:
+    # reate frame to hold card 2 for each round:
     global round_frame_card_2
-    round_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Round Card 2",bd=0)    
+    round_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Round Card frame 2",bd=0)    
     round_frame_card_2.grid(row=2, column=1, padx=20, ipadx=40, pady=20)
 
     # Create frame for player cards:
     global player_frame_card_1
-    player_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand",bd=0)
+    player_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand frame 3",bd=0)
     player_frame_card_1.grid(row=3, column=0, padx=20, ipadx=40, pady=20)
 
+    global player_frame_card_1_label
+    player_frame_card_1_label = Label(player_frame_card_1, text='1. This is a Label.')
+    player_frame_card_1_label.place(x=0, y=5)
+
     global player_frame_card_2
-    player_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand",bd=0)
+    player_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand frame 2",bd=0)
     player_frame_card_2.grid(row=3, column=1, padx=20, ipadx=40, pady=20)
 
+    global player_frame_card_2_label
+    player_frame_card_2_label = Label(player_frame_card_2, text='1. This is a Label.')
+    player_frame_card_2_label.place(x=0, y=5)
+
     global player_frame_card_3
-    player_frame_card_3 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand",bd=0)
+    player_frame_card_3 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand frame 3",bd=0)
     player_frame_card_3.grid(row=3, column=2, padx=20, ipadx=40, pady=20)
 
-     # Initial population of all frames:
-    global dealer_label
-    dealer_label = Label(dealer_frame_card_1, text ="Dealer Card 1")
-    dealer_label.grid_propagate()
+    global player_frame_card_3_label
+    player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
+    player_frame_card_3_label.place(x=0, y=5)
 
-    global dealer_label_2
-    dealer_label_2 = Label(dealer_frame_card_2, text ="Dealer Card 2")
-    dealer_label_2.grid_propagate(True)
-
-    global dealer_label_3
-    dealer_label_3 = Label(dealer_frame_card_3, text ="Dealer Card 3")
-    dealer_label_3.grid_propagate(False)
-
-
-
-    global round_frame_card1_label
-    round_frame_card1_label = Label(round_frame_card_1, text = "Round Card 1")
-    round_frame_card1_label.pack()
-
-    global round_frame_card2_label
-    round_frame_card2_label = Label(round_frame_card_2, text = "Round Card 2")
-    round_frame_card2_label.pack_propagate(False)
-
-
-
-    global player_label
-    player_label = Label(player_frame_card_1, text = "Player Card 1")
-    player_label.pack()
-
-    global player_label_2
-    player_label_2 = Label(player_frame_card_2, text = "Player Card 2")
-    player_label_2.pack_propagate(False)
-
-    global player_label_3
-    player_label_3 = Label(player_frame_card_3, text = "Player Card 3")
-    player_label_3.pack_propagate(False)
-
-    global trump_label
-    trump_label = Label(trump_frame, text = "Trump Card")
-    trump_label.pack_propagate(False)
 
 ###########################################################################################
 
@@ -221,50 +210,50 @@ def create_buttons(root):
 
 ###########################################################################################
 
-def put_cards_in_frames(dealer_label, player_label, trump_label):
+def put_cards_in_frames():
+  
+    trump_label.configure(text = trump_card[0])
 
-    trump_label.configure(text = "ccc")
-
-    dealer_label.configure(text = computer_hand[0])
-    dealer_label_2.configure(text = computer_hand[1])
-    dealer_label_3.configure(text = computer_hand[2])
+    dealer_frame_card_1_label.configure(text = computer_hand[0])
+    dealer_frame_card_2_label.configure(text = computer_hand[1])
+    dealer_frame_card_3_label.configure(text = computer_hand[2])
     
-    player_label.configure(text = player_1_hand[0])
-    player_label_2.configure(text = player_1_hand[1])
-    player_label_3.configure(text = player_1_hand[2])
+    player_frame_card_1_label.configure(text = player_1_hand[0])
+    player_frame_card_2_label.configure(text = player_1_hand[1])
+    player_frame_card_3_label.configure(text = player_1_hand[2])
 
 ###########################################################################################
-
-# Main program starts here:
+# Main program:
+###########################################################################################
 
 # Configure the main screen:
 configure_main_screen()
 
-# Create the frames for the game:
-#create_frames()
+# Create frames to hold the cards:
+create_frames()
 
 # Create buttons for the game:
-#create_buttons(root)
+create_buttons(root)
 
 # Create a new deck of cards:
-#create_new_deck()
+create_new_deck()
 
 # Deal the cards to all players:
-#deal_cards()
+deal_cards()
 
-#print ("Player 1 hand")
-#print (player_1_hand)
-#print ("Computer hand")
-#print (computer_hand)
+print ("Player 1 hand")
+print (player_1_hand)
+print ("Computer hand")
+print (computer_hand)
 
 # Kick the trump card:
-#kick_trump_card()
+kick_trump_card()
 
-#print ("Trump card")
-#print (trump_card)
+print ("Trump card")
+print (trump_card)
 
 # Place cards in the frames:
-#put_cards_in_frames(dealer_label, player_label, trump_label)
+put_cards_in_frames()
 
 
 root.mainloop()
