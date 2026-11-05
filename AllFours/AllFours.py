@@ -182,7 +182,7 @@ def deal_cards():
         # Pick another random card:
         one_card = random.choice(deck_of_cards)
 
-        # Give the random card to the computer deck:
+        # Give the random card to the computer player:
         computer_hand.append (one_card)
         deck_of_cards.remove (one_card)
 
