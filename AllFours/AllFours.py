@@ -103,17 +103,30 @@ def create_frames():
     dealer_frame_card_3_label = Label(dealer_frame_card_3, text='1. This is a Label.')
     dealer_frame_card_3_label.place(x=0, y=5)
 
-    # Create frame to hold card 1 for each round:
+    ##########################################################################################################################
+    # Create frames to hold cards for each round:
+    ##########################################################################################################################
     global round_frame_card_1
     round_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Round Card frame 1",bd=0)    
     round_frame_card_1.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
+
+    global round_frame_card_1_label   
+    round_frame_card_1_label = Label(round_frame_card_1, text='This is where the card played by the player will be displayed.')
+    round_frame_card_1_label.place(x=0, y=5)
 
     # reate frame to hold card 2 for each round:
     global round_frame_card_2
     round_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Round Card frame 2",bd=0)    
     round_frame_card_2.grid(row=2, column=1, padx=20, ipadx=40, pady=20)
 
+    global round_frame_card_2_label
+    round_frame_card_2_label = Label(round_frame_card_2, text='This is where the card played by the computer will be displayed.')
+    round_frame_card_2_label.place(x=0, y=5)
+
+    ##########################################################################################################################
     # Create frame for player cards:
+    ##########################################################################################################################
+
     global player_frame_card_1
     player_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand frame 3",bd=0)
     player_frame_card_1.grid(row=3, column=0, padx=20, ipadx=40, pady=20)
@@ -144,7 +157,13 @@ def create_frames():
 def player_frame_card_1_click (event):
 
     print("Frame was clicked")
-    print(event.widget)
+
+    # Player clicked the card to play, so move the card from the player frame to the round frame:
+    round_frame_card_1_label.configure(text = player_1_hand[0]) 
+    player_frame_card_1_label.configure(text = "PLAYED CARD") 
+
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
+    round_frame_card_2_label.configure(text = computer_hand[0])
     
 ###########################################################################################
 
