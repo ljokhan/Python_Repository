@@ -5,7 +5,6 @@ from tkinter import *
 from PIL import Image, ImageTk
 import random
 
-
 ###########################################################################################
 
 # Declare global variables:
@@ -26,14 +25,29 @@ trump_card = []
 
 ###########################################################################################
 
+def exit_fullscreen(event=None):
+    # Toggle off fullscreen or close the application
+    root.attributes('-fullscreen', False)
+    # root.destroy()  # Uncomment to close the app entirely
+
+###########################################################################################
+
 def configure_main_screen():
 
     # Configure the main screen:
     global root
     root = Tk()
     root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
-    root.geometry("1600x800")
+    
+    # Configure background color:
     root.configure(background="green")
+
+    # Enable fullscreen mode:
+    root.attributes('-fullscreen', True)
+    #root.geometry("1600x800")
+    
+    # Bind the Escape key to exit fullscreen mode:
+    root.bind('<Escape>', exit_fullscreen)
 
     #bg_image = Image.open("./bg.jpg")  # Supports PNG, JPG, etc.
     #bg_photo = ImageTk.PhotoImage(bg_image)
@@ -41,7 +55,6 @@ def configure_main_screen():
     #bg_label.place(relwidth=1, relheight=1)
     # Keep a reference to prevent the image from being garbage collected
     # bg_label.image = bg_photo
-
 
 ###########################################################################################
 
@@ -222,34 +235,36 @@ def put_cards_in_frames(dealer_label, player_label, trump_label):
 
 ###########################################################################################
 
+# Main program starts here:
+
 # Configure the main screen:
 configure_main_screen()
 
 # Create the frames for the game:
-create_frames()
+#create_frames()
 
 # Create buttons for the game:
-create_buttons(root)
+#create_buttons(root)
 
 # Create a new deck of cards:
-create_new_deck()
+#create_new_deck()
 
 # Deal the cards to all players:
-deal_cards()
+#deal_cards()
 
-print ("Player 1 hand")
-print (player_1_hand)
-print ("Computer hand")
-print (computer_hand)
+#print ("Player 1 hand")
+#print (player_1_hand)
+#print ("Computer hand")
+#print (computer_hand)
 
 # Kick the trump card:
-kick_trump_card()
+#kick_trump_card()
 
-print ("Trump card")
-print (trump_card)
+#print ("Trump card")
+#print (trump_card)
 
 # Place cards in the frames:
-put_cards_in_frames(dealer_label, player_label, trump_label)
+#put_cards_in_frames(dealer_label, player_label, trump_label)
 
 
 root.mainloop()
