@@ -210,13 +210,16 @@ def create_buttons(root):
 ###########################################################################################
 
 def put_cards_in_frames():
-  
+
+    # Place the trump card in its frame:
     trump_label.configure(text = trump_card[0])
 
+    # Place the dealer cards in their frames:
     dealer_frame_card_1_label.configure(text = computer_hand[0])
     dealer_frame_card_2_label.configure(text = computer_hand[1])
     dealer_frame_card_3_label.configure(text = computer_hand[2])
-    
+
+    # Place the player cards in their frames:
     player_frame_card_1_label.configure(text = player_1_hand[0])
     player_frame_card_2_label.configure(text = player_1_hand[1])
     player_frame_card_3_label.configure(text = player_1_hand[2])
