@@ -16,7 +16,7 @@ global frame_width
 frame_width = 150
 
 global frame_height
-frame_height = 150
+frame_height = 151
 
 # These global variables hold the cards for each player and the trump card:
 player_1_hand = []
