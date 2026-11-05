@@ -169,6 +169,7 @@ def create_new_deck():
 
 def deal_cards():
 
+    # Deal cards to each player one at a time until each player has the required number of cards:
     for i in range(1, 1 + no_cards_per_player):
 
         # Pick a random card:
@@ -188,10 +189,11 @@ def deal_cards():
 ###########################################################################################
 
 def kick_trump_card():
+
     # Pick a random card:
     one_card = random.choice(deck_of_cards)
 
-    # Give the random card to the trump card:
+    # Make  the random card the trump card and remove it from the deck:
     trump_card.append (one_card)
     deck_of_cards.remove (one_card)
 
