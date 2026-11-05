@@ -35,9 +35,9 @@ def exit_fullscreen(event=None):
 
 ###########################################################################################
 
-def create_main_screen():
+def create_application():
 
-    # Configure the main screen:
+    # Create the main application window:
     global root
     root = Tk()
     root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
@@ -226,7 +226,7 @@ def put_cards_in_frames():
 ###########################################################################################
 
 # Create the application:
-create_main_screen()
+create_application()
 
 # Create frames to hold the cards:
 create_frames()
