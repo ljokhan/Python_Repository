@@ -246,6 +246,7 @@ kick_trump_card()
 # Place cards in the frames:
 put_cards_in_frames()
 
+# Run this application:
 root.mainloop()
 
 print ("Completed my run 2342342234")
