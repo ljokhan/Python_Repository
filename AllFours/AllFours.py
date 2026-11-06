@@ -65,7 +65,7 @@ def create_frames():
 
     # Create outer frame for the game:
     global my_frame
-    my_frame = Frame(root, bg="green", bd=2)
+    my_frame = Frame(root, bg="#3ce663", bd=2)
     my_frame.pack(pady=20)
 
     # Create frame for trump card:
@@ -106,6 +106,7 @@ def create_frames():
     ##########################################################################################################################
     # Create frames to hold cards for each round:
     ##########################################################################################################################
+
     global round_frame_card_1
     round_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Round Card frame 1",bd=0)    
     round_frame_card_1.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
@@ -124,13 +125,13 @@ def create_frames():
     round_frame_card_2_label.place(x=0, y=5)
 
     ##########################################################################################################################
-    # Create frame for player cards:
+    # Create clickable frames for player cards:
     ##########################################################################################################################
 
     global player_frame_card_1
     player_frame_card_1 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand frame 3",bd=0)
     player_frame_card_1.grid(row=3, column=0, padx=20, ipadx=40, pady=20)
-    player_frame_card_1.bind("<Button-1>",player_frame_card_1_click)
+    player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
 
     global player_frame_card_1_label
     player_frame_card_1_label = Label(player_frame_card_1, text='1. This is a Label.')
@@ -139,6 +140,7 @@ def create_frames():
     global player_frame_card_2
     player_frame_card_2 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand frame 2",bd=0)
     player_frame_card_2.grid(row=3, column=1, padx=20, ipadx=40, pady=20)
+    player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
 
     global player_frame_card_2_label
     player_frame_card_2_label = Label(player_frame_card_2, text='1. This is a Label.')
@@ -147,10 +149,19 @@ def create_frames():
     global player_frame_card_3
     player_frame_card_3 = LabelFrame(my_frame, width = frame_width, height = frame_height, text="Your Hand frame 3",bd=0)
     player_frame_card_3.grid(row=3, column=2, padx=20, ipadx=40, pady=20)
+    player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
 
     global player_frame_card_3_label
     player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
     player_frame_card_3_label.place(x=0, y=5)
+
+
+    global points_frame
+    points_frame = Frame(root, bg="yellow", bd=2)
+    points_frame.pack(pady=20)
+
+
+
 
 ###########################################################################################
 
@@ -164,7 +175,44 @@ def player_frame_card_1_click (event):
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     round_frame_card_2_label.configure(text = computer_hand[0])
+
+    determine_round_winner()
+
+###########################################################################################
+
+def player_frame_card_2_click (event):
+
+    print("Frame was clicked")
+
+    # Player clicked the card to play, so move the card from the player frame to the round frame:
+    round_frame_card_1_label.configure(text = player_1_hand[1]) 
+    player_frame_card_2_label.configure(text = "PLAYED CARD") 
+
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
+    round_frame_card_2_label.configure(text = computer_hand[1])
+
+    determine_round_winner()
+
+###########################################################################################
+
+def player_frame_card_3_click (event):
+
+    print("Frame was clicked")
+
+    # Player clicked the card to play, so move the card from the player frame to the round frame:
+    round_frame_card_1_label.configure(text = player_1_hand[2]) 
+    player_frame_card_3_label.configure(text = "PLAYED CARD") 
+
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
+    round_frame_card_2_label.configure(text = computer_hand[2])
+
+    determine_round_winner()
     
+###########################################################################################
+
+def determine_round_winner():
+    pass
+
 ###########################################################################################
 
 def resize_card(card_image):
