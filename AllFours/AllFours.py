@@ -328,4 +328,20 @@ create_application()
 # Create frames to hold the cards:
 create_frames()
 
+# Create buttons for the game:
+#create_buttons(root)
+
+# Create a new deck of cards:
+create_new_deck()
+
+# Deal the cards to all players:
+deal_cards()
+
+# Kick the trump card:
+kick_trump_card()
+
+# Place cards in the frames:
+put_cards_in_frames()
+
+
 root.mainloop()
