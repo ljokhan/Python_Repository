@@ -112,7 +112,7 @@ def create_frames():
     dealer_frame_card_2_label.place(x=0, y=5)
 
     global dealer_frame_card_3
-    dealer_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand",bd=0)
+    dealer_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand", bd=0)
     dealer_frame_card_3.grid(row=1, column=2, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_3_label
