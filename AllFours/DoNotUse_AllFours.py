@@ -72,7 +72,7 @@ def create_frames():
     global trump_frame
     trump_frame = LabelFrame(my_frame, width = frame_width, height = frame_height, bd=0, text="Trump Card frame")
     trump_frame.grid(row=0, column=1, padx=20, ipadx=40, pady=20)
-    #trump_frame.bind("<Button-1>",handle_frame_click)
+
 
     global trump_label
     trump_label = Label(trump_frame, text='1. This is a Label.')
