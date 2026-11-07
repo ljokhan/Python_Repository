@@ -43,12 +43,15 @@ def create_application():
 
 def exit_fullscreen(event=None):
 
-    # Toggle off fullscreen or close the application
+    # This functions changes game to full screen:
     root.attributes('-fullscreen', False)
 
-     # Uncomment to close the app entirely:
-    ########root.destroy() 
-    # 
+###########################################################################################
+
+def exit_game():
+
+    # This will close the game window:
+    root.destroy() 
 
 ###########################################################################################
 
