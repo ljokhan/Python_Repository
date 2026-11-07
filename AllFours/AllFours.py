@@ -309,10 +309,6 @@ def put_cards_in_frames():
     dealer_frame_card_3_label.configure(text = computer_hand[2])
 
     # Place the player cards in their frames:
-    #player_frame_card_1_label.configure(text = player_1_hand[0])
-    #player_frame_card_2_label.configure(text = player_1_hand[1])
-    #player_frame_card_3_label.configure(text = player_1_hand[2])
-
     my_image = resize_card_image(player_1_hand[0])
     player_frame_card_1_label.configure(image=my_image)
     player_frame_card_1_label.image = my_image 
