@@ -241,15 +241,15 @@ def create_new_deck():
     for one_suit in suits:
         for one_card in cards:
             if one_card == 11:
-                tempcard = (f"Jack of {one_suit}")
+                tempcard = (f"Jack_of_{one_suit}")
             elif one_card == 12:
-                tempcard = (f"Queen of {one_suit}")
+                tempcard = (f"Queen_of_{one_suit}")
             elif one_card == 13:
-                tempcard = (f"King of {one_suit}")
-            elif one_card == 12:
-                tempcard = (f"Ace of {one_suit}")
+                tempcard = (f"King_of_{one_suit}")
+            elif one_card == 14:
+                tempcard = (f"Ace_of_{one_suit}")
             else:
-                tempcard = (f"{one_card} of {one_suit}")
+                tempcard = (f"{one_card}_of_{one_suit}")
             deck_of_cards.append(tempcard)
 
 ###########################################################################################
@@ -313,9 +313,28 @@ def put_cards_in_frames():
     #player_frame_card_2_label.configure(text = player_1_hand[1])
     #player_frame_card_3_label.configure(text = player_1_hand[2])
 
+    my_image = resize_card_image(player_1_hand[0])
+    player_frame_card_1_label.configure(image=my_image)
+    player_frame_card_1_label.image = my_image 
 
+    my_image = resize_card_image(player_1_hand[1])
+    player_frame_card_2_label.configure(image=my_image)
+    player_frame_card_2_label.image = my_image 
 
+    my_image = resize_card_image(player_1_hand[2])
+    player_frame_card_3_label.configure(image=my_image)
+    player_frame_card_3_label.image = my_image 
+    
+###########################################################################################
 
+def resize_card_image(card):
+
+    image_path = "./AllFours/PlayingCardImages/" + card + ".png"
+    pil_image = Image.open(image_path)
+    resized_image = pil_image.resize((100, 150), Image.Resampling.LANCZOS)
+    tk_image = ImageTk.PhotoImage(resized_image)
+
+    return tk_image 
 
 ###########################################################################################
 # Main program:
@@ -341,13 +360,5 @@ kick_trump_card()
 
 # Place cards in the frames:
 put_cards_in_frames()
-
-image_path = "./AllFours/5_of_clubs.png"
-pil_image = Image.open(image_path)
-resized_image = pil_image.resize((100, 150), Image.Resampling.LANCZOS)
-tk_image = ImageTk.PhotoImage(resized_image)
-player_frame_card_1_label.configure(image=tk_image)
-player_frame_card_2_label.configure(image=tk_image)
-player_frame_card_3_label.configure(image=tk_image)
 
 root.mainloop()
