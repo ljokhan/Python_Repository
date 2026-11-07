@@ -136,7 +136,7 @@ def create_frames():
     round_frame_card_1.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_1_label   
-    round_frame_card_1_label = Label(round_frame_card_1, text='This is where the card played by the player will be displayed.')
+    round_frame_card_1_label = Label(round_frame_card_1, text='')
     round_frame_card_1_label.place(x=0, y=5)
 
     # reate frame to hold card 2 for each round:
@@ -145,7 +145,7 @@ def create_frames():
     round_frame_card_2.grid(row=2, column=1, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_2_label
-    round_frame_card_2_label = Label(round_frame_card_2, text='This is where the card played by the computer will be displayed.')
+    round_frame_card_2_label = Label(round_frame_card_2, text='')
     round_frame_card_2_label.place(x=0, y=5)
 
     ##########################################################################################################################
