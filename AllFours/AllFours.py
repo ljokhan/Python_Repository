@@ -301,12 +301,22 @@ def create_buttons(root):
 def put_cards_in_frames():
 
     # Place the trump card in its frame:
-    trump_label.configure(text = trump_card[0])
+    my_image = resize_card_image(trump_card[0])
+    trump_label.configure(image=my_image)
+    trump_label.image = my_image 
 
     # Place the dealer cards in their frames:
-    dealer_frame_card_1_label.configure(text = computer_hand[0])
-    dealer_frame_card_2_label.configure(text = computer_hand[1])
-    dealer_frame_card_3_label.configure(text = computer_hand[2])
+    my_image = resize_card_image(computer_hand[0])
+    dealer_frame_card_1_label.configure(image=my_image)
+    dealer_frame_card_1_label.image = my_image 
+
+    my_image = resize_card_image(computer_hand[1])
+    dealer_frame_card_2_label.configure(image=my_image)
+    dealer_frame_card_2_label.image = my_image 
+
+    my_image = resize_card_image(computer_hand[2])
+    dealer_frame_card_3_label.configure(image=my_image)
+    dealer_frame_card_3_label.image = my_image 
 
     # Place the player cards in their frames:
     my_image = resize_card_image(player_1_hand[0])
