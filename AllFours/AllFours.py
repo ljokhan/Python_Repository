@@ -186,7 +186,10 @@ def player_frame_card_1_click (event):
     #player_frame_card_1_label.configure(text = "") 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
-    round_frame_card_2_label.configure(text = computer_hand[0])
+    my_image = resize_card_image(computer_hand[0])
+    round_frame_card_2_label.configure(image=my_image)
+    round_frame_card_2_label.image = my_image
+
     dealer_frame_card_1_label.configure(text = "")
 
     #dermine_round_winner()
@@ -198,11 +201,17 @@ def player_frame_card_2_click (event):
     print("Frame was clicked")
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
-    round_frame_card_1_label.configure(text = player_1_hand[1]) 
+    my_image = resize_card_image(player_1_hand[1])
+    round_frame_card_1_label.configure(image=my_image) 
+    round_frame_card_1_label.image = my_image
+
     player_frame_card_2_label.configure(text = "") 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
-    round_frame_card_2_label.configure(text = computer_hand[1])
+    my_image = resize_card_image(computer_hand[1])
+    round_frame_card_2_label.configure(image=my_image)
+    round_frame_card_2_label.image = my_image
+
     dealer_frame_card_2_label.configure(text = "")
 
     determine_round_winner()
@@ -214,11 +223,17 @@ def player_frame_card_3_click (event):
     print("Frame was clicked")
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
-    round_frame_card_1_label.configure(text = player_1_hand[2]) 
+    my_image = resize_card_image(player_1_hand[2])
+    round_frame_card_1_label.configure(image=my_image) 
+    round_frame_card_1_label.image = my_image
+
     player_frame_card_3_label.configure(text = "") 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
-    round_frame_card_2_label.configure(text = computer_hand[2])
+    my_image = resize_card_image(computer_hand[2])
+    round_frame_card_2_label.configure(image=my_image)
+    round_frame_card_2_label.image = my_image
+
     dealer_frame_card_3_label.configure(text = "")
 
     determine_round_winner()
