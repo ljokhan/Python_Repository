@@ -145,7 +145,7 @@ def create_frames():
     ##########################################################################################################################
 
     global player_frame_card_1
-    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand 1",bd=0, background="#3ce663")
     player_frame_card_1.grid(row=3, column=0, padx=20, ipadx=40, pady=20)
     player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
 
@@ -178,8 +178,12 @@ def player_frame_card_1_click (event):
     print("Frame was clicked")
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
-    round_frame_card_1_label.configure(text = player_1_hand[0]) 
-    player_frame_card_1_label.configure(text = "") 
+    my_image = resize_card_image(player_1_hand[0])
+    round_frame_card_1_label.configure(image=my_image)
+    round_frame_card_1_label.image = my_image 
+
+    #round_frame_card_1_label.configure(text = player_1_hand[0]) 
+    #player_frame_card_1_label.configure(text = "") 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     round_frame_card_2_label.configure(text = computer_hand[0])
@@ -222,11 +226,6 @@ def player_frame_card_3_click (event):
 ###########################################################################################
 
 def determine_round_winner():
-    pass
-
-###########################################################################################
-
-def resize_card(card_image):
     pass
 
 ###########################################################################################
@@ -322,14 +321,17 @@ def put_cards_in_frames():
     my_image = resize_card_image(player_1_hand[0])
     player_frame_card_1_label.configure(image=my_image)
     player_frame_card_1_label.image = my_image 
+    player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
 
     my_image = resize_card_image(player_1_hand[1])
     player_frame_card_2_label.configure(image=my_image)
     player_frame_card_2_label.image = my_image 
+    player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
 
     my_image = resize_card_image(player_1_hand[2])
     player_frame_card_3_label.configure(image=my_image)
     player_frame_card_3_label.image = my_image 
+    player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
     
 ###########################################################################################
 
