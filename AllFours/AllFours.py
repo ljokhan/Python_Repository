@@ -179,22 +179,23 @@ def create_frames():
 
 def player_frame_card_1_click (event):
 
-    print("Frame was clicked")
+    #print("Frame was clicked")
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
     my_image = resize_card_image(player_1_hand[0])
     round_frame_card_1_label.configure(image=my_image)
     round_frame_card_1_label.image = my_image 
 
-    #round_frame_card_1_label.configure(text = player_1_hand[0]) 
-    #player_frame_card_1_label.configure(text = "") 
+    # Now hide the card from the player's hand:
+    player_frame_card_1.grid_remove()
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     my_image = resize_card_image(computer_hand[0])
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
 
-    dealer_frame_card_1_label.configure(text = "")
+     # Now hide the card from the computer's hand:
+    dealer_frame_card_1.grid_remove()
 
     #dermine_round_winner()
 
@@ -209,14 +210,16 @@ def player_frame_card_2_click (event):
     round_frame_card_1_label.configure(image=my_image) 
     round_frame_card_1_label.image = my_image
 
-    player_frame_card_2_label.configure(text = "") 
+    # Now hide the card from the player's hand:
+    player_frame_card_2.grid_remove()
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     my_image = resize_card_image(computer_hand[1])
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
 
-    dealer_frame_card_2_label.configure(text = "")
+    # Now hide the card from the computer's hand:
+    dealer_frame_card_2.grid_remove()
 
     determine_round_winner()
 
@@ -231,14 +234,16 @@ def player_frame_card_3_click (event):
     round_frame_card_1_label.configure(image=my_image) 
     round_frame_card_1_label.image = my_image
 
-    player_frame_card_3_label.configure(text = "") 
+    # Now hide the card from the player's hand:
+    player_frame_card_3.grid_remove()
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     my_image = resize_card_image(computer_hand[2])
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
 
-    dealer_frame_card_3_label.configure(text = "")
+    # Now hide the card from the computer's hand:
+    dealer_frame_card_3.grid_remove()
 
     determine_round_winner()
 
