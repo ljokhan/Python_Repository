@@ -80,9 +80,9 @@ def create_frames():
 
     # Split main application window into (1) side-bar to display points and (2) main board where cards are played
     root.rowconfigure(0, weight=1)
-    root.columnconfigure(0, weight=1)    
+    root.columnconfigure(0, weight=2)    
     root.columnconfigure(1, weight=3)    
-    root.columnconfigure(2, weight=1)
+    root.columnconfigure(2, weight=2)
 
     # Create frame for left side-bar:
     global frame_left_sidebar
