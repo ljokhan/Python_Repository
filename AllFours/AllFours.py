@@ -57,28 +57,40 @@ def exit_game():
 
 def create_frames():
 
-    # Split main application window into (1) side-bar to display points and (2) main board where cards are played
+    ###########################################################################################
+    # Split main application window into (1) side-bar to display points and (2) main board where cards are played:
+    ###########################################################################################
     root.rowconfigure(0, weight=1)
     root.columnconfigure(0, weight=2)    
     root.columnconfigure(1, weight=3)    
     root.columnconfigure(2, weight=2)
 
+    ###########################################################################################
     # Create frame for left side-bar:
+    ###########################################################################################
     global frame_left_sidebar
     frame_left_sidebar = Frame(root, bg="yellow")
     frame_left_sidebar.grid(row = 0, column=0, sticky="nsew")
 
-    # Create frame where cards are played
+    ###########################################################################################
+    # Create frame where cards are played:
+    ###########################################################################################
     global frame_main_board
     frame_main_board = Frame(root, bg="#3ce663", bd=2)
     frame_main_board.grid(row = 0, column=1, sticky="nsew")
 
+    ###########################################################################################
     # Create frame for rightside-bar:
+    ###########################################################################################
+
     global frame_right_sidebar
     frame_right_sidebar = Frame(root, bg="yellow")
     frame_right_sidebar.grid(row = 0, column=2, sticky="nsew")
 
+    ###########################################################################################
     # Create frame for trump card:
+    ###########################################################################################
+
     global trump_frame
     trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump Card", background="yellow")
     trump_frame.grid(row=0, column=1, padx=20, ipadx=40, pady=20)
