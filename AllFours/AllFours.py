@@ -31,23 +31,13 @@ def create_application():
     global root
     root = Tk()
     root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
-
-    # Configure background color:
     root.configure(background="green")
 
     # Enable fullscreen mode:
-    #root.attributes('-fullscreen', True)
-    root.geometry("1200x800")
-    
+    #   root.attributes('-fullscreen', True)
     # Bind the Escape key to exit fullscreen mode:
-    #root.bind('<Escape>', exit_fullscreen)
-
-    #bg_image = Image.open("./bg.jpg")  # Supports PNG, JPG, etc.
-    #bg_photo = ImageTk.PhotoImage(bg_image)
-    #bg_label = Label(root, image=bg_photo)
-    #bg_label.place(relwidth=1, relheight=1)
-    # Keep a reference to prevent the image from being garbage collected
-    # bg_label.image = bg_photo
+    #   root.bind('<Escape>', exit_fullscreen)
+    root.geometry("1200x800")
 
 ###########################################################################################
 
@@ -363,7 +353,7 @@ def resize_card_image(card):
 # Main program:
 ###########################################################################################
 
-# Create the application:
+# Create the All Fours game application:
 create_application()
 
 # Create frames to hold the cards:
