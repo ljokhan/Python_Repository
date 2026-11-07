@@ -145,7 +145,7 @@ def create_frames():
     ##########################################################################################################################
 
     global player_frame_card_1
-    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand frame 3",bd=0)
+    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand frame 1",bd=0)
     player_frame_card_1.grid(row=3, column=0, padx=20, ipadx=40, pady=20)
     player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
 
@@ -309,9 +309,13 @@ def put_cards_in_frames():
     dealer_frame_card_3_label.configure(text = computer_hand[2])
 
     # Place the player cards in their frames:
-    player_frame_card_1_label.configure(text = player_1_hand[0])
-    player_frame_card_2_label.configure(text = player_1_hand[1])
-    player_frame_card_3_label.configure(text = player_1_hand[2])
+    #player_frame_card_1_label.configure(text = player_1_hand[0])
+    #player_frame_card_2_label.configure(text = player_1_hand[1])
+    #player_frame_card_3_label.configure(text = player_1_hand[2])
+
+
+
+
 
 ###########################################################################################
 # Main program:
@@ -337,5 +341,13 @@ kick_trump_card()
 
 # Place cards in the frames:
 put_cards_in_frames()
+
+image_path = "./AllFours/5_of_clubs.png"
+pil_image = Image.open(image_path)
+resized_image = pil_image.resize((100, 150), Image.Resampling.LANCZOS)
+tk_image = ImageTk.PhotoImage(resized_image)
+player_frame_card_1_label.configure(image=tk_image)
+player_frame_card_2_label.configure(image=tk_image)
+player_frame_card_3_label.configure(image=tk_image)
 
 root.mainloop()
