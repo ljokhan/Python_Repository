@@ -82,7 +82,6 @@ def create_frames():
     ###########################################################################################
     # Create frame for rightside-bar:
     ###########################################################################################
-
     global frame_right_sidebar
     frame_right_sidebar = Frame(root, bg="yellow")
     frame_right_sidebar.grid(row = 0, column=2, sticky="nsew")
@@ -90,7 +89,6 @@ def create_frames():
     ###########################################################################################
     # Create frame for trump card:
     ###########################################################################################
-
     global trump_frame
     trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump Card", background="yellow")
     trump_frame.grid(row=0, column=1, padx=20, ipadx=40, pady=20)
@@ -99,7 +97,9 @@ def create_frames():
     trump_label = Label(trump_frame, text='1. This is a Label.')
     trump_label.place(x=0, y=5)
 
-    # Create frame for dealer cards:
+    ###########################################################################################
+    # Create frames which show dealer cards:
+    ###########################################################################################
     global dealer_frame_card_1
     dealer_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand",bd=0, background="#3ce663")
     dealer_frame_card_1.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
@@ -125,28 +125,7 @@ def create_frames():
     dealer_frame_card_3_label.place(x=0, y=5)
 
     ##########################################################################################################################
-    # Create frames to hold cards for each round:
-    ##########################################################################################################################
-
-    global round_frame_card_1
-    round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Round Card frame 1",bd=0)    
-    round_frame_card_1.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
-
-    global round_frame_card_1_label   
-    round_frame_card_1_label = Label(round_frame_card_1, text='')
-    round_frame_card_1_label.place(x=0, y=5)
-
-    # reate frame to hold card 2 for each round:
-    global round_frame_card_2
-    round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Round Card frame 2",bd=0)    
-    round_frame_card_2.grid(row=2, column=1, padx=20, ipadx=40, pady=20)
-
-    global round_frame_card_2_label
-    round_frame_card_2_label = Label(round_frame_card_2, text='')
-    round_frame_card_2_label.place(x=0, y=5)
-
-    ##########################################################################################################################
-    # Create clickable frames for player cards:
+    # Create clickable frames to show player cards:
     ##########################################################################################################################
 
     global player_frame_card_1
@@ -175,6 +154,26 @@ def create_frames():
     global player_frame_card_3_label
     player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
     player_frame_card_3_label.place(x=0, y=5)
+
+    ##########################################################################################################################
+    # Create frames to show cards that are played within each round:
+    ##########################################################################################################################
+    global round_frame_card_1
+    round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Round Card frame 1",bd=0)    
+    round_frame_card_1.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
+
+    global round_frame_card_1_label   
+    round_frame_card_1_label = Label(round_frame_card_1, text='')
+    round_frame_card_1_label.place(x=0, y=5)
+
+    # reate frame to hold card 2 for each round:
+    global round_frame_card_2
+    round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Round Card frame 2",bd=0)    
+    round_frame_card_2.grid(row=2, column=1, padx=20, ipadx=40, pady=20)
+
+    global round_frame_card_2_label
+    round_frame_card_2_label = Label(round_frame_card_2, text='')
+    round_frame_card_2_label.place(x=0, y=5)    
 
 ###########################################################################################
 
