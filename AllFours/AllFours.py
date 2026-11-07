@@ -179,10 +179,11 @@ def player_frame_card_1_click (event):
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
     round_frame_card_1_label.configure(text = player_1_hand[0]) 
-    player_frame_card_1_label.configure(text = "PLAYED CARD") 
+    player_frame_card_1_label.configure(text = "") 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     round_frame_card_2_label.configure(text = computer_hand[0])
+    dealer_frame_card_1_label.configure(text = "")
 
     #dermine_round_winner()
 
@@ -194,10 +195,11 @@ def player_frame_card_2_click (event):
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
     round_frame_card_1_label.configure(text = player_1_hand[1]) 
-    player_frame_card_2_label.configure(text = "PLAYED CARD") 
+    player_frame_card_2_label.configure(text = "") 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     round_frame_card_2_label.configure(text = computer_hand[1])
+    dealer_frame_card_2_label.configure(text = "")
 
     determine_round_winner()
 
@@ -209,10 +211,11 @@ def player_frame_card_3_click (event):
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
     round_frame_card_1_label.configure(text = player_1_hand[2]) 
-    player_frame_card_3_label.configure(text = "PLAYED CARD") 
+    player_frame_card_3_label.configure(text = "") 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     round_frame_card_2_label.configure(text = computer_hand[2])
+    dealer_frame_card_3_label.configure(text = "")
 
     determine_round_winner()
 
@@ -334,6 +337,5 @@ kick_trump_card()
 
 # Place cards in the frames:
 put_cards_in_frames()
-
 
 root.mainloop()
