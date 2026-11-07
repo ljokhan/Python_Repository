@@ -49,20 +49,6 @@ def create_application():
     # Keep a reference to prevent the image from being garbage collected
     # bg_label.image = bg_photo
 
-
-#root = Tk()
-#--root.geometry("400x300")
-
-#--root.rowconfigure(0, weight=1)
-#--root.columnconfigure(0, weight=1)
-#--root.columnconfigure(1, weight=3)
-
-#--left_sidebar = Frame(root, bg="green")
-#--left_sidebar.grid(row = 0, column=0, sticky="nsew")
-
-#--main_content = Frame(root, bg="blue")
-#--main_content.grid(row = 0 , column =1, sticky="nsew")
-
 ###########################################################################################
 
 def exit_fullscreen(event=None):
