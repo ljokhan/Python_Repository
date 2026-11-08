@@ -210,7 +210,7 @@ def create_frames():
     global player_frame_card_4
     player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_4.grid(row=6, column=3, padx=20, ipadx=40, pady=20)
-    player_frame_card_4.bind("<Button-1>", player_frame_card_3_click)
+    player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
 
     global player_frame_card_4_label
     player_frame_card_4_label = Label(player_frame_card_4, text='1. This is a Label.')
@@ -219,7 +219,7 @@ def create_frames():
     global player_frame_card_5
     player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_5.grid(row=6, column=4, padx=20, ipadx=40, pady=20)
-    player_frame_card_5.bind("<Button-1>", player_frame_card_3_click)
+    player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
 
     global player_frame_card_5_label
     player_frame_card_5_label = Label(player_frame_card_5, text='1. This is a Label.')
@@ -228,7 +228,7 @@ def create_frames():
     global player_frame_card_6
     player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_6.grid(row=6, column=5, padx=20, ipadx=40, pady=20)
-    player_frame_card_6.bind("<Button-1>", player_frame_card_3_click)
+    player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
 
     global player_frame_card_6_label
     player_frame_card_6_label = Label(player_frame_card_6, text='1. This is a Label.')
@@ -238,7 +238,7 @@ def create_frames():
 
 def player_frame_card_1_click (event):
 
-    #print("Frame was clicked")
+    print("Frame 1 was clicked")
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
     my_image = resize_card_image(player_1_hand[0])
@@ -262,7 +262,7 @@ def player_frame_card_1_click (event):
 
 def player_frame_card_2_click (event):
 
-    print("Frame was clicked")
+    print("Frame 2 was clicked")
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
     my_image = resize_card_image(player_1_hand[1])
@@ -286,7 +286,7 @@ def player_frame_card_2_click (event):
 
 def player_frame_card_3_click (event):
 
-    print("Frame was clicked")
+    print("Frame 3 was clicked")
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
     my_image = resize_card_image(player_1_hand[2])
@@ -305,6 +305,72 @@ def player_frame_card_3_click (event):
     dealer_frame_card_3.grid_remove()
 
     determine_round_winner()
+
+def player_frame_card_4_click (event):
+
+    print("Frame was 3 clicked")
+
+    # Player clicked the card to play, so move the card from the player frame to the round frame:
+    my_image = resize_card_image(player_1_hand[3])
+    round_frame_card_1_label.configure(image=my_image) 
+    round_frame_card_1_label.image = my_image
+
+    # Now hide the card from the player's hand:
+    player_frame_card_4.grid_remove()
+
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
+    my_image = resize_card_image(computer_hand[3])
+    round_frame_card_2_label.configure(image=my_image)
+    round_frame_card_2_label.image = my_image
+
+    # Now hide the card from the computer's hand:
+    dealer_frame_card_4.grid_remove()
+
+    determine_round_winner()    
+
+def player_frame_card_5_click (event):
+
+    print("Frame was 5 clicked")
+
+    # Player clicked the card to play, so move the card from the player frame to the round frame:
+    my_image = resize_card_image(player_1_hand[4])
+    round_frame_card_1_label.configure(image=my_image) 
+    round_frame_card_1_label.image = my_image
+
+    # Now hide the card from the player's hand:
+    player_frame_card_5.grid_remove()
+
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
+    my_image = resize_card_image(computer_hand[4])
+    round_frame_card_2_label.configure(image=my_image)
+    round_frame_card_2_label.image = my_image
+
+    # Now hide the card from the computer's hand:
+    dealer_frame_card_5.grid_remove()
+
+    determine_round_winner()    
+
+def player_frame_card_6_click (event):
+
+    print("Frame 6 was clicked")
+
+    # Player clicked the card to play, so move the card from the player frame to the round frame:
+    my_image = resize_card_image(player_1_hand[5])
+    round_frame_card_1_label.configure(image=my_image) 
+    round_frame_card_1_label.image = my_image
+
+    # Now hide the card from the player's hand:
+    player_frame_card_6.grid_remove()
+
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
+    my_image = resize_card_image(computer_hand[5])
+    round_frame_card_2_label.configure(image=my_image)
+    round_frame_card_2_label.image = my_image
+
+    # Now hide the card from the computer's hand:
+    dealer_frame_card_6.grid_remove()
+
+    determine_round_winner()        
 
 ###########################################################################################
 
