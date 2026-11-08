@@ -190,6 +190,15 @@ def create_frames():
     player_frame_card_5_label = Label(player_frame_card_5, text='1. This is a Label.')
     player_frame_card_5_label.place(x=0, y=5)
 
+    global player_frame_card_6
+    player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_6.grid(row=3, column=4, padx=20, ipadx=40, pady=20)
+    player_frame_card_6.bind("<Button-1>", player_frame_card_3_click)
+
+    global player_frame_card_6_label
+    player_frame_card_6_label = Label(player_frame_card_6, text='1. This is a Label.')
+    player_frame_card_6_label.place(x=0, y=5)
+
     ##########################################################################################################################
     # Create frames to show cards that are played within each round:
     ##########################################################################################################################
@@ -376,6 +385,18 @@ def put_cards_in_frames():
     dealer_frame_card_3_label.configure(image=my_image)
     dealer_frame_card_3_label.image = my_image 
 
+    my_image = resize_card_image(computer_hand[3])
+    dealer_frame_card_4_label.configure(image=my_image)
+    dealer_frame_card_4_label.image = my_image 
+
+    my_image = resize_card_image(computer_hand[4])
+    dealer_frame_card_5_label.configure(image=my_image)
+    dealer_frame_card_5_label.image = my_image 
+
+    my_image = resize_card_image(computer_hand[5])
+    dealer_frame_card_6_label.configure(image=my_image)
+    dealer_frame_card_6_label.image = my_image             
+
     # Place the player cards in their frames:
     my_image = resize_card_image(player_1_hand[0])
     player_frame_card_1_label.configure(image=my_image)
@@ -391,7 +412,22 @@ def put_cards_in_frames():
     player_frame_card_3_label.configure(image=my_image)
     player_frame_card_3_label.image = my_image 
     player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
-    
+
+    my_image = resize_card_image(player_1_hand[3])
+    player_frame_card_4_label.configure(image=my_image)
+    player_frame_card_4_label.image = my_image 
+    player_frame_card_4_label.bind("<Button-1>", player_frame_card_3_click)
+
+    my_image = resize_card_image(player_1_hand[4])
+    player_frame_card_5_label.configure(image=my_image)
+    player_frame_card_5_label.image = my_image 
+    player_frame_card_5_label.bind("<Button-1>", player_frame_card_3_click)
+
+    my_image = resize_card_image(player_1_hand[5])
+    player_frame_card_6_label.configure(image=my_image)
+    player_frame_card_6_label.image = my_image 
+    player_frame_card_6_label.bind("<Button-1>", player_frame_card_3_click)        
+
 ###########################################################################################
 
 def resize_card_image(card):
