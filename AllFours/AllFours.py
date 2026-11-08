@@ -37,7 +37,7 @@ def create_application():
     #   root.attributes('-fullscreen', True)
     # Bind the Escape key to exit fullscreen mode:
     #   root.bind('<Escape>', exit_fullscreen)
-    root.geometry("1200x800")
+    root.geometry("1400x800")
 
 ###########################################################################################
 
@@ -95,7 +95,7 @@ def create_frames():
     ###########################################################################################
     
     # Add text indicating this section contains the dealer hand:
-    frame_main_board_label = Label(frame_main_board, text="Dealer hand", background="red", foreground="white", font=("Arial", 12), width=100)
+    frame_main_board_label = Label(frame_main_board, text="Dealer hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
     frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
         
     global dealer_frame_card_1
@@ -151,7 +151,7 @@ def create_frames():
     ##########################################################################################################################
     
     # Add text indicating this section contains the dealer hand:
-    player_frame_card_label = Label(frame_main_board, text="Playing area", background="red", foreground="white", font=("Arial", 12), width=100)
+    player_frame_card_label = Label(frame_main_board, text="Playing area", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=3, column=0, columnspan=6, padx=5, pady=5)
     
     global round_frame_card_1
@@ -176,7 +176,7 @@ def create_frames():
     ##########################################################################################################################
 
     # Add text indicating this section contains the dealer hand:
-    player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12), width=100)
+    player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
     
     global player_frame_card_1
