@@ -9,7 +9,7 @@ import random
 
 # Declare global variables:
 deck_of_cards = []
-no_cards_per_player = 3
+no_cards_per_player = 6
 
 # These set the size of the frames which holds the cards:
 global frame_width
