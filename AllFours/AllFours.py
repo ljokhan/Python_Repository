@@ -99,7 +99,7 @@ def create_frames():
     frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
         
     global dealer_frame_card_1
-    dealer_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand",bd=0, background="#3ce663")
+    dealer_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     dealer_frame_card_1.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_1_label
@@ -107,7 +107,7 @@ def create_frames():
     dealer_frame_card_1_label.place(x=0, y=5)
 
     global dealer_frame_card_2
-    dealer_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand",bd=0, background="#3ce663")
+    dealer_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     dealer_frame_card_2.grid(row=1, column=1, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_2_label
@@ -115,7 +115,7 @@ def create_frames():
     dealer_frame_card_2_label.place(x=0, y=5)
 
     global dealer_frame_card_3
-    dealer_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand", bd=0, background="#3ce663")
+    dealer_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
     dealer_frame_card_3.grid(row=1, column=2, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_3_label
@@ -123,7 +123,7 @@ def create_frames():
     dealer_frame_card_3_label.place(x=0, y=5)
 
     global dealer_frame_card_4
-    dealer_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand", bd=0, background="#3ce663")
+    dealer_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
     dealer_frame_card_4.grid(row=1, column=3, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_4_label
@@ -131,7 +131,7 @@ def create_frames():
     dealer_frame_card_4_label.place(x=0, y=5)
 
     global dealer_frame_card_5
-    dealer_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand", bd=0, background="#3ce663")
+    dealer_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
     dealer_frame_card_5.grid(row=1, column=4, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_5_label
@@ -139,7 +139,7 @@ def create_frames():
     dealer_frame_card_5_label.place(x=0, y=5)
 
     global dealer_frame_card_6
-    dealer_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand", bd=0, background="#3ce663")
+    dealer_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
     dealer_frame_card_6.grid(row=1, column=5, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_6_label
@@ -180,7 +180,7 @@ def create_frames():
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
     
     global player_frame_card_1
-    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand 1",bd=0, background="#3ce663")
+    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_1.grid(row=6, column=0, padx=20, ipadx=40, pady=20)
     player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
 
@@ -189,7 +189,7 @@ def create_frames():
     player_frame_card_1_label.place(x=0, y=5)
 
     global player_frame_card_2
-    player_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_2.grid(row=6, column=1, padx=20, ipadx=40, pady=20)
     player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
 
@@ -198,7 +198,7 @@ def create_frames():
     player_frame_card_2_label.place(x=0, y=5)
 
     global player_frame_card_3
-    player_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_3.grid(row=6, column=2, padx=20, ipadx=40, pady=20)
     player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
 
@@ -207,7 +207,7 @@ def create_frames():
     player_frame_card_3_label.place(x=0, y=5)
 
     global player_frame_card_4
-    player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_4.grid(row=6, column=3, padx=20, ipadx=40, pady=20)
     player_frame_card_4.bind("<Button-1>", player_frame_card_3_click)
 
@@ -216,7 +216,7 @@ def create_frames():
     player_frame_card_4_label.place(x=0, y=5)
 
     global player_frame_card_5
-    player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_5.grid(row=6, column=4, padx=20, ipadx=40, pady=20)
     player_frame_card_5.bind("<Button-1>", player_frame_card_3_click)
 
@@ -225,7 +225,7 @@ def create_frames():
     player_frame_card_5_label.place(x=0, y=5)
 
     global player_frame_card_6
-    player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_6.grid(row=6, column=4, padx=20, ipadx=40, pady=20)
     player_frame_card_6.bind("<Button-1>", player_frame_card_3_click)
 
