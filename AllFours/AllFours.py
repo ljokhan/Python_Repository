@@ -83,7 +83,7 @@ def create_frames():
     # Create frame for trump card:
     ###########################################################################################
     global trump_frame
-    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump Card", background="yellow")
+    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump", background="yellow", font=("Arial", 12))
     trump_frame.grid(row=0, column=1, padx=20, ipadx=40, pady=20)
 
     global trump_label
@@ -95,7 +95,7 @@ def create_frames():
     ###########################################################################################
     
     # Add text indicating this section contains the dealer hand:
-    frame_main_board_label = Label(frame_main_board, text="Dealer hand", background="red", foreground="white", width=100)
+    frame_main_board_label = Label(frame_main_board, text="Dealer hand", background="red", foreground="white", font=("Arial", 12), width=100)
     frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
         
     global dealer_frame_card_1
@@ -151,7 +151,7 @@ def create_frames():
     ##########################################################################################################################
     
     # Add text indicating this section contains the dealer hand:
-    player_frame_card_label = Label(frame_main_board, text="Playing area", background="red", foreground="white", width=100)
+    player_frame_card_label = Label(frame_main_board, text="Playing area", background="red", foreground="white", font=("Arial", 12), width=100)
     player_frame_card_label.grid(row=3, column=0, columnspan=6, padx=5, pady=5)
     
     global round_frame_card_1
@@ -176,7 +176,7 @@ def create_frames():
     ##########################################################################################################################
 
     # Add text indicating this section contains the dealer hand:
-    player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", width=100)
+    player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12), width=100)
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
     
     global player_frame_card_1
