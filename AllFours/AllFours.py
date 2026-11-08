@@ -246,7 +246,9 @@ def player_frame_card_1_click (event):
     round_frame_card_1_label.image = my_image 
 
     # Now hide the card from the player's hand:
-    player_frame_card_1.grid_remove()
+    my_image = resize_card_image("blank_card")
+    player_frame_card_1_label.configure(image=my_image)
+    player_frame_card_1_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     my_image = resize_card_image(computer_hand[0])
@@ -254,7 +256,9 @@ def player_frame_card_1_click (event):
     round_frame_card_2_label.image = my_image
 
      # Now hide the card from the computer's hand:
-    dealer_frame_card_1.grid_remove()
+    my_image = resize_card_image("blank_card")
+    dealer_frame_card_1_label.configure(image=my_image)
+    dealer_frame_card_1_label.image = my_image 
 
     #dermine_round_winner()
 
@@ -270,7 +274,9 @@ def player_frame_card_2_click (event):
     round_frame_card_1_label.image = my_image
 
     # Now hide the card from the player's hand:
-    player_frame_card_2.grid_remove()
+    my_image = resize_card_image("blank_card")
+    player_frame_card_2_label.configure(image=my_image)
+    player_frame_card_2_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     my_image = resize_card_image(computer_hand[1])
@@ -278,7 +284,9 @@ def player_frame_card_2_click (event):
     round_frame_card_2_label.image = my_image
 
     # Now hide the card from the computer's hand:
-    dealer_frame_card_2.grid_remove()
+    my_image = resize_card_image("blank_card")
+    dealer_frame_card_2_label.configure(image=my_image)
+    dealer_frame_card_2_label.image = my_image 
 
     determine_round_winner()
 
@@ -294,7 +302,9 @@ def player_frame_card_3_click (event):
     round_frame_card_1_label.image = my_image
 
     # Now hide the card from the player's hand:
-    player_frame_card_3.grid_remove()
+    my_image = resize_card_image("blank_card")
+    player_frame_card_3_label.configure(image=my_image)
+    player_frame_card_3_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     my_image = resize_card_image(computer_hand[2])
@@ -302,13 +312,15 @@ def player_frame_card_3_click (event):
     round_frame_card_2_label.image = my_image
 
     # Now hide the card from the computer's hand:
-    dealer_frame_card_3.grid_remove()
+    my_image = resize_card_image("blank_card")
+    dealer_frame_card_3_label.configure(image=my_image)
+    dealer_frame_card_3_label.image = my_image 
 
     determine_round_winner()
 
 def player_frame_card_4_click (event):
 
-    print("Frame was 3 clicked")
+    print("Frame was 4 clicked")
 
     # Player clicked the card to play, so move the card from the player frame to the round frame:
     my_image = resize_card_image(player_1_hand[3])
@@ -316,7 +328,10 @@ def player_frame_card_4_click (event):
     round_frame_card_1_label.image = my_image
 
     # Now hide the card from the player's hand:
-    player_frame_card_4.grid_remove()
+    #player_frame_card_4.grid_remove()
+    my_image = resize_card_image("blank_card")
+    player_frame_card_4_label.configure(image=my_image)
+    player_frame_card_4_label.image = my_image     
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     my_image = resize_card_image(computer_hand[3])
@@ -324,7 +339,9 @@ def player_frame_card_4_click (event):
     round_frame_card_2_label.image = my_image
 
     # Now hide the card from the computer's hand:
-    dealer_frame_card_4.grid_remove()
+    my_image = resize_card_image("blank_card")
+    dealer_frame_card_4_label.configure(image=my_image)
+    dealer_frame_card_4_label.image = my_image 
 
     determine_round_winner()    
 
@@ -338,7 +355,9 @@ def player_frame_card_5_click (event):
     round_frame_card_1_label.image = my_image
 
     # Now hide the card from the player's hand:
-    player_frame_card_5.grid_remove()
+    my_image = resize_card_image("blank_card")
+    player_frame_card_5_label.configure(image=my_image)
+    player_frame_card_5_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     my_image = resize_card_image(computer_hand[4])
@@ -346,7 +365,9 @@ def player_frame_card_5_click (event):
     round_frame_card_2_label.image = my_image
 
     # Now hide the card from the computer's hand:
-    dealer_frame_card_5.grid_remove()
+    my_image = resize_card_image("blank_card")
+    dealer_frame_card_5_label.configure(image=my_image)
+    dealer_frame_card_5_label.image = my_image 
 
     determine_round_winner()    
 
@@ -360,7 +381,9 @@ def player_frame_card_6_click (event):
     round_frame_card_1_label.image = my_image
 
     # Now hide the card from the player's hand:
-    player_frame_card_6.grid_remove()
+    my_image = resize_card_image("blank_card")
+    player_frame_card_6_label.configure(image=my_image)
+    player_frame_card_6_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
     my_image = resize_card_image(computer_hand[5])
@@ -368,7 +391,9 @@ def player_frame_card_6_click (event):
     round_frame_card_2_label.image = my_image
 
     # Now hide the card from the computer's hand:
-    dealer_frame_card_6.grid_remove()
+    my_image = resize_card_image("blank_card")
+    dealer_frame_card_6_label.configure(image=my_image)
+    dealer_frame_card_6_label.image = my_image 
 
     determine_round_winner()        
 
@@ -497,17 +522,17 @@ def put_cards_in_frames():
     my_image = resize_card_image(player_1_hand[3])
     player_frame_card_4_label.configure(image=my_image)
     player_frame_card_4_label.image = my_image 
-    player_frame_card_4_label.bind("<Button-1>", player_frame_card_3_click)
+    player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
 
     my_image = resize_card_image(player_1_hand[4])
     player_frame_card_5_label.configure(image=my_image)
     player_frame_card_5_label.image = my_image 
-    player_frame_card_5_label.bind("<Button-1>", player_frame_card_3_click)
+    player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
 
     my_image = resize_card_image(player_1_hand[5])
     player_frame_card_6_label.configure(image=my_image)
     player_frame_card_6_label.image = my_image 
-    player_frame_card_6_label.bind("<Button-1>", player_frame_card_3_click)        
+    player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)        
 
 ###########################################################################################
 
