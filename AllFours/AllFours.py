@@ -93,6 +93,11 @@ def create_frames():
     ###########################################################################################
     # Create frames which show dealer cards:
     ###########################################################################################
+    
+    # Add text indicating this section contains the dealer hand:
+    frame_main_board_label = Label(frame_main_board, text="Dealer hand", background="red", width=100)
+    frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
+        
     global dealer_frame_card_1
     dealer_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand",bd=0, background="#3ce663")
     dealer_frame_card_1.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
@@ -142,69 +147,16 @@ def create_frames():
     dealer_frame_card_6_label.place(x=0, y=5)
 
     ##########################################################################################################################
-    # Create clickable frames to show player cards:
-    ##########################################################################################################################
-
-    global player_frame_card_1
-    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand 1",bd=0, background="#3ce663")
-    player_frame_card_1.grid(row=3, column=0, padx=20, ipadx=40, pady=20)
-    player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
-
-    global player_frame_card_1_label
-    player_frame_card_1_label = Label(player_frame_card_1, text='1. This is a Label.')
-    player_frame_card_1_label.place(x=0, y=5)
-
-    global player_frame_card_2
-    player_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
-    player_frame_card_2.grid(row=3, column=1, padx=20, ipadx=40, pady=20)
-    player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
-
-    global player_frame_card_2_label
-    player_frame_card_2_label = Label(player_frame_card_2, text='1. This is a Label.')
-    player_frame_card_2_label.place(x=0, y=5)
-
-    global player_frame_card_3
-    player_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
-    player_frame_card_3.grid(row=3, column=2, padx=20, ipadx=40, pady=20)
-    player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
-
-    global player_frame_card_3_label
-    player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
-    player_frame_card_3_label.place(x=0, y=5)
-
-    global player_frame_card_4
-    player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
-    player_frame_card_4.grid(row=3, column=3, padx=20, ipadx=40, pady=20)
-    player_frame_card_4.bind("<Button-1>", player_frame_card_3_click)
-
-    global player_frame_card_4_label
-    player_frame_card_4_label = Label(player_frame_card_4, text='1. This is a Label.')
-    player_frame_card_4_label.place(x=0, y=5)
-
-    global player_frame_card_5
-    player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
-    player_frame_card_5.grid(row=3, column=4, padx=20, ipadx=40, pady=20)
-    player_frame_card_5.bind("<Button-1>", player_frame_card_3_click)
-
-    global player_frame_card_5_label
-    player_frame_card_5_label = Label(player_frame_card_5, text='1. This is a Label.')
-    player_frame_card_5_label.place(x=0, y=5)
-
-    global player_frame_card_6
-    player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
-    player_frame_card_6.grid(row=3, column=4, padx=20, ipadx=40, pady=20)
-    player_frame_card_6.bind("<Button-1>", player_frame_card_3_click)
-
-    global player_frame_card_6_label
-    player_frame_card_6_label = Label(player_frame_card_6, text='1. This is a Label.')
-    player_frame_card_6_label.place(x=0, y=5)
-
-    ##########################################################################################################################
     # Create frames to show cards that are played within each round:
     ##########################################################################################################################
+    
+    # Add text indicating this section contains the dealer hand:
+    player_frame_card_label = Label(frame_main_board, text="Playing area", background="red", width=100)
+    player_frame_card_label.grid(row=3, column=0, columnspan=6, padx=5, pady=5)
+    
     global round_frame_card_1
     round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Round Card frame 1",bd=0)    
-    round_frame_card_1.grid(row=2, column=2, padx=20, ipadx=40, pady=20)
+    round_frame_card_1.grid(row=4, column=2, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_1_label   
     round_frame_card_1_label = Label(round_frame_card_1, text='')
@@ -213,11 +165,73 @@ def create_frames():
     # reate frame to hold card 2 for each round:
     global round_frame_card_2
     round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Round Card frame 2",bd=0)    
-    round_frame_card_2.grid(row=2, column=3, padx=20, ipadx=40, pady=20)
+    round_frame_card_2.grid(row=4, column=3, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_2_label
     round_frame_card_2_label = Label(round_frame_card_2, text='')
-    round_frame_card_2_label.place(x=0, y=5)    
+    round_frame_card_2_label.place(x=0, y=5)   
+
+    ##########################################################################################################################
+    # Create clickable frames to show player cards:
+    ##########################################################################################################################
+
+    # Add text indicating this section contains the dealer hand:
+    player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", width=100)
+    player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
+    
+    global player_frame_card_1
+    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand 1",bd=0, background="#3ce663")
+    player_frame_card_1.grid(row=6, column=0, padx=20, ipadx=40, pady=20)
+    player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
+
+    global player_frame_card_1_label
+    player_frame_card_1_label = Label(player_frame_card_1, text='1. This is a Label.')
+    player_frame_card_1_label.place(x=0, y=5)
+
+    global player_frame_card_2
+    player_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_2.grid(row=6, column=1, padx=20, ipadx=40, pady=20)
+    player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
+
+    global player_frame_card_2_label
+    player_frame_card_2_label = Label(player_frame_card_2, text='1. This is a Label.')
+    player_frame_card_2_label.place(x=0, y=5)
+
+    global player_frame_card_3
+    player_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_3.grid(row=6, column=2, padx=20, ipadx=40, pady=20)
+    player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
+
+    global player_frame_card_3_label
+    player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
+    player_frame_card_3_label.place(x=0, y=5)
+
+    global player_frame_card_4
+    player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_4.grid(row=6, column=3, padx=20, ipadx=40, pady=20)
+    player_frame_card_4.bind("<Button-1>", player_frame_card_3_click)
+
+    global player_frame_card_4_label
+    player_frame_card_4_label = Label(player_frame_card_4, text='1. This is a Label.')
+    player_frame_card_4_label.place(x=0, y=5)
+
+    global player_frame_card_5
+    player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_5.grid(row=6, column=4, padx=20, ipadx=40, pady=20)
+    player_frame_card_5.bind("<Button-1>", player_frame_card_3_click)
+
+    global player_frame_card_5_label
+    player_frame_card_5_label = Label(player_frame_card_5, text='1. This is a Label.')
+    player_frame_card_5_label.place(x=0, y=5)
+
+    global player_frame_card_6
+    player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_6.grid(row=6, column=4, padx=20, ipadx=40, pady=20)
+    player_frame_card_6.bind("<Button-1>", player_frame_card_3_click)
+
+    global player_frame_card_6_label
+    player_frame_card_6_label = Label(player_frame_card_6, text='1. This is a Label.')
+    player_frame_card_6_label.place(x=0, y=5)
 
 ###########################################################################################
 
