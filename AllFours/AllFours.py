@@ -2,6 +2,7 @@
 
 # Import libraries:
 from tkinter import *
+from tkinter import messagebox
 from PIL import Image, ImageTk
 import random
 
@@ -57,6 +58,9 @@ def create_frames():
     root.columnconfigure(0, weight=2)    
     root.columnconfigure(1, weight=3)    
     root.columnconfigure(2, weight=2)
+    
+    # Prepage image of the back of a playing card, so we can start the game with all cards turned over:
+    my_image = resize_card_image("back_of_playing_card")
 
     ###########################################################################################
     # Create frame for left side-bar:
@@ -91,6 +95,10 @@ def create_frames():
     trump_label = Label(trump_frame, text='1. This is a Label.')
     trump_label.place(x=0, y=5)
 
+    # Add image of overturned card:
+    trump_label.configure(image=my_image)
+    trump_label.image = my_image 
+
     ###########################################################################################
     # Create frames which show dealer cards:
     ###########################################################################################
@@ -115,6 +123,10 @@ def create_frames():
     dealer_frame_card_2_label = Label(dealer_frame_card_2, text='1. This is a Label.')
     dealer_frame_card_2_label.place(x=0, y=5)
 
+    # Add image of overturned card:
+    dealer_frame_card_2_label.configure(image=my_image)
+    dealer_frame_card_2_label.image = my_image         
+
     global dealer_frame_card_3
     dealer_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
     dealer_frame_card_3.grid(row=1, column=2, padx=20, ipadx=40, pady=20)
@@ -122,6 +134,10 @@ def create_frames():
     global dealer_frame_card_3_label
     dealer_frame_card_3_label = Label(dealer_frame_card_3, text='1. This is a Label.')
     dealer_frame_card_3_label.place(x=0, y=5)
+
+    # Add image of overturned card:
+    dealer_frame_card_3_label.configure(image=my_image)
+    dealer_frame_card_3_label.image = my_image       
 
     global dealer_frame_card_4
     dealer_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
@@ -131,6 +147,10 @@ def create_frames():
     dealer_frame_card_4_label = Label(dealer_frame_card_4, text='1. This is a Label.')
     dealer_frame_card_4_label.place(x=0, y=5)
 
+    # Add image of overturned card:
+    dealer_frame_card_4_label.configure(image=my_image)
+    dealer_frame_card_4_label.image = my_image         
+
     global dealer_frame_card_5
     dealer_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
     dealer_frame_card_5.grid(row=1, column=4, padx=20, ipadx=40, pady=20)
@@ -138,6 +158,10 @@ def create_frames():
     global dealer_frame_card_5_label
     dealer_frame_card_5_label = Label(dealer_frame_card_5, text='1. This is a Label.')
     dealer_frame_card_5_label.place(x=0, y=5)
+
+    # Add image of overturned card:
+    dealer_frame_card_5_label.configure(image=my_image)
+    dealer_frame_card_5_label.image = my_image     
 
     global dealer_frame_card_6
     dealer_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
@@ -147,10 +171,17 @@ def create_frames():
     dealer_frame_card_6_label = Label(dealer_frame_card_6, text='1. This is a Label.')
     dealer_frame_card_6_label.place(x=0, y=5)
 
+    # Add image of overturned card:
+    dealer_frame_card_6_label.configure(image=my_image)
+    dealer_frame_card_6_label.image = my_image 
+
     ##########################################################################################################################
     # Create frames to show cards that are played within each round:
     ##########################################################################################################################
     
+    # Resize the image of the back of a playing card, so we can start the game with all card turned over:
+    #my_image = resize_card_image("back_of_playing_card")
+
     # Add text indicating this section contains the dealer hand:
     player_frame_card_label = Label(frame_main_board, text="Playing area", background="black", foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=3, column=0, columnspan=6, padx=5, pady=5)
@@ -162,7 +193,7 @@ def create_frames():
     global round_frame_card_1_label   
     round_frame_card_1_label = Label(round_frame_card_1)
     round_frame_card_1_label.place(x=0, y=5)
-    my_image = resize_card_image("blank_card")
+    #my_image = resize_card_image("blank_card")
     round_frame_card_1_label.configure(image=my_image)
     round_frame_card_1_label.image = my_image 
 
@@ -174,7 +205,7 @@ def create_frames():
     global round_frame_card_2_label
     round_frame_card_2_label = Label(round_frame_card_2, text='')
     round_frame_card_2_label.place(x=0, y=5)   
-    my_image = resize_card_image("blank_card")
+    #my_image = resize_card_image("blank_card")
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image 
 
@@ -185,7 +216,9 @@ def create_frames():
     # Add text indicating this section contains the dealer hand:
     player_frame_card_label = Label(frame_main_board, text="Your hand", background="black", foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
-    
+
+
+   
     global player_frame_card_1
     player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_1.grid(row=6, column=0, padx=20, ipadx=40, pady=20)
@@ -194,6 +227,10 @@ def create_frames():
     global player_frame_card_1_label
     player_frame_card_1_label = Label(player_frame_card_1, text='1. This is a Label.')
     player_frame_card_1_label.place(x=0, y=5)
+
+    # Add image of overturned card:
+    player_frame_card_1_label.configure(image=my_image)
+    player_frame_card_1_label.image = my_image 
 
     global player_frame_card_2
     player_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
@@ -204,6 +241,10 @@ def create_frames():
     player_frame_card_2_label = Label(player_frame_card_2, text='1. This is a Label.')
     player_frame_card_2_label.place(x=0, y=5)
 
+    # Add image of overturned card:
+    player_frame_card_2_label.configure(image=my_image)
+    player_frame_card_2_label.image = my_image 
+
     global player_frame_card_3
     player_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_3.grid(row=6, column=2, padx=20, ipadx=40, pady=20)
@@ -212,6 +253,10 @@ def create_frames():
     global player_frame_card_3_label
     player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
     player_frame_card_3_label.place(x=0, y=5)
+
+    # Add image of overturned card:
+    player_frame_card_3_label.configure(image=my_image)
+    player_frame_card_3_label.image = my_image 
 
     global player_frame_card_4
     player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
@@ -222,6 +267,10 @@ def create_frames():
     player_frame_card_4_label = Label(player_frame_card_4, text='1. This is a Label.')
     player_frame_card_4_label.place(x=0, y=5)
 
+    # Add image of overturned card:
+    player_frame_card_4_label.configure(image=my_image)
+    player_frame_card_4_label.image = my_image 
+
     global player_frame_card_5
     player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_5.grid(row=6, column=4, padx=20, ipadx=40, pady=20)
@@ -231,6 +280,10 @@ def create_frames():
     player_frame_card_5_label = Label(player_frame_card_5, text='1. This is a Label.')
     player_frame_card_5_label.place(x=0, y=5)
 
+    # Add image of overturned card:
+    player_frame_card_5_label.configure(image=my_image)
+    player_frame_card_5_label.image = my_image     
+
     global player_frame_card_6
     player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     player_frame_card_6.grid(row=6, column=5, padx=20, ipadx=40, pady=20)
@@ -239,6 +292,10 @@ def create_frames():
     global player_frame_card_6_label
     player_frame_card_6_label = Label(player_frame_card_6, text='1. This is a Label.')
     player_frame_card_6_label.place(x=0, y=5)
+
+    # Add image of overturned card:
+    player_frame_card_6_label.configure(image=my_image)
+    player_frame_card_6_label.image = my_image   
 
 ###########################################################################################
 
@@ -579,6 +636,9 @@ create_frames()
 
 # Create a new deck of cards:
 create_new_deck()
+
+# Ask the user if they are ready to start:
+messagebox.showinfo("Welcome to AllFours, the National Game of Trinidad & Tobago!", "Click enter to deal the cards!") 
 
 # Deal the cards to all players:
 deal_cards()
