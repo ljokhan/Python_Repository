@@ -103,7 +103,7 @@ def create_frames():
 
     global dealer_frame_card_2
     dealer_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand",bd=0, background="#3ce663")
-    dealer_frame_card_2.grid(row=1, column=1    , padx=20, ipadx=40, pady=20)
+    dealer_frame_card_2.grid(row=1, column=1, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_2_label
     dealer_frame_card_2_label = Label(dealer_frame_card_2, text='1. This is a Label.')
@@ -116,6 +116,30 @@ def create_frames():
     global dealer_frame_card_3_label
     dealer_frame_card_3_label = Label(dealer_frame_card_3, text='1. This is a Label.')
     dealer_frame_card_3_label.place(x=0, y=5)
+
+    global dealer_frame_card_4
+    dealer_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand", bd=0, background="#3ce663")
+    dealer_frame_card_4.grid(row=1, column=3, padx=20, ipadx=40, pady=20)
+
+    global dealer_frame_card_4_label
+    dealer_frame_card_4_label = Label(dealer_frame_card_4, text='1. This is a Label.')
+    dealer_frame_card_4_label.place(x=0, y=5)
+
+    global dealer_frame_card_5
+    dealer_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand", bd=0, background="#3ce663")
+    dealer_frame_card_5.grid(row=1, column=4, padx=20, ipadx=40, pady=20)
+
+    global dealer_frame_card_5_label
+    dealer_frame_card_5_label = Label(dealer_frame_card_5, text='1. This is a Label.')
+    dealer_frame_card_5_label.place(x=0, y=5)
+
+    global dealer_frame_card_6
+    dealer_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Dealer Hand", bd=0, background="#3ce663")
+    dealer_frame_card_6.grid(row=1, column=5, padx=20, ipadx=40, pady=20)
+
+    global dealer_frame_card_6_label
+    dealer_frame_card_6_label = Label(dealer_frame_card_6, text='1. This is a Label.')
+    dealer_frame_card_6_label.place(x=0, y=5)
 
     ##########################################################################################################################
     # Create clickable frames to show player cards:
@@ -148,12 +172,30 @@ def create_frames():
     player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
     player_frame_card_3_label.place(x=0, y=5)
 
+    global player_frame_card_4
+    player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_4.grid(row=3, column=3, padx=20, ipadx=40, pady=20)
+    player_frame_card_4.bind("<Button-1>", player_frame_card_3_click)
+
+    global player_frame_card_4_label
+    player_frame_card_4_label = Label(player_frame_card_4, text='1. This is a Label.')
+    player_frame_card_4_label.place(x=0, y=5)
+
+    global player_frame_card_5
+    player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Your Hand",bd=0, background="#3ce663")
+    player_frame_card_5.grid(row=3, column=4, padx=20, ipadx=40, pady=20)
+    player_frame_card_5.bind("<Button-1>", player_frame_card_3_click)
+
+    global player_frame_card_5_label
+    player_frame_card_5_label = Label(player_frame_card_5, text='1. This is a Label.')
+    player_frame_card_5_label.place(x=0, y=5)
+
     ##########################################################################################################################
     # Create frames to show cards that are played within each round:
     ##########################################################################################################################
     global round_frame_card_1
     round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Round Card frame 1",bd=0)    
-    round_frame_card_1.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
+    round_frame_card_1.grid(row=2, column=2, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_1_label   
     round_frame_card_1_label = Label(round_frame_card_1, text='')
@@ -162,7 +204,7 @@ def create_frames():
     # reate frame to hold card 2 for each round:
     global round_frame_card_2
     round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="Round Card frame 2",bd=0)    
-    round_frame_card_2.grid(row=2, column=1, padx=20, ipadx=40, pady=20)
+    round_frame_card_2.grid(row=2, column=3, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_2_label
     round_frame_card_2_label = Label(round_frame_card_2, text='')
