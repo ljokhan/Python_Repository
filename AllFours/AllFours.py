@@ -82,6 +82,7 @@ def create_frames():
     ###########################################################################################
     # Create frame for trump card:
     ###########################################################################################
+
     global trump_frame
     trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump", background="yellow", font=("Arial", 12))
     trump_frame.grid(row=0, column=1, padx=20, ipadx=40, pady=20)
@@ -226,7 +227,7 @@ def create_frames():
 
     global player_frame_card_6
     player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
-    player_frame_card_6.grid(row=6, column=4, padx=20, ipadx=40, pady=20)
+    player_frame_card_6.grid(row=6, column=5, padx=20, ipadx=40, pady=20)
     player_frame_card_6.bind("<Button-1>", player_frame_card_3_click)
 
     global player_frame_card_6_label
