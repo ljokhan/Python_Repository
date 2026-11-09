@@ -115,6 +115,10 @@ def create_frames():
     dealer_frame_card_1_label = Label(dealer_frame_card_1, text='1. This is a Label.')
     dealer_frame_card_1_label.place(x=0, y=5)
 
+    # Add image of overturned card:
+    dealer_frame_card_1_label.configure(image=my_image)
+    dealer_frame_card_1_label.image = my_image           
+
     global dealer_frame_card_2
     dealer_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
     dealer_frame_card_2.grid(row=1, column=1, padx=20, ipadx=40, pady=20)
@@ -606,6 +610,19 @@ def put_cards_in_frames():
 
 ###########################################################################################
 
+def begin_game():
+  
+    # Deal the cards to all players:
+    deal_cards()
+
+    # Kick the trump card:
+    kick_trump_card()
+
+    # Place cards in the frames:
+    put_cards_in_frames()
+
+###########################################################################################
+
 def resize_card_image(card):
 
     image_path = "./AllFours/PlayingCardImages/" + card + ".png"
@@ -642,15 +659,8 @@ create_new_deck()
 create_buttons()
 
 # Ask the user if they are ready to start:
-messagebox.showinfo("Welcome to AllFours, the National Game of Trinidad & Tobago!", "Click enter to deal the cards!") 
+#messagebox.showinfo("Welcome to AllFours, the National Game of Trinidad & Tobago!", "Click enter to deal the cards!") 
 
-# Deal the cards to all players:
-deal_cards()
-
-# Kick the trump card:
-kick_trump_card()
-
-# Place cards in the frames:
-put_cards_in_frames()
+#begin_game()
 
 root.mainloop()
