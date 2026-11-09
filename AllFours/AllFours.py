@@ -5,6 +5,7 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import random
+import time
 
 ###########################################################################################
 
@@ -327,7 +328,7 @@ def player_frame_card_1_click (event):
     dealer_frame_card_1_label.configure(image=my_image)
     dealer_frame_card_1_label.image = my_image 
 
-    #dermine_round_winner()
+    determine_round_winner()
 
 ###########################################################################################
 
@@ -623,6 +624,16 @@ def begin_game():
 
 ###########################################################################################
 
+def determine_round_winner():
+
+    player_card_suit = ''
+    player_card_value = 0
+
+    messagebox (round_frame_card_1_label.image_names)
+
+
+###########################################################################################
+
 def resize_card_image(card):
 
     image_path = "./AllFours/PlayingCardImages/" + card + ".png"
@@ -648,9 +659,6 @@ create_application()
 
 # Create frames to hold the cards:
 create_frames()
-
-# Create buttons for the game:
-#create_buttons(root)
 
 # Create a new deck of cards:
 create_new_deck()
