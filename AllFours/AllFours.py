@@ -21,6 +21,7 @@ global frame_height
 frame_height = 180
 
 # These global variables hold the cards for each player and the trump card:
+all_playing_cards = []
 player_1_hand = []
 computer_hand = []
 trump_card = []
@@ -480,26 +481,39 @@ def determine_round_winner():
 ###########################################################################################
 
 def create_new_deck():
+
+    # Create class to store each playing card:
+    class class_playing_card:
+        def __init__(self, card_name, card_value, card_suit, card_image_path):
+            self.card_name = card_name
+            self.card_value = card_value
+            self.card_suit = card_suit
+            self.card_image_path = card_image_path
     
     # Create a suits and individual cards:
     suits = ["Hearts","Diamonds","Clubs","Spades"]
-    cards = [x for x in range (2,14)]
+    card_values = [x for x in range (2,14)]
 
     # Create a full deck of cards:
     for one_suit in suits:
-        for one_card in cards:
-            if one_card == 11:
+        for one_card_value in card_values:
+            if one_card_value == 11:
                 tempcard = (f"Jack_of_{one_suit}")
-            elif one_card == 12:
+            elif one_card_value == 12:
                 tempcard = (f"Queen_of_{one_suit}")
-            elif one_card == 13:
+            elif one_card_value == 13:
                 tempcard = (f"King_of_{one_suit}")
-            elif one_card == 14:
+            elif one_card_value == 14:
                 tempcard = (f"Ace_of_{one_suit}")
             else:
-                tempcard = (f"{one_card}_of_{one_suit}")
+                tempcard = (f"{one_card_value}_of_{one_suit}")
             deck_of_cards.append(tempcard)
 
+            one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png")
+            all_playing_cards.append(one_card)
+
+    for one_playing_card in all_playing_cards:
+        print (one_playing_card.card_name)
 ###########################################################################################
 
 def deal_cards():
@@ -629,9 +643,6 @@ def determine_round_winner():
     player_card_suit = ''
     player_card_value = 0
 
-    messagebox (round_frame_card_1_label.image_names)
-
-
 ###########################################################################################
 
 def resize_card_image(card):
@@ -664,6 +675,6 @@ create_frames()
 create_new_deck()
 
 # Create buttons to play the game:
-create_buttons()
+#create_buttons()
 
 root.mainloop()
