@@ -536,7 +536,7 @@ def kick_trump_card():
 def create_buttons():
 
     # Create button to shuffle the deck:
-    shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal")
+    shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
     shuffle_button.grid(row=5, column=0, padx=5, pady=5)
 
 ###########################################################################################
@@ -655,12 +655,7 @@ create_frames()
 # Create a new deck of cards:
 create_new_deck()
 
-# Create buttons to plau the game:
+# Create buttons to play the game:
 create_buttons()
-
-# Ask the user if they are ready to start:
-#messagebox.showinfo("Welcome to AllFours, the National Game of Trinidad & Tobago!", "Click enter to deal the cards!") 
-
-#begin_game()
 
 root.mainloop()
