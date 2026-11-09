@@ -381,7 +381,10 @@ def player_frame_card_3_click (event):
 
     determine_round_winner()
 
+###########################################################################################
+
 def player_frame_card_4_click (event):
+###########################################################################################
 
     print("Frame was 4 clicked")
 
@@ -408,6 +411,8 @@ def player_frame_card_4_click (event):
 
     determine_round_winner()    
 
+###########################################################################################
+
 def player_frame_card_5_click (event):
 
     print("Frame was 5 clicked")
@@ -433,6 +438,8 @@ def player_frame_card_5_click (event):
     dealer_frame_card_5_label.image = my_image 
 
     determine_round_winner()    
+
+###########################################################################################
 
 def player_frame_card_6_click (event):
 
@@ -522,15 +529,11 @@ def kick_trump_card():
 
 ###########################################################################################
 
-def create_buttons(root):
+def create_buttons():
 
     # Create button to shuffle the deck:
-    shuffle_button = Button(root, text="Shuffle the Deck")
-    shuffle_button.pack(pady=20)
-
-    # Create button to deal the cards:
-    deal_button = Button(root, text="Deal the Cards")
-    deal_button.pack(pady=20)
+    shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal")
+    shuffle_button.grid(row=5, column=0, padx=5, pady=5)
 
 ###########################################################################################
 
@@ -600,8 +603,6 @@ def put_cards_in_frames():
     # Indicate to user they can start playing:
     player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
-    player_frame_card_label.config(text='Your hand - Your play')
-    
 
 ###########################################################################################
 
@@ -636,6 +637,9 @@ create_frames()
 
 # Create a new deck of cards:
 create_new_deck()
+
+# Create buttons to plau the game:
+create_buttons()
 
 # Ask the user if they are ready to start:
 messagebox.showinfo("Welcome to AllFours, the National Game of Trinidad & Tobago!", "Click enter to deal the cards!") 
