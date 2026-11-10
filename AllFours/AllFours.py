@@ -530,14 +530,14 @@ def deal_cards():
         #one_card = random.choice(deck_of_cards)
         one_card = random.choice(all_playing_cards)
 
-        # Give the random card to the player:
+        # Add random card to the player hand:
         player_1_hand.append (one_card)
         all_playing_cards.remove (one_card)
 
         # Pick another random card:
         one_card = random.choice(all_playing_cards)
 
-        # Give the random card to the computer player:
+        # Add random card to the computer hand:
         computer_hand.append (one_card)
         all_playing_cards.remove (one_card)
 
@@ -548,7 +548,7 @@ def kick_trump_card():
     # Pick a random card:
     one_card = random.choice(all_playing_cards)
 
-    # Make  the random card the trump card and remove it from the deck:
+    # Add random card the trump list and remove it from the deck:
     trump_card.append (one_card)
     all_playing_cards.remove (one_card)
 
@@ -641,8 +641,6 @@ def put_cards_in_frames():
     # Indicate to user they can start playing:
     player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
-
-
 
 ###########################################################################################
 
