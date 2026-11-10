@@ -577,35 +577,63 @@ def begin_game():
 
 def put_cards_in_frames():
 
+    #######################################################################################
+    # Trump card section:
+    #######################################################################################
+    
     # Place the trump card in its frame:
     my_image = resize_card_image(trump_card[0].card_name)
     trump_label.configure(image=my_image)
     trump_label.image = my_image 
 
-    # Place the dealer cards in their frames:
+    #######################################################################################
+    # Dealer card section
+    #######################################################################################
     my_image = resize_card_image(computer_hand[0].card_name)
     dealer_frame_card_1_label.configure(image=my_image)
     dealer_frame_card_1_label.image = my_image 
+
+    # Update location so we know which card is in which position on the screen:
+    computer_hand[0].card_location = 'D1'
 
     my_image = resize_card_image(computer_hand[1].card_name)
     dealer_frame_card_2_label.configure(image=my_image)
     dealer_frame_card_2_label.image = my_image  
 
+    # Update location so we know which card is in which position on the screen:
+    computer_hand[0].card_location = 'D2'
+
     my_image = resize_card_image(computer_hand[2].card_name)
     dealer_frame_card_3_label.configure(image=my_image)
     dealer_frame_card_3_label.image = my_image 
+
+    # Update location so we know which card is in which position on the screen:
+    computer_hand[0].card_location = 'D3'
 
     my_image = resize_card_image(computer_hand[3].card_name)
     dealer_frame_card_4_label.configure(image=my_image)
     dealer_frame_card_4_label.image = my_image 
 
+    # Update location so we know which card is in which position on the screen:
+    computer_hand[0].card_location = 'D4'
+
     my_image = resize_card_image(computer_hand[4].card_name)
     dealer_frame_card_5_label.configure(image=my_image)
     dealer_frame_card_5_label.image = my_image 
 
+    # Update location so we know which card is in which position on the screen:
+    computer_hand[0].card_location = 'D5'    
+
     my_image = resize_card_image(computer_hand[5].card_name)
     dealer_frame_card_6_label.configure(image=my_image)
-    dealer_frame_card_6_label.image = my_image             
+    dealer_frame_card_6_label.image = my_image      
+
+    # Update location so we know which card is in which position on the screen:
+    computer_hand[0].card_location = 'D6'           
+
+    #######################################################################################
+    # Player card section
+    #######################################################################################
 
     # Place the player cards in their frames:
     my_image = resize_card_image(player_1_hand[0].card_name)
@@ -613,35 +641,53 @@ def put_cards_in_frames():
     player_frame_card_1_label.image = my_image 
     player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
 
+    # Update location so we know which card is in which position on the screen:
+    player_1_hand[0].card_location = 'P1'
+
     my_image = resize_card_image(player_1_hand[1].card_name)
     player_frame_card_2_label.configure(image=my_image)
     player_frame_card_2_label.image = my_image 
     player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
+
+    # Update location so we know which card is in which position on the screen:
+    player_1_hand[0].card_location = 'P2'    
 
     my_image = resize_card_image(player_1_hand[2].card_name)
     player_frame_card_3_label.configure(image=my_image)
     player_frame_card_3_label.image = my_image 
     player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
 
+    # Update location so we know which card is in which position on the screen:
+    player_1_hand[0].card_location = 'P3'    
+
     my_image = resize_card_image(player_1_hand[3].card_name)
     player_frame_card_4_label.configure(image=my_image)
     player_frame_card_4_label.image = my_image 
     player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
+
+    # Update location so we know which card is in which position on the screen:
+    player_1_hand[0].card_location = 'P4'    
 
     my_image = resize_card_image(player_1_hand[4].card_name)
     player_frame_card_5_label.configure(image=my_image)
     player_frame_card_5_label.image = my_image 
     player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
 
+    # Update location so we know which card is in which position on the screen:
+    player_1_hand[0].card_location = 'P5'    
+
     my_image = resize_card_image(player_1_hand[5].card_name)
     player_frame_card_6_label.configure(image=my_image)
     player_frame_card_6_label.image = my_image 
-    player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)    
+    player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)   
+
+    # Update location so we know which card is in which position on the screen:
+    player_1_hand[0].card_location = 'P6'     
 
     # Indicate to user they can start playing:
     player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
-
+    
 ###########################################################################################
 
 def determine_round_winner():
