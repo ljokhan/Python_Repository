@@ -572,7 +572,7 @@ def determine_round_winner():
         # Player has trump card. Dealer does not have trump. Player wins:
         winner = 'player'
 
-    elif (board_hand[0].card_suit != trump_card[0].card_suit) and (board_hand[1].card_suit != trump_card[0].card_suit):
+    elif (board_hand[0].card_suit != trump_card[0].card_suit) and (board_hand[1].card_suit == trump_card[0].card_suit):
 
         # Dealer has trump card. Player does not have trump. Dealer wins:
         winner = 'dealer'
@@ -581,7 +581,7 @@ def determine_round_winner():
             (board_hand[0].card_value > board_hand[1].card_value)   :
 
         # Both have trump cards. Player  card is higher. Player wins:
-        winner = 'dealer'
+        winner = 'player'
 
     elif (board_hand[0].card_suit == trump_card[0].card_suit) and (board_hand[1].card_suit == trump_card[0].card_suit) and \
             (board_hand[0].card_value < board_hand[1].card_value)   :
