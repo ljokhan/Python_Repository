@@ -484,13 +484,14 @@ def create_new_deck():
 
     # Create class to store each playing card:
     class class_playing_card:
-        def __init__(self, card_name, card_value, card_suit, card_image_path):
+        def __init__(self, card_name, card_value, card_suit, card_image_path, board_location):
             self.card_name = card_name
             self.card_value = card_value
             self.card_suit = card_suit
             self.card_image_path = card_image_path
+            self.board_location = board_location
     
-    # Create a suits and individual cards:
+    # Create suits and individual cards:
     suits = ["Hearts","Diamonds","Clubs","Spades"]
     card_values = [x for x in range (2,14)]
 
@@ -509,11 +510,15 @@ def create_new_deck():
                 tempcard = (f"{one_card_value}_of_{one_suit}")
             deck_of_cards.append(tempcard)
 
-            one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png")
+            # Generate one instance of the playing card class:
+            one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png", None)
+
+            # Append playing card to list:
             all_playing_cards.append(one_card)
 
     for one_playing_card in all_playing_cards:
         print (one_playing_card.card_name)
+
 ###########################################################################################
 
 def deal_cards():
@@ -522,29 +527,30 @@ def deal_cards():
     for i in range(1, 1 + no_cards_per_player):
 
         # Pick a random card:
-        one_card = random.choice(deck_of_cards)
+        #one_card = random.choice(deck_of_cards)
+        one_card = random.choice(all_playing_cards)
 
         # Give the random card to the player:
         player_1_hand.append (one_card)
-        deck_of_cards.remove (one_card)
+        all_playing_cards.remove (one_card)
 
         # Pick another random card:
-        one_card = random.choice(deck_of_cards)
+        one_card = random.choice(all_playing_cards)
 
         # Give the random card to the computer player:
         computer_hand.append (one_card)
-        deck_of_cards.remove (one_card)
+        all_playing_cards.remove (one_card)
 
 ###########################################################################################
 
 def kick_trump_card():
 
     # Pick a random card:
-    one_card = random.choice(deck_of_cards)
+    one_card = random.choice(all_playing_cards)
 
     # Make  the random card the trump card and remove it from the deck:
     trump_card.append (one_card)
-    deck_of_cards.remove (one_card)
+    all_playing_cards.remove (one_card)
 
 ###########################################################################################
 
@@ -553,75 +559,6 @@ def create_buttons():
     # Create button to shuffle the deck:
     shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
     shuffle_button.grid(row=5, column=0, padx=5, pady=5)
-
-###########################################################################################
-
-def put_cards_in_frames():
-
-    # Place the trump card in its frame:
-    my_image = resize_card_image(trump_card[0])
-    trump_label.configure(image=my_image)
-    trump_label.image = my_image 
-
-    # Place the dealer cards in their frames:
-    my_image = resize_card_image(computer_hand[0])
-    dealer_frame_card_1_label.configure(image=my_image)
-    dealer_frame_card_1_label.image = my_image 
-
-    my_image = resize_card_image(computer_hand[1])
-    dealer_frame_card_2_label.configure(image=my_image)
-    dealer_frame_card_2_label.image = my_image 
-
-    my_image = resize_card_image(computer_hand[2])
-    dealer_frame_card_3_label.configure(image=my_image)
-    dealer_frame_card_3_label.image = my_image 
-
-    my_image = resize_card_image(computer_hand[3])
-    dealer_frame_card_4_label.configure(image=my_image)
-    dealer_frame_card_4_label.image = my_image 
-
-    my_image = resize_card_image(computer_hand[4])
-    dealer_frame_card_5_label.configure(image=my_image)
-    dealer_frame_card_5_label.image = my_image 
-
-    my_image = resize_card_image(computer_hand[5])
-    dealer_frame_card_6_label.configure(image=my_image)
-    dealer_frame_card_6_label.image = my_image             
-
-    # Place the player cards in their frames:
-    my_image = resize_card_image(player_1_hand[0])
-    player_frame_card_1_label.configure(image=my_image)
-    player_frame_card_1_label.image = my_image 
-    player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
-
-    my_image = resize_card_image(player_1_hand[1])
-    player_frame_card_2_label.configure(image=my_image)
-    player_frame_card_2_label.image = my_image 
-    player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
-
-    my_image = resize_card_image(player_1_hand[2])
-    player_frame_card_3_label.configure(image=my_image)
-    player_frame_card_3_label.image = my_image 
-    player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
-
-    my_image = resize_card_image(player_1_hand[3])
-    player_frame_card_4_label.configure(image=my_image)
-    player_frame_card_4_label.image = my_image 
-    player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
-
-    my_image = resize_card_image(player_1_hand[4])
-    player_frame_card_5_label.configure(image=my_image)
-    player_frame_card_5_label.image = my_image 
-    player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
-
-    my_image = resize_card_image(player_1_hand[5])
-    player_frame_card_6_label.configure(image=my_image)
-    player_frame_card_6_label.image = my_image 
-    player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)    
-
-    # Indicate to user they can start playing:
-    player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
-    player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
 
 ###########################################################################################
 
@@ -635,6 +572,77 @@ def begin_game():
 
     # Place cards in the frames:
     put_cards_in_frames()
+
+###########################################################################################
+
+def put_cards_in_frames():
+
+    # Place the trump card in its frame:
+    my_image = resize_card_image(trump_card[0].card_name)
+    trump_label.configure(image=my_image)
+    trump_label.image = my_image 
+
+    # Place the dealer cards in their frames:
+    my_image = resize_card_image(computer_hand[0].card_name)
+    dealer_frame_card_1_label.configure(image=my_image)
+    dealer_frame_card_1_label.image = my_image 
+
+    my_image = resize_card_image(computer_hand[1].card_name)
+    dealer_frame_card_2_label.configure(image=my_image)
+    dealer_frame_card_2_label.image = my_image  
+
+    my_image = resize_card_image(computer_hand[2].card_name)
+    dealer_frame_card_3_label.configure(image=my_image)
+    dealer_frame_card_3_label.image = my_image 
+
+    my_image = resize_card_image(computer_hand[3].card_name)
+    dealer_frame_card_4_label.configure(image=my_image)
+    dealer_frame_card_4_label.image = my_image 
+
+    my_image = resize_card_image(computer_hand[4].card_name)
+    dealer_frame_card_5_label.configure(image=my_image)
+    dealer_frame_card_5_label.image = my_image 
+
+    my_image = resize_card_image(computer_hand[5].card_name)
+    dealer_frame_card_6_label.configure(image=my_image)
+    dealer_frame_card_6_label.image = my_image             
+
+    # Place the player cards in their frames:
+    my_image = resize_card_image(player_1_hand[0].card_name)
+    player_frame_card_1_label.configure(image=my_image)
+    player_frame_card_1_label.image = my_image 
+    player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
+
+    my_image = resize_card_image(player_1_hand[1].card_name)
+    player_frame_card_2_label.configure(image=my_image)
+    player_frame_card_2_label.image = my_image 
+    player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
+
+    my_image = resize_card_image(player_1_hand[2].card_name)
+    player_frame_card_3_label.configure(image=my_image)
+    player_frame_card_3_label.image = my_image 
+    player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
+
+    my_image = resize_card_image(player_1_hand[3].card_name)
+    player_frame_card_4_label.configure(image=my_image)
+    player_frame_card_4_label.image = my_image 
+    player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
+
+    my_image = resize_card_image(player_1_hand[4].card_name)
+    player_frame_card_5_label.configure(image=my_image)
+    player_frame_card_5_label.image = my_image 
+    player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
+
+    my_image = resize_card_image(player_1_hand[5].card_name)
+    player_frame_card_6_label.configure(image=my_image)
+    player_frame_card_6_label.image = my_image 
+    player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)    
+
+    # Indicate to user they can start playing:
+    player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
+    player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
+
+
 
 ###########################################################################################
 
@@ -675,6 +683,6 @@ create_frames()
 create_new_deck()
 
 # Create buttons to play the game:
-#create_buttons()
+create_buttons()
 
 root.mainloop()
