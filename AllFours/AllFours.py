@@ -24,6 +24,7 @@ frame_height = 180
 all_playing_cards = []
 player_1_hand = []
 computer_hand = []
+board_hand = []
 trump_card = []
 
 ###########################################################################################
@@ -508,6 +509,14 @@ def player_frame_card_6_click (event):
     dealer_frame_card_6_label.image = my_image 
 
     determine_round_winner()        
+
+###########################################################################################
+
+def find_card_in_location(my_board_location):
+
+
+
+    pass
 
 ###########################################################################################
 
