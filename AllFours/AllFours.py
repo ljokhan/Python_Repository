@@ -314,6 +314,9 @@ def player_frame_card_1_click (event):
     round_frame_card_1_label.configure(image=my_image)
     round_frame_card_1_label.image = my_image 
 
+    # Save new location of card:
+    player_1_hand[0].card_location = 'B1'
+
     # Now hide the card from the player's hand:
     my_image = resize_card_image("blank_card")
     player_frame_card_1_label.configure(image=my_image)
@@ -323,6 +326,9 @@ def player_frame_card_1_click (event):
     my_image = resize_card_image(computer_hand[0].card_name)
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
+
+    # Save new location of card:
+    computer_hand[0].card_location = 'B2'
 
      # Now hide the card from the computer's hand:
     my_image = resize_card_image("blank_card")
@@ -342,6 +348,9 @@ def player_frame_card_2_click (event):
     round_frame_card_1_label.configure(image=my_image) 
     round_frame_card_1_label.image = my_image
 
+    # Save new location of card:
+    player_1_hand[1].card_location = 'B1'
+
     # Now hide the card from the player's hand:
     my_image = resize_card_image("blank_card")
     player_frame_card_2_label.configure(image=my_image)
@@ -351,6 +360,9 @@ def player_frame_card_2_click (event):
     my_image = resize_card_image(computer_hand[1].card_name)
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
+
+    # Save new location of card:
+    computer_hand[1].card_location = 'B2'    
 
     # Now hide the card from the computer's hand:
     my_image = resize_card_image("blank_card")
@@ -369,6 +381,9 @@ def player_frame_card_3_click (event):
     my_image = resize_card_image(player_1_hand[2].card_name)
     round_frame_card_1_label.configure(image=my_image) 
     round_frame_card_1_label.image = my_image
+    
+    # Save new location of card:
+    player_1_hand[2].card_location = 'B1'    
 
     # Now hide the card from the player's hand:
     my_image = resize_card_image("blank_card")
@@ -379,6 +394,9 @@ def player_frame_card_3_click (event):
     my_image = resize_card_image(computer_hand[2].card_name)
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
+
+    # Save new location of card:
+    computer_hand[2].card_location = 'B2'     
 
     # Now hide the card from the computer's hand:
     my_image = resize_card_image("blank_card")
@@ -399,6 +417,9 @@ def player_frame_card_4_click (event):
     round_frame_card_1_label.configure(image=my_image) 
     round_frame_card_1_label.image = my_image
 
+    # Save new location of card:
+    player_1_hand[3].card_location = 'B1'
+
     # Now hide the card from the player's hand:
     #player_frame_card_4.grid_remove()
     my_image = resize_card_image("blank_card")
@@ -409,6 +430,9 @@ def player_frame_card_4_click (event):
     my_image = resize_card_image(computer_hand[3].card_name)
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
+
+    # Save new location of card:
+    computer_hand[3].card_location = 'B2'
 
     # Now hide the card from the computer's hand:
     my_image = resize_card_image("blank_card")
@@ -428,6 +452,9 @@ def player_frame_card_5_click (event):
     round_frame_card_1_label.configure(image=my_image) 
     round_frame_card_1_label.image = my_image
 
+    # Save new location of card:
+    player_1_hand[4].card_location = 'B1'    
+
     # Now hide the card from the player's hand:
     my_image = resize_card_image("blank_card")
     player_frame_card_5_label.configure(image=my_image)
@@ -437,6 +464,9 @@ def player_frame_card_5_click (event):
     my_image = resize_card_image(computer_hand[4].card_name)
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
+
+    # Save new location of card:
+    computer_hand[4].card_location = 'B2'
 
     # Now hide the card from the computer's hand:
     my_image = resize_card_image("blank_card")
@@ -456,6 +486,9 @@ def player_frame_card_6_click (event):
     round_frame_card_1_label.configure(image=my_image) 
     round_frame_card_1_label.image = my_image
 
+    # Save new location of card:
+    player_1_hand[5].card_location = 'B1'    
+
     # Now hide the card from the player's hand:
     my_image = resize_card_image("blank_card")
     player_frame_card_6_label.configure(image=my_image)
@@ -465,6 +498,9 @@ def player_frame_card_6_click (event):
     my_image = resize_card_image(computer_hand[5].card_name)
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
+
+    # Save new location of card:
+    computer_hand[5].card_location = 'B2'    
 
     # Now hide the card from the computer's hand:
     my_image = resize_card_image("blank_card")
@@ -477,7 +513,7 @@ def player_frame_card_6_click (event):
 
 def determine_round_winner():
     
-    messagebox ("Calculate round winner...")
+    messagebox.askyesno ("click to continue")
 
     player_card_suit = ''
     player_card_value = 0
