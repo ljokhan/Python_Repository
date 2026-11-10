@@ -547,11 +547,53 @@ def player_frame_card_6_click (event):
 
 ###########################################################################################
 
-def calculate_points ():
+def calculate_points_per_card (one_card):
 
-    points_this_round = 0
+    points_per_card = 0
 
-    return points_this_round
+    if one_card.card_value < 10:
+
+        # No points for cards 2 -> 9:
+        points_per_card = 0
+
+    elif one_card.card_value == 10:
+
+        # 10-card gets 10 points:
+        points_per_card = 10
+    
+    elif one_card.card_value == 11:
+
+        # Jack gets 1 point:
+        points_per_card = 1
+
+    elif one_card.card_value == 12:
+
+        # Queen  gets 2 points:
+        points_per_card = 2
+
+    elif one_card.card_value == 13:
+
+        # King gets 3 points:
+        points_per_card = 3
+    
+    elif one_card.card_value == 14:
+
+        # Ace gets 3 points:
+        points_per_card = 4
+
+    return points_per_card
+
+###########################################################################################
+
+def calculate_points_per_hand():
+
+    points_per_hand = 0
+
+    points_per_hand = points_per_hand + calculate_points_per_card(board_hand[0])
+
+    points_per_hand = points_per_hand + calculate_points_per_card(board_hand[1])
+
+    return points_per_hand
 
 ###########################################################################################
 
@@ -599,8 +641,15 @@ def determine_round_winner():
 
         # Neither have trump cards. Both have different suits. Player played 1st, so his card makes him the winner:
         winner = 'player'  
-    
-    messagebox.showinfo("Who won this round?", "The winner of this round is..." + winner)
+
+    # Calculate points for this hand:
+    points_this_round = calculate_points_per_hand()
+
+    # Display message showing who won and how many points were won this hand:
+    if points_this_round == 0:
+        messagebox.showinfo ("Results", winner.title() + " wins this round!" )
+    elif points_this_round > 0:
+        messagebox.showinfo ("Results", winner.title() + " wins this round with "  + points_this_round.__str__() + " points!" )
 
 ###########################################################################################
 
