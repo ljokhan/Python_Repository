@@ -646,10 +646,12 @@ def determine_round_winner ():
     points_this_round = calculate_points_per_hand()
 
     # Display message showing who won and how many points were won this hand:
-    if points_this_round == 0:
-        messagebox.showinfo ("Results", winner.title() + " wins this round!" )
-    elif points_this_round > 0:
-        messagebox.showinfo ("Results", winner.title() + " wins this round with "  + points_this_round.__str__() + " points!" )
+    winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_round.__str__() + " points!")
+    
+    #if points_this_round == 0:
+    #    messagebox.showinfo ("Results", winner.title() + " wins this round!" )
+    #elif points_this_round > 0:
+    #    messagebox.showinfo ("Results", winner.title() + " wins this round with "  + points_this_round.__str__() + " points!" )
 
 ###########################################################################################
 
@@ -738,14 +740,17 @@ def create_buttons ():
 def create_point_counters ():
 
     # This label shows the winner for this hand:
+    global winner_of_current_hand_label
     winner_of_current_hand_label = Label(frame_right_sidebar, text="Current hand results", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
     winner_of_current_hand_label.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
 
     # This label shows the total points for the dealer:
+    global points_dealer_label
     points_dealer_label = Label(frame_right_sidebar, text="Dealer points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
     points_dealer_label.grid(row=3, column=0, padx=10, pady=10, sticky="nsew")
 
     # This label shows the total points for the player:
+    global points_player_label
     points_player_label = Label(frame_right_sidebar, text="Player points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
     points_player_label.grid(row=4, column=0, padx=10, pady=10, sticky="nsew")
 
