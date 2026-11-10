@@ -559,6 +559,9 @@ def determine_round_winner():
     
     messagebox.askyesno ("click to continue")
 
+    
+    messagebox.askyesno (trump_card[0].card_suit)
+
     player_card_suit = ''
     player_card_value = 0
 
