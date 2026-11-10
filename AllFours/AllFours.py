@@ -556,14 +556,43 @@ def find_card_in_location(my_board_location):
 ###########################################################################################
 
 def determine_round_winner():
-    
-    messagebox.askyesno ("click to continue")
 
+    winner = "**"
     
-    messagebox.askyesno (trump_card[0].card_suit)
+    #print (trump_card[0].card_suit)
+    #print (trump_card[0].card_value)
+    #print (board_hand[0].card_suit)
+    #print (board_hand[0].card_value)
+    #print (board_hand[1].card_suit)
+    #print (board_hand[1].card_value)    
 
-    player_card_suit = ''
-    player_card_value = 0
+    # Determine if player or dealer wins this round:
+    if (board_hand[0].card_suit == trump_card[0].card_suit) and (board_hand[1].card_suit != trump_card[0].card_suit):
+
+        # Player has trump card. Dealer does not have trump. Player wins:
+        winner = 'player'
+
+    elif (board_hand[0].card_suit != trump_card[0].card_suit) and (board_hand[1].card_suit != trump_card[0].card_suit):
+
+        # Dealer has trump card. Player does not have trump. Dealer wins:
+        winner = 'dealer'
+    
+    elif (board_hand[0].card_suit == trump_card[0].card_suit) and (board_hand[1].card_suit == trump_card[0].card_suit) and \
+            (board_hand[0].card_value > board_hand[1].card_value)   :
+
+        # Both have trump cards. Player  card is higher. Player wins:
+        winner = 'dealer'
+
+    elif (board_hand[0].card_suit == trump_card[0].card_suit) and (board_hand[1].card_suit == trump_card[0].card_suit) and \
+            (board_hand[0].card_value < board_hand[1].card_value)   :
+
+        # Both have trump cards. Dealer card is higher. Dealer wins:
+        winner = 'dealer'
+    
+    messagebox.askyesno (winner)
+    
+    #player_card_suit = ''
+    #player_card_value = 0
 
 ###########################################################################################
 
