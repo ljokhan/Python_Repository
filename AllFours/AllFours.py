@@ -92,7 +92,7 @@ def create_frames ():
 
     global trump_frame
     trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump", background="yellow", font=("Arial", 12))
-    trump_frame.grid(row=0, column=1, padx=20, ipadx=40, pady=20)
+    trump_frame.grid(row=0, column=0, padx=20, ipadx=40, pady=20)
 
     global trump_label
     trump_label = Label(trump_frame, text='1. This is a Label.')
@@ -731,7 +731,23 @@ def create_buttons ():
 
     # Create button to shuffle the deck:
     shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
-    shuffle_button.grid(row=5, column=0, padx=5, pady=5)
+    shuffle_button.grid(row=1, column=0, padx=5, pady=5)
+
+###########################################################################################
+
+def create_point_counters ():
+
+    # This label shows the winner for this hand:
+    winner_of_current_hand_label = Label(frame_right_sidebar, text="Current hand results", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    winner_of_current_hand_label.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
+
+    # This label shows the total points for the dealer:
+    points_dealer_label = Label(frame_right_sidebar, text="Dealer points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    points_dealer_label.grid(row=3, column=0, padx=10, pady=10, sticky="nsew")
+
+    # This label shows the total points for the player:
+    points_player_label = Label(frame_right_sidebar, text="Player points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    points_player_label.grid(row=4, column=0, padx=10, pady=10, sticky="nsew")
 
 ###########################################################################################
 
@@ -894,5 +910,8 @@ create_new_deck()
 
 # Create buttons to play the game:
 create_buttons()
+
+# Create counter for points:
+create_point_counters ()
 
 root.mainloop()
