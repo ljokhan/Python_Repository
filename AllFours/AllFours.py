@@ -547,24 +547,17 @@ def player_frame_card_6_click (event):
 
 ###########################################################################################
 
-def find_card_in_location(my_board_location):
+def calculate_points ():
 
+    points_this_round = 0
 
-
-    pass
+    return points_this_round
 
 ###########################################################################################
 
 def determine_round_winner():
 
-    winner = "**"
-    
-    #print (trump_card[0].card_suit)
-    #print (trump_card[0].card_value)
-    #print (board_hand[0].card_suit)
-    #print (board_hand[0].card_value)
-    #print (board_hand[1].card_suit)
-    #print (board_hand[1].card_value)    
+    winner = "* ERROR - NO WINNER CALCULATED*"
 
     # Determine if player or dealer wins this round:
     if (board_hand[0].card_suit == trump_card[0].card_suit) and (board_hand[1].card_suit != trump_card[0].card_suit):
@@ -607,10 +600,7 @@ def determine_round_winner():
         # Neither have trump cards. Both have different suits. Player played 1st, so his card makes him the winner:
         winner = 'player'  
     
-    messagebox.askyesno (winner)
-    
-    #player_card_suit = ''
-    #player_card_value = 0
+    messagebox.showinfo("Who won this round?", "The winner of this round is..." + winner)
 
 ###########################################################################################
 
