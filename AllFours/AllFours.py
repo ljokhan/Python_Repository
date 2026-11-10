@@ -29,7 +29,7 @@ trump_card = []
 
 ###########################################################################################
 
-def create_application():
+def create_application ():
 
     # Create the main application window:
     global root
@@ -45,14 +45,14 @@ def create_application():
 
 ###########################################################################################
 
-def exit_fullscreen(event=None):
+def exit_fullscreen (event=None):
 
     # This functions changes game to full screen:
     root.attributes('-fullscreen', False)
 
 ###########################################################################################
 
-def create_frames():
+def create_frames ():
 
     ###########################################################################################
     # Split main application window into (1) side-bar to display points and (2) main board where cards are played:
@@ -585,7 +585,7 @@ def calculate_points_per_card (one_card):
 
 ###########################################################################################
 
-def calculate_points_per_hand():
+def calculate_points_per_hand ():
 
     points_per_hand = 0
 
@@ -597,7 +597,7 @@ def calculate_points_per_hand():
 
 ###########################################################################################
 
-def determine_round_winner():
+def determine_round_winner ():
 
     winner = "* ERROR - NO WINNER CALCULATED*"
 
@@ -653,7 +653,7 @@ def determine_round_winner():
 
 ###########################################################################################
 
-def create_new_deck():
+def create_new_deck ():
 
     # Create class to store each playing card:
     class class_playing_card:
@@ -694,7 +694,7 @@ def create_new_deck():
 
 ###########################################################################################
 
-def deal_cards():
+def deal_cards ():
 
     # Deal cards to each player one at a time until each player has the required number of cards:
     for i in range(1, 1 + no_cards_per_player):
@@ -716,7 +716,7 @@ def deal_cards():
 
 ###########################################################################################
 
-def kick_trump_card():
+def kick_trump_card ():
 
     # Pick a random card:
     one_card = random.choice(all_playing_cards)
@@ -727,7 +727,7 @@ def kick_trump_card():
 
 ###########################################################################################
 
-def create_buttons():
+def create_buttons ():
 
     # Create button to shuffle the deck:
     shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
@@ -735,7 +735,7 @@ def create_buttons():
 
 ###########################################################################################
 
-def begin_game():
+def begin_game ():
   
     # Deal the cards to all players:
     deal_cards()
@@ -748,7 +748,7 @@ def begin_game():
 
 ###########################################################################################
 
-def put_cards_in_frames():
+def put_cards_in_frames ():
 
     #######################################################################################
     # Trump card section:
@@ -863,7 +863,7 @@ def put_cards_in_frames():
     
 ###########################################################################################
 
-def resize_card_image(card):
+def resize_card_image (card):
 
     image_path = "./AllFours/PlayingCardImages/" + card + ".png"
     pil_image = Image.open(image_path)
