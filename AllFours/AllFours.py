@@ -646,7 +646,10 @@ def determine_round_winner ():
     points_this_round = calculate_points_per_hand()
 
     # Display message showing who won and how many points were won this hand:
-    winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_round.__str__() + " points!")
+    if points_this_round == 0:
+        winner_of_current_hand_label.configure(text=winner.title() + " wins!")
+    elif points_this_round > 0:
+        winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_round.__str__() + " points!")
     
     #if points_this_round == 0:
     #    messagebox.showinfo ("Results", winner.title() + " wins this round!" )
