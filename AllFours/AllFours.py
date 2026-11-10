@@ -12,6 +12,15 @@ import time
 # Declare global variables:
 deck_of_cards = []
 no_cards_per_player = 6
+num_chalks_dealer = 0
+num_chalks_player = 0
+
+# These store the total point for a single round of play:
+global points_this_round_player
+points_this_round_player = 0
+
+global points_this_round_dealer
+points_this_round_dealer = 0
 
 # These set the size of the frames which holds the cards:
 global frame_width
@@ -581,6 +590,9 @@ def calculate_points_per_card (one_card):
         # Ace gets 3 points:
         points_per_card = 4
 
+    else: 
+        points_per_card = 0
+
     return points_per_card
 
 ###########################################################################################
@@ -598,6 +610,9 @@ def calculate_points_per_hand ():
 ###########################################################################################
 
 def determine_round_winner ():
+
+    global points_this_round_player
+    global points_this_round_dealer
 
     winner = "* ERROR - NO WINNER CALCULATED*"
 
@@ -643,18 +658,31 @@ def determine_round_winner ():
         winner = 'player'  
 
     # Calculate points for this hand:
-    points_this_round = calculate_points_per_hand()
+    points_this_hand = calculate_points_per_hand()
+    messagebox.showinfo("Points this hand", points_this_hand)
+
+    # Add points for this hand to the total point counter for this round of play:
+    if winner == 'player':
+        points_this_round_player += points_this_hand
+    elif winner == 'dealer':
+        points_this_round_dealer += points_this_hand
 
     # Display message showing who won and how many points were won this hand:
-    if points_this_round == 0:
+    if points_this_hand == 0:
         winner_of_current_hand_label.configure(text=winner.title() + " wins!")
-    elif points_this_round > 0:
-        winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_round.__str__() + " points!")
-    
-    #if points_this_round == 0:
-    #    messagebox.showinfo ("Results", winner.title() + " wins this round!" )
-    #elif points_this_round > 0:
-    #    messagebox.showinfo ("Results", winner.title() + " wins this round with "  + points_this_round.__str__() + " points!" )
+    elif points_this_hand == 1:
+        winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_hand.__str__() + " point!")
+    elif points_this_hand > 1:
+            winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_hand.__str__() + " points!")
+
+    # Update labels so player can see total points this round:
+    #temp = points_this_round_player.__str__
+    #points_dealer_label.configure (text=temp)
+    #points_player_label.configure (text=temp)
+
+    #messagebox.showinfo("", points_this_round_player)
+    #messagebox.showinfo("", points_this_round_dealer)
+
 
 ###########################################################################################
 
@@ -923,3 +951,4 @@ create_buttons()
 create_point_counters ()
 
 root.mainloop()
+
