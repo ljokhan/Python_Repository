@@ -24,7 +24,7 @@ frame_height = 180
 all_playing_cards = []
 player_1_hand = []
 computer_hand = []
-board_hand = []
+board_hand = ["placeholder1", "placeholder2"]
 trump_card = []
 
 ###########################################################################################
@@ -310,31 +310,26 @@ def player_frame_card_1_click (event):
 
     print("Frame 1 was clicked")
 
-    # Player clicked the card to play, so move the card from the player frame to the round frame:
-    my_image = resize_card_image(player_1_hand[0].card_name)
+    # Player clicked the card to play, so move the card from the player hand to the board:
+    board_hand[0] = player_1_hand[0]
+    player_1_hand.remove (player_1_hand[0])
+
+    my_image = resize_card_image(board_hand[0].card_name)
     round_frame_card_1_label.configure(image=my_image)
     round_frame_card_1_label.image = my_image 
-
-    # Save new location of card:
-    player_1_hand[0].card_location = 'B1'
-
+    
     # Now hide the card from the player's hand:
     my_image = resize_card_image("blank_card")
     player_frame_card_1_label.configure(image=my_image)
     player_frame_card_1_label.image = my_image 
 
-    # Now is the computer's turn to play a card, so move the card from the computer frame to the round frame:
-    my_image = resize_card_image(computer_hand[0].card_name)
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
+    board_hand[1] = computer_hand[0]
+    computer_hand.remove (computer_hand[0])
+
+    my_image = resize_card_image(board_hand[1].card_name)
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
-
-    # Save new location of card:
-    computer_hand[0].card_location = 'B2'
-
-     # Now hide the card from the computer's hand:
-    my_image = resize_card_image("blank_card")
-    dealer_frame_card_1_label.configure(image=my_image)
-    dealer_frame_card_1_label.image = my_image 
 
     determine_round_winner()
 
@@ -369,7 +364,7 @@ def player_frame_card_2_click (event):
     my_image = resize_card_image("blank_card")
     dealer_frame_card_2_label.configure(image=my_image)
     dealer_frame_card_2_label.image = my_image 
-
+    
     determine_round_winner()
 
 ###########################################################################################
