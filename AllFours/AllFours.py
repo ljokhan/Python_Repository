@@ -590,18 +590,6 @@ def calculate_points_per_card (one_card):
         # Ace gets 3 points:
         points_per_card = 4
 
-    #messagebox.showinfo("calculate_points_per_card", points_per_card)
-
-    """
-    if points_per_card is None:
-            temp = "points per card is None"
-    elif points_per_card == 0:
-        temp = "points per card = 0"
-    elif points_per_card >= 0:
-        temp = "points per card > 0"        
-    messagebox.showinfo("calculate_points_per_card TF", temp )
-    """
-
     return points_per_card
 
 ###########################################################################################
