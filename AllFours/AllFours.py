@@ -558,7 +558,7 @@ def player_frame_card_6_click (event):
 
 def calculate_points_per_card (one_card):
 
-    points_per_card = 0
+    #points_per_card = 0
 
     if one_card.card_value < 10:
 
@@ -590,8 +590,17 @@ def calculate_points_per_card (one_card):
         # Ace gets 3 points:
         points_per_card = 4
 
-    else: 
-        points_per_card = 0
+    #messagebox.showinfo("calculate_points_per_card", points_per_card)
+
+    """
+    if points_per_card is None:
+            temp = "points per card is None"
+    elif points_per_card == 0:
+        temp = "points per card = 0"
+    elif points_per_card >= 0:
+        temp = "points per card > 0"        
+    messagebox.showinfo("calculate_points_per_card TF", temp )
+    """
 
     return points_per_card
 
@@ -659,7 +668,7 @@ def determine_round_winner ():
 
     # Calculate points for this hand:
     points_this_hand = calculate_points_per_hand()
-    messagebox.showinfo("Points this hand", points_this_hand)
+    #messagebox.showinfo("Points this hand", points_this_hand)
 
     # Add points for this hand to the total point counter for this round of play:
     if winner == 'player':
@@ -677,8 +686,8 @@ def determine_round_winner ():
 
     # Update labels so player can see total points this round:
     #temp = points_this_round_player.__str__
-    #points_dealer_label.configure (text=temp)
-    #points_player_label.configure (text=temp)
+    points_dealer_label.configure (text="Dealer points: " + points_this_round_dealer.__str__())
+    points_player_label.configure (text="Player points: " + points_this_round_player.__str__())
 
     #messagebox.showinfo("", points_this_round_player)
     #messagebox.showinfo("", points_this_round_dealer)
@@ -723,7 +732,7 @@ def create_new_deck ():
             all_playing_cards.append(one_card)
 
     for one_playing_card in all_playing_cards:
-        print (one_playing_card.card_name)
+        print (one_playing_card.card_value)
 
 ###########################################################################################
 
