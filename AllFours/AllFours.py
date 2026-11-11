@@ -7,6 +7,8 @@ from PIL import Image, ImageTk
 import random
 import time
 
+
+
 ###########################################################################################
 
 # Declare global variables:
