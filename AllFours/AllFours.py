@@ -685,13 +685,8 @@ def determine_round_winner ():
             winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_hand.__str__() + " points!")
 
     # Update labels so player can see total points this round:
-    #temp = points_this_round_player.__str__
     points_dealer_label.configure (text="Dealer points: " + points_this_round_dealer.__str__())
     points_player_label.configure (text="Player points: " + points_this_round_player.__str__())
-
-    #messagebox.showinfo("", points_this_round_player)
-    #messagebox.showinfo("", points_this_round_dealer)
-
 
 ###########################################################################################
 
