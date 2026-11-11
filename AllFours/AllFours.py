@@ -351,7 +351,7 @@ def player_frame_card_1_click (event):
     dealer_frame_card_1_label.configure(image=my_image)
     dealer_frame_card_1_label.image = my_image 
 
-    determine_round_winner()
+    determine_winner_of_this_hand()
 
 ###########################################################################################
 
@@ -391,7 +391,7 @@ def player_frame_card_2_click (event):
     dealer_frame_card_2_label.configure(image=my_image)
     dealer_frame_card_2_label.image = my_image 
     
-    determine_round_winner()
+    determine_winner_of_this_hand()
 
 ###########################################################################################
 
@@ -431,7 +431,7 @@ def player_frame_card_3_click (event):
     dealer_frame_card_3_label.configure(image=my_image)
     dealer_frame_card_3_label.image = my_image 
 
-    determine_round_winner()
+    determine_winner_of_this_hand()
 
 ###########################################################################################
 
@@ -473,7 +473,7 @@ def player_frame_card_4_click (event):
     dealer_frame_card_4_label.configure(image=my_image)
     dealer_frame_card_4_label.image = my_image 
 
-    determine_round_winner()    
+    determine_winner_of_this_hand()    
 
 ###########################################################################################
 
@@ -513,7 +513,7 @@ def player_frame_card_5_click (event):
     dealer_frame_card_5_label.configure(image=my_image)
     dealer_frame_card_5_label.image = my_image 
 
-    determine_round_winner()    
+    determine_winner_of_this_hand()    
 
 ###########################################################################################
 
@@ -552,7 +552,8 @@ def player_frame_card_6_click (event):
     my_image = resize_card_image("blank_card")
     dealer_frame_card_6_label.configure(image=my_image)
     dealer_frame_card_6_label.image = my_image 
-    determine_round_winner()        
+    
+    determine_winner_of_this_hand()        
 
 ###########################################################################################
 
@@ -606,7 +607,7 @@ def calculate_points_per_hand ():
 
 ###########################################################################################
 
-def determine_round_winner ():
+def determine_winner_of_this_hand ():
 
     global points_this_round_player
     global points_this_round_dealer
@@ -675,6 +676,8 @@ def determine_round_winner ():
     # Update labels so player can see total points this round:
     points_dealer_label.configure (text="Dealer points: " + points_this_round_dealer.__str__())
     points_player_label.configure (text="Player points: " + points_this_round_player.__str__())
+
+###########################################################################################
 
 ###########################################################################################
 
