@@ -552,7 +552,7 @@ def player_frame_card_6_click (event):
     my_image = resize_card_image("blank_card")
     dealer_frame_card_6_label.configure(image=my_image)
     dealer_frame_card_6_label.image = my_image 
-    
+
     determine_winner_of_this_hand()        
 
 ###########################################################################################
@@ -677,7 +677,16 @@ def determine_winner_of_this_hand ():
     points_dealer_label.configure (text="Dealer points: " + points_this_round_dealer.__str__())
     points_player_label.configure (text="Player points: " + points_this_round_player.__str__())
 
+    # Determine if this hand is over:
+    is_this_hand_over()
+
 ###########################################################################################
+
+def is_this_hand_over ():
+
+    if player_1_hand [0] is None and player_1_hand [1] is None and player_1_hand [2] is None and player_1_hand [3] is None and \
+        player_1_hand [4] is None and player_1_hand [5] is None:
+        messagebox.showinfo ("", "This hand is over")
 
 ###########################################################################################
 
@@ -717,8 +726,8 @@ def create_new_deck ():
             # Append playing card to list:
             all_playing_cards.append(one_card)
 
-    for one_playing_card in all_playing_cards:
-        print (one_playing_card.card_value)
+    #for one_playing_card in all_playing_cards:
+    #    print (one_playing_card.card_value)
 
 ###########################################################################################
 
