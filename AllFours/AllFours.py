@@ -677,12 +677,12 @@ def determine_winner_of_this_hand ():
     points_dealer_label.configure (text="Dealer points: " + points_this_round_dealer.__str__())
     points_player_label.configure (text="Player points: " + points_this_round_player.__str__())
 
-    # Determine if this hand is over:
-    is_this_hand_over()
+    # Determine if this round is over:
+    is_this_round_over()
 
 ###########################################################################################
 
-def is_this_hand_over ():
+def is_this_round_over ():
 
     if player_1_hand [0] is None and player_1_hand [1] is None and player_1_hand [2] is None and player_1_hand [3] is None and \
         player_1_hand [4] is None and player_1_hand [5] is None:
