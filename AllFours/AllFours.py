@@ -140,6 +140,12 @@ def create_frames_and_buttons ():
     global hang_jack_label
     hang_jack_label = Label(frame_right_sidebar, text="Hang jack:", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
     hang_jack_label.grid(row=7, column=0, padx=10, pady=10, sticky="nsew")
+
+    text_box = Text(frame_right_sidebar, width=40, height=10, wrap="word")
+    text_box.grid(row=8, column=0, sticky="nsew", padx=10, pady=10)
+
+
+    text_box.insert("1.0",'xx')
     
     ###########################################################################################
     # Create frames which show dealer cards:
