@@ -15,6 +15,7 @@ deck_of_cards = []
 num_cards_per_player = 6
 num_chalks_dealer = 0
 num_chalks_player = 0
+bgcolor = "green"
 
 # These store the total point for a single round of play:
 global points_this_round_player
@@ -45,7 +46,7 @@ def create_application ():
     global root
     root = Tk()
     root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
-    root.configure(background="green")
+    root.configure(background=bgcolor)
 
     # Enable fullscreen mode:
     #   root.attributes('-fullscreen', True)
@@ -68,7 +69,7 @@ def create_frames ():
     # Split main application window into (1) side-bar to display points and (2) main board where cards are played:
     ###########################################################################################
     root.rowconfigure(0, weight=1)
-    root.columnconfigure(0, weight=2)    
+    root.columnconfigure(0, weight=0)    
     root.columnconfigure(1, weight=3)    
     root.columnconfigure(2, weight=2)
     
@@ -86,14 +87,14 @@ def create_frames ():
     # Create frame where cards are played:
     ###########################################################################################
     global frame_main_board
-    frame_main_board = Frame(root, bg="#3ce663", bd=2)
+    frame_main_board = Frame(root, bg=bgcolor, bd=2)
     frame_main_board.grid(row = 0, column=1, sticky="nsew")
 
     ###########################################################################################
     # Create frame for rightside-bar:
     ###########################################################################################
     global frame_right_sidebar
-    frame_right_sidebar = Frame(root, bg="yellow")
+    frame_right_sidebar = Frame(root, bg=bgcolor)
     frame_right_sidebar.grid(row = 0, column=2, sticky="nsew")
 
     ###########################################################################################
@@ -101,7 +102,7 @@ def create_frames ():
     ###########################################################################################
 
     global trump_frame
-    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump", background="yellow", font=("Arial", 12))
+    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump", background=bgcolor, font=("Arial", 12))
     trump_frame.grid(row=0, column=0, padx=20, ipadx=40, pady=20)
 
     global trump_label
@@ -121,7 +122,7 @@ def create_frames ():
     frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
         
     global dealer_frame_card_1
-    dealer_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    dealer_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     dealer_frame_card_1.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_1_label
@@ -133,7 +134,7 @@ def create_frames ():
     dealer_frame_card_1_label.image = my_image           
 
     global dealer_frame_card_2
-    dealer_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    dealer_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     dealer_frame_card_2.grid(row=1, column=1, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_2_label
@@ -145,7 +146,7 @@ def create_frames ():
     dealer_frame_card_2_label.image = my_image         
 
     global dealer_frame_card_3
-    dealer_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
+    dealer_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor)
     dealer_frame_card_3.grid(row=1, column=2, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_3_label
@@ -157,7 +158,7 @@ def create_frames ():
     dealer_frame_card_3_label.image = my_image       
 
     global dealer_frame_card_4
-    dealer_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
+    dealer_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor)
     dealer_frame_card_4.grid(row=1, column=3, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_4_label
@@ -169,7 +170,7 @@ def create_frames ():
     dealer_frame_card_4_label.image = my_image         
 
     global dealer_frame_card_5
-    dealer_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
+    dealer_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor)
     dealer_frame_card_5.grid(row=1, column=4, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_5_label
@@ -181,7 +182,7 @@ def create_frames ():
     dealer_frame_card_5_label.image = my_image     
 
     global dealer_frame_card_6
-    dealer_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
+    dealer_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor)
     dealer_frame_card_6.grid(row=1, column=5, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_6_label
@@ -204,7 +205,7 @@ def create_frames ():
     player_frame_card_label.grid(row=3, column=0, columnspan=6, padx=5, pady=5)
     
     global round_frame_card_1
-    round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background="#3ce663")    
+    round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
     round_frame_card_1.grid(row=4, column=2, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_1_label   
@@ -216,7 +217,7 @@ def create_frames ():
 
     # reate frame to hold card 2 for each round:
     global round_frame_card_2
-    round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background="#3ce663")    
+    round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
     round_frame_card_2.grid(row=4, column=3, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_2_label
@@ -237,7 +238,7 @@ def create_frames ():
 
    
     global player_frame_card_1
-    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_1.grid(row=6, column=0, padx=20, ipadx=40, pady=20)
     player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
 
@@ -250,7 +251,7 @@ def create_frames ():
     player_frame_card_1_label.image = my_image 
 
     global player_frame_card_2
-    player_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_2.grid(row=6, column=1, padx=20, ipadx=40, pady=20)
     player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
 
@@ -263,7 +264,7 @@ def create_frames ():
     player_frame_card_2_label.image = my_image 
 
     global player_frame_card_3
-    player_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_3.grid(row=6, column=2, padx=20, ipadx=40, pady=20)
     player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
 
@@ -276,7 +277,7 @@ def create_frames ():
     player_frame_card_3_label.image = my_image 
 
     global player_frame_card_4
-    player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_4.grid(row=6, column=3, padx=20, ipadx=40, pady=20)
     player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
 
@@ -289,7 +290,7 @@ def create_frames ():
     player_frame_card_4_label.image = my_image 
 
     global player_frame_card_5
-    player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_5.grid(row=6, column=4, padx=20, ipadx=40, pady=20)
     player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
 
@@ -302,7 +303,7 @@ def create_frames ():
     player_frame_card_5_label.image = my_image     
 
     global player_frame_card_6
-    player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_6.grid(row=6, column=5, padx=20, ipadx=40, pady=20)
     player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
 
