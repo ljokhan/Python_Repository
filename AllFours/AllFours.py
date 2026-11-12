@@ -70,7 +70,7 @@ def create_frames ():
     ###########################################################################################
     root.rowconfigure(0, weight=1)
     root.columnconfigure(0, weight=0)    
-    root.columnconfigure(1, weight=3)    
+    root.columnconfigure(1, weight=10)    
     root.columnconfigure(2, weight=2)
     
     # Prepage image of the back of a playing card, so we can start the game with all cards turned over:
@@ -106,11 +106,9 @@ def create_frames ():
     trump_frame.grid(row=0, column=0, padx=20, ipadx=40, pady=20)
 
     global trump_label
-    trump_label = Label(trump_frame, text='1. This is a Label.')
-    trump_label.place(x=0, y=5)
-
     # Add image of overturned card:
-    trump_label.configure(image=my_image)
+    trump_label = Label(trump_frame, image=my_image)
+    trump_label.place(x=0, y=5)  
     trump_label.image = my_image 
 
     ###########################################################################################
