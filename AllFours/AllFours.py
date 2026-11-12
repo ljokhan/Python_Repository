@@ -91,22 +91,21 @@ def create_frames_and_buttons ():
     frame_main_board.grid(row = 0, column=1, sticky="nsew")
 
     ###########################################################################################
-    # Create frame for rightside-bar:
+    # Create frames, buttons and counters for rightside-bar:
     ###########################################################################################
+
+    # Create frame for right-side bar:
     global frame_right_sidebar
     frame_right_sidebar = Frame(root, bg=bgcolor)
     frame_right_sidebar.grid(row = 0, column=2, sticky="nsew")
 
-    ###########################################################################################
-    # Create frame for trump card:
-    ###########################################################################################
-
+    # Configure frame for Trump card within right-side frame:
     global trump_frame
-    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump", background=bgcolor, font=("Arial", 12))
+    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump Card", background=bgcolor, font=("Arial", 12))
     trump_frame.grid(row=0, column=0, padx=20, ipadx=40, pady=20)
 
+    # Start Trump frame with image of overturned card:
     global trump_label
-    # Add image of overturned card:
     trump_label = Label(trump_frame, image=my_image)
     trump_label.place(x=0, y=5)  
     trump_label.image = my_image 
@@ -114,6 +113,21 @@ def create_frames_and_buttons ():
     # Create button to shuffle the deck:
     shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
     shuffle_button.grid(row=1, column=0, padx=5, pady=5)
+
+    # Configure label to show points. This label shows messages as the hands are played:
+    global winner_of_current_hand_label
+    winner_of_current_hand_label = Label(frame_right_sidebar, text="Current hand results", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    winner_of_current_hand_label.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
+
+    # Configure label to show total points for the dealer in the current round:
+    global points_dealer_label
+    points_dealer_label = Label(frame_right_sidebar, text="Dealer points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    points_dealer_label.grid(row=3, column=0, padx=10, pady=10, sticky="nsew")
+
+    # Configure label to show total points for the player in the current round:
+    global points_player_label
+    points_player_label = Label(frame_right_sidebar, text="Player points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    points_player_label.grid(row=4, column=0, padx=10, pady=10, sticky="nsew")
 
 
     ###########################################################################################
