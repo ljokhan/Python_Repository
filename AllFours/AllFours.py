@@ -91,7 +91,7 @@ def create_frames_and_buttons ():
     frame_main_board.grid(row = 0, column=1, sticky="nsew")
 
     ###########################################################################################
-    # Create frames, buttons and counters for rightside-bar:
+    # Create frames, buttons and counters for right side-bar:
     ###########################################################################################
 
     # Create frame for right-side bar:
@@ -129,7 +129,18 @@ def create_frames_and_buttons ():
     points_player_label = Label(frame_right_sidebar, text="Player points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
     points_player_label.grid(row=4, column=0, padx=10, pady=10, sticky="nsew")
 
+    global high_card_label
+    high_card_label = Label(frame_right_sidebar, text="High card:", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    high_card_label.grid(row=5, column=0, padx=10, pady=10, sticky="nsew")
 
+    global low_card_label
+    low_card_label = Label(frame_right_sidebar, text="Low card:", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    low_card_label.grid(row=6, column=0, padx=10, pady=10, sticky="nsew")
+
+    global hang_jack_label
+    hang_jack_label = Label(frame_right_sidebar, text="Hang jack:", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    hang_jack_label.grid(row=7, column=0, padx=10, pady=10, sticky="nsew")
+    
     ###########################################################################################
     # Create frames which show dealer cards:
     ###########################################################################################
