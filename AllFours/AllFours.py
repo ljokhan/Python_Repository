@@ -63,7 +63,7 @@ def exit_fullscreen (event=None):
 
 ###########################################################################################
 
-def create_frames ():
+def create_frames_and_buttons ():
 
     ###########################################################################################
     # Split main application window into (1) side-bar to display points and (2) main board where cards are played:
@@ -110,6 +110,11 @@ def create_frames ():
     trump_label = Label(trump_frame, image=my_image)
     trump_label.place(x=0, y=5)  
     trump_label.image = my_image 
+
+    # Create button to shuffle the deck:
+    shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
+    shuffle_button.grid(row=1, column=0, padx=5, pady=5)
+
 
     ###########################################################################################
     # Create frames which show dealer cards:
@@ -764,11 +769,11 @@ def kick_trump_card ():
 
 ###########################################################################################
 
-def create_buttons ():
+#def create_buttons ():
 
     # Create button to shuffle the deck:
-    shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
-    shuffle_button.grid(row=1, column=0, padx=5, pady=5)
+    #shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
+    #shuffle_button.grid(row=1, column=0, padx=5, pady=5)
 
 ###########################################################################################
 
@@ -940,16 +945,13 @@ def exit_game():
 ###########################################################################################
 
 # Create the All Fours game application:
-create_application()
+create_application ()
 
 # Create frames to hold the cards:
-create_frames()
+create_frames_and_buttons ()
 
 # Create a new deck of cards:
-create_new_deck()
-
-# Create buttons to play the game:
-create_buttons()
+create_new_deck ()
 
 # Create counter for points:
 create_point_counters ()
