@@ -7,13 +7,11 @@ from PIL import Image, ImageTk
 import random
 import time
 
-
-
 ###########################################################################################
 
 # Declare global variables:
 deck_of_cards = []
-no_cards_per_player = 6
+num_cards_per_player = 6
 num_chalks_dealer = 0
 num_chalks_player = 0
 
@@ -736,7 +734,7 @@ def create_new_deck ():
 def deal_cards ():
 
     # Deal cards to each player one at a time until each player has the required number of cards:
-    for i in range(1, 1 + no_cards_per_player):
+    for i in range(1, 1 + num_cards_per_player):
 
         # Pick a random card:
         #one_card = random.choice(deck_of_cards)
