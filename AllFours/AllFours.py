@@ -326,6 +326,12 @@ def create_frames_and_buttons ():
     current_round_point_summary_text.grid(row=8, column=0, sticky="nsew", padx=20, pady=20)
     current_round_point_summary_text.insert("1.0",'\n  Dealer points: 0 \n\n  Player points: 0 \n\n  High card: \n\n  Low card: \n\n  Hang jack:')
 
+    # Create box which shows the accumulated points for this game:
+    global game_point_summary_text
+    game_point_summary_text = Text(frame_right_sidebar, width=20, height=7, wrap="word", background="black", foreground ="white", font=("Arial", 12, "bold"))
+    game_point_summary_text.grid (row=9, column=0, sticky="nsew", padx=20, pady=20)
+    game_point_summary_text.insert ("1.0",'\n  Current game: \n\n  Dealer chalks: lllll \n\n  Player chalks: llll')    
+
 ###########################################################################################
 
 def player_frame_card_1_click (event):
