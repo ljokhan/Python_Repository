@@ -674,7 +674,6 @@ def determine_winner_of_this_hand ():
 
     # Calculate points for this hand:
     points_this_hand = calculate_points_per_hand()
-    #messagebox.showinfo("Points this hand", points_this_hand)
 
     # Add points for this hand to the total point counter for this round of play:
     if winner == 'player':
@@ -690,10 +689,6 @@ def determine_winner_of_this_hand ():
     elif points_this_hand > 1:
             winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_hand.__str__() + " points!")
 
-    # Update labels so player can see total points this round:
-    #points_dealer_label.configure (text="Dealer points: " + points_this_round_dealer.__str__())
-    #points_player_label.configure (text="Player points: " + points_this_round_player.__str__())
-
     # Determine if this round is over:
     is_this_round_over()
 
@@ -706,6 +701,8 @@ def is_this_round_over ():
     if player_1_hand [0] is None and player_1_hand [1] is None and player_1_hand [2] is None and player_1_hand [3] is None and \
         player_1_hand [4] is None and player_1_hand [5] is None:
         messagebox.showinfo ("", "This hand is over")
+
+###########################################################################################
 
 def update_round_summary ():
 
@@ -953,5 +950,6 @@ create_frames_and_buttons ()
 # Create a new deck of cards:
 create_new_deck ()
 
+# Start application:
 root.mainloop()
 
