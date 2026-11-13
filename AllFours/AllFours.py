@@ -90,8 +90,7 @@ def create_frames_and_buttons ():
     frame_main_board = Frame(root, bg=bgcolor, bd=2)
     frame_main_board.grid(row = 0, column=1, sticky="nsew")
 
-
-    
+  
     ###########################################################################################
     # Create frames which show dealer cards:
     ###########################################################################################
@@ -213,8 +212,6 @@ def create_frames_and_buttons ():
     # Add text indicating this section contains the dealer hand:
     player_frame_card_label = Label(frame_main_board, text="Your hand", background="black", foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
-
-
    
     global player_frame_card_1
     player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
@@ -318,15 +315,16 @@ def create_frames_and_buttons ():
     shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
     shuffle_button.grid(row=1, column=0, padx=5, pady=5)
 
-    # Configure label to show points. This label shows messages as the hands are played:
+    # Configure label to show messages for the current round. This label shows messages as the hands are played:
     global winner_of_current_hand_label
     winner_of_current_hand_label = Label(frame_right_sidebar, text="Current hand results", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
     winner_of_current_hand_label.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
 
-    global round_summary_text
-    round_summary_text = Text(frame_right_sidebar, width=30, height=11, wrap="word", background="black", foreground ="white", font=("Arial", 12, "bold"))
-    round_summary_text.grid(row=8, column=0, sticky="nsew", padx=20, pady=20)
-    round_summary_text.insert("1.0",'\n  Dealer points: 0 \n\n  Player points: 0 \n\n  High card: \n\n  Low card: \n\n  Hang jack:')
+    # Create box which shows the accumulated points for this round (dealer points, player points, high card, low card, etc)
+    global current_round_point_summary_text
+    current_round_point_summary_text = Text(frame_right_sidebar, width=30, height=11, wrap="word", background="black", foreground ="white", font=("Arial", 12, "bold"))
+    current_round_point_summary_text.grid(row=8, column=0, sticky="nsew", padx=20, pady=20)
+    current_round_point_summary_text.insert("1.0",'\n  Dealer points: 0 \n\n  Player points: 0 \n\n  High card: \n\n  Low card: \n\n  Hang jack:')
 
 ###########################################################################################
 
@@ -717,8 +715,8 @@ def update_round_summary ():
     summary = '\n  Dealer points: ' + points_this_round_dealer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() + ' \n\n  High card: \n\n  Low card: \n\n  Hang jack:'
 
     # Update summary box which list all points this round:
-    round_summary_text.delete("1.0", "end")
-    round_summary_text.insert ("1.0",summary)    
+    current_round_point_summary_text.delete("1.0", "end")
+    current_round_point_summary_text.insert ("1.0",summary)    
 
 ###########################################################################################
 
