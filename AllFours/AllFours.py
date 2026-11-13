@@ -328,9 +328,9 @@ def create_frames_and_buttons ():
 
     # Create box which shows the accumulated points for this game:
     global game_point_summary_text
-    game_point_summary_text = Text(frame_right_sidebar, width=20, height=7, wrap="word", background="black", foreground ="white", font=("Arial", 12, "bold"))
+    game_point_summary_text = Text(frame_right_sidebar, width=15, height=7, wrap="word", background="black", foreground ="white", font=("Arial", 12, "bold"))
     game_point_summary_text.grid (row=9, column=0, sticky="nsew", padx=20, pady=20)
-    game_point_summary_text.insert ("1.0",'\n  Current game: \n\n  Dealer chalks: lllll \n\n  Player chalks: llll')    
+    game_point_summary_text.insert ("1.0",'\n  Current game - 14 to Win: \n\n  Dealer chalks: lllll \n\n  Player chalks: llll')    
 
 ###########################################################################################
 
