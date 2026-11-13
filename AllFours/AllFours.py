@@ -796,34 +796,6 @@ def kick_trump_card ():
 
 ###########################################################################################
 
-#def create_buttons ():
-
-    # Create button to shuffle the deck:
-    #shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
-    #shuffle_button.grid(row=1, column=0, padx=5, pady=5)
-
-###########################################################################################
-'''
-def create_point_counters ():
-
-    # This label shows the winner for this hand:
-    global winner_of_current_hand_label
-    winner_of_current_hand_label = Label(frame_right_sidebar, text="Current hand results", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
-    winner_of_current_hand_label.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
-
-    # This label shows the total points for the dealer:
-    global points_dealer_label
-    points_dealer_label = Label(frame_right_sidebar, text="Dealer points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
-    points_dealer_label.grid(row=3, column=0, padx=10, pady=10, sticky="nsew")
-
-    # This label shows the total points for the player:
-    global points_player_label
-    points_player_label = Label(frame_right_sidebar, text="Player points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
-    points_player_label.grid(row=4, column=0, padx=10, pady=10, sticky="nsew")
-    '''
-
-###########################################################################################
-
 def begin_game ():
   
     # Deal the cards to all players:
