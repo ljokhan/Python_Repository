@@ -716,12 +716,9 @@ def update_round_summary ():
     # Generate summary of points in this round:
     summary = '\n  Dealer points: ' + points_this_round_dealer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() + ' \n\n  High card: \n\n  Low card: \n\n  Hang jack:'
 
-    # Update summary box:
+    # Update summary box which list all points this round:
     round_summary_text.delete("1.0", "end")
-    #round_summary_text.insert ("1.0",'\n  DDDDealer points: 0 \n\n  Player points: 0 \n\n  High card: \n\n  Low card: \n\n  Hang jack:')
-    round_summary_text.insert ("1.0",summary)
-    
-    
+    round_summary_text.insert ("1.0",summary)    
 
 ###########################################################################################
 
