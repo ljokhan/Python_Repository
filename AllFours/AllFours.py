@@ -675,11 +675,14 @@ def determine_winner_of_this_hand ():
     # Calculate points for this hand:
     points_this_hand = calculate_points_per_hand()
 
-    # Add points for this hand to the total point counter for this round of play:
+    # Update cumulative point counters for this round:
     if winner == 'player':
         points_this_round_player += points_this_hand
     elif winner == 'dealer':
         points_this_round_dealer += points_this_hand
+
+    # Determine who has played the highest Trump card:
+
 
     # Display message showing who won and how many points were won this hand:
     if points_this_hand == 0:
