@@ -953,8 +953,5 @@ create_frames_and_buttons ()
 # Create a new deck of cards:
 create_new_deck ()
 
-# Create counter for points:
-#create_point_counters ()
-
 root.mainloop()
 
