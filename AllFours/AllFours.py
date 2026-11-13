@@ -8,10 +8,21 @@ import random
 import time
 
 ###########################################################################################
-
 # Declare global variables:
+###########################################################################################
+
 deck_of_cards = []
-no_cards_per_player = 6
+num_cards_per_player = 6
+num_chalks_dealer = 0
+num_chalks_player = 0
+bgcolor = "green"
+
+# These store the total point for a single round of play:
+global points_this_round_player
+points_this_round_player = 0
+
+global points_this_round_dealer
+points_this_round_dealer = 0
 
 # These set the size of the frames which holds the cards:
 global frame_width
@@ -35,7 +46,7 @@ def create_application ():
     global root
     root = Tk()
     root.title("All-Fo's -- The most popular card game of Trinidad & Tobago")
-    root.configure(background="green")
+    root.configure(background=bgcolor)
 
     # Enable fullscreen mode:
     #   root.attributes('-fullscreen', True)
@@ -52,14 +63,14 @@ def exit_fullscreen (event=None):
 
 ###########################################################################################
 
-def create_frames ():
+def create_frames_and_buttons ():
 
     ###########################################################################################
     # Split main application window into (1) side-bar to display points and (2) main board where cards are played:
     ###########################################################################################
     root.rowconfigure(0, weight=1)
-    root.columnconfigure(0, weight=2)    
-    root.columnconfigure(1, weight=3)    
+    root.columnconfigure(0, weight=0)    
+    root.columnconfigure(1, weight=10)    
     root.columnconfigure(2, weight=2)
     
     # Prepage image of the back of a playing card, so we can start the game with all cards turned over:
@@ -76,32 +87,11 @@ def create_frames ():
     # Create frame where cards are played:
     ###########################################################################################
     global frame_main_board
-    frame_main_board = Frame(root, bg="#3ce663", bd=2)
+    frame_main_board = Frame(root, bg=bgcolor, bd=2)
     frame_main_board.grid(row = 0, column=1, sticky="nsew")
 
-    ###########################################################################################
-    # Create frame for rightside-bar:
-    ###########################################################################################
-    global frame_right_sidebar
-    frame_right_sidebar = Frame(root, bg="yellow")
-    frame_right_sidebar.grid(row = 0, column=2, sticky="nsew")
 
-    ###########################################################################################
-    # Create frame for trump card:
-    ###########################################################################################
-
-    global trump_frame
-    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump", background="yellow", font=("Arial", 12))
-    trump_frame.grid(row=0, column=0, padx=20, ipadx=40, pady=20)
-
-    global trump_label
-    trump_label = Label(trump_frame, text='1. This is a Label.')
-    trump_label.place(x=0, y=5)
-
-    # Add image of overturned card:
-    trump_label.configure(image=my_image)
-    trump_label.image = my_image 
-
+    
     ###########################################################################################
     # Create frames which show dealer cards:
     ###########################################################################################
@@ -111,7 +101,7 @@ def create_frames ():
     frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
         
     global dealer_frame_card_1
-    dealer_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    dealer_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     dealer_frame_card_1.grid(row=1, column=0, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_1_label
@@ -123,7 +113,7 @@ def create_frames ():
     dealer_frame_card_1_label.image = my_image           
 
     global dealer_frame_card_2
-    dealer_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    dealer_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     dealer_frame_card_2.grid(row=1, column=1, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_2_label
@@ -135,7 +125,7 @@ def create_frames ():
     dealer_frame_card_2_label.image = my_image         
 
     global dealer_frame_card_3
-    dealer_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
+    dealer_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor)
     dealer_frame_card_3.grid(row=1, column=2, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_3_label
@@ -147,7 +137,7 @@ def create_frames ():
     dealer_frame_card_3_label.image = my_image       
 
     global dealer_frame_card_4
-    dealer_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
+    dealer_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor)
     dealer_frame_card_4.grid(row=1, column=3, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_4_label
@@ -159,7 +149,7 @@ def create_frames ():
     dealer_frame_card_4_label.image = my_image         
 
     global dealer_frame_card_5
-    dealer_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
+    dealer_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor)
     dealer_frame_card_5.grid(row=1, column=4, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_5_label
@@ -171,7 +161,7 @@ def create_frames ():
     dealer_frame_card_5_label.image = my_image     
 
     global dealer_frame_card_6
-    dealer_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background="#3ce663")
+    dealer_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor)
     dealer_frame_card_6.grid(row=1, column=5, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_6_label
@@ -194,7 +184,7 @@ def create_frames ():
     player_frame_card_label.grid(row=3, column=0, columnspan=6, padx=5, pady=5)
     
     global round_frame_card_1
-    round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background="#3ce663")    
+    round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
     round_frame_card_1.grid(row=4, column=2, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_1_label   
@@ -206,7 +196,7 @@ def create_frames ():
 
     # reate frame to hold card 2 for each round:
     global round_frame_card_2
-    round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background="#3ce663")    
+    round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
     round_frame_card_2.grid(row=4, column=3, padx=20, ipadx=40, pady=20)
 
     global round_frame_card_2_label
@@ -227,7 +217,7 @@ def create_frames ():
 
    
     global player_frame_card_1
-    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_1.grid(row=6, column=0, padx=20, ipadx=40, pady=20)
     player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
 
@@ -240,7 +230,7 @@ def create_frames ():
     player_frame_card_1_label.image = my_image 
 
     global player_frame_card_2
-    player_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_2.grid(row=6, column=1, padx=20, ipadx=40, pady=20)
     player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
 
@@ -253,7 +243,7 @@ def create_frames ():
     player_frame_card_2_label.image = my_image 
 
     global player_frame_card_3
-    player_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_3 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_3.grid(row=6, column=2, padx=20, ipadx=40, pady=20)
     player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
 
@@ -266,7 +256,7 @@ def create_frames ():
     player_frame_card_3_label.image = my_image 
 
     global player_frame_card_4
-    player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_4 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_4.grid(row=6, column=3, padx=20, ipadx=40, pady=20)
     player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
 
@@ -279,7 +269,7 @@ def create_frames ():
     player_frame_card_4_label.image = my_image 
 
     global player_frame_card_5
-    player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_5 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_5.grid(row=6, column=4, padx=20, ipadx=40, pady=20)
     player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
 
@@ -292,7 +282,7 @@ def create_frames ():
     player_frame_card_5_label.image = my_image     
 
     global player_frame_card_6
-    player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background="#3ce663")
+    player_frame_card_6 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor)
     player_frame_card_6.grid(row=6, column=5, padx=20, ipadx=40, pady=20)
     player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
 
@@ -303,6 +293,40 @@ def create_frames ():
     # Add image of overturned card:
     player_frame_card_6_label.configure(image=my_image)
     player_frame_card_6_label.image = my_image   
+
+    ###########################################################################################
+    # Create frames, buttons and counters for right side-bar:
+    ###########################################################################################
+
+    # Create frame for right-side bar:
+    global frame_right_sidebar
+    frame_right_sidebar = Frame(root, bg=bgcolor)
+    frame_right_sidebar.grid(row = 0, column=2, sticky="nsew")
+
+    # Configure frame for Trump card within right-side frame:
+    global trump_frame
+    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump Card", background=bgcolor, font=("Arial", 12))
+    trump_frame.grid(row=0, column=0, padx=20, ipadx=40, pady=20)
+
+    # Start Trump frame with image of overturned card:
+    global trump_label
+    trump_label = Label(trump_frame, image=my_image)
+    trump_label.place(x=0, y=5)  
+    trump_label.image = my_image 
+
+    # Create button to shuffle the deck:
+    shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
+    shuffle_button.grid(row=1, column=0, padx=5, pady=5)
+
+    # Configure label to show points. This label shows messages as the hands are played:
+    global winner_of_current_hand_label
+    winner_of_current_hand_label = Label(frame_right_sidebar, text="Current hand results", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
+    winner_of_current_hand_label.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
+
+    global round_summary_text
+    round_summary_text = Text(frame_right_sidebar, width=30, height=11, wrap="word", background="black", foreground ="white", font=("Arial", 12, "bold"))
+    round_summary_text.grid(row=8, column=0, sticky="nsew", padx=20, pady=20)
+    round_summary_text.insert("1.0",'\n  Dealer points: 0 \n\n  Player points: 0 \n\n  High card: \n\n  Low card: \n\n  Hang jack:')
 
 ###########################################################################################
 
@@ -342,7 +366,9 @@ def player_frame_card_1_click (event):
     dealer_frame_card_1_label.configure(image=my_image)
     dealer_frame_card_1_label.image = my_image 
 
-    determine_round_winner()
+    determine_winner_of_this_hand()
+
+    update_round_summary ()
 
 ###########################################################################################
 
@@ -382,7 +408,7 @@ def player_frame_card_2_click (event):
     dealer_frame_card_2_label.configure(image=my_image)
     dealer_frame_card_2_label.image = my_image 
     
-    determine_round_winner()
+    determine_winner_of_this_hand()
 
 ###########################################################################################
 
@@ -422,7 +448,7 @@ def player_frame_card_3_click (event):
     dealer_frame_card_3_label.configure(image=my_image)
     dealer_frame_card_3_label.image = my_image 
 
-    determine_round_winner()
+    determine_winner_of_this_hand()
 
 ###########################################################################################
 
@@ -464,7 +490,7 @@ def player_frame_card_4_click (event):
     dealer_frame_card_4_label.configure(image=my_image)
     dealer_frame_card_4_label.image = my_image 
 
-    determine_round_winner()    
+    determine_winner_of_this_hand()    
 
 ###########################################################################################
 
@@ -504,7 +530,7 @@ def player_frame_card_5_click (event):
     dealer_frame_card_5_label.configure(image=my_image)
     dealer_frame_card_5_label.image = my_image 
 
-    determine_round_winner()    
+    determine_winner_of_this_hand()    
 
 ###########################################################################################
 
@@ -543,13 +569,14 @@ def player_frame_card_6_click (event):
     my_image = resize_card_image("blank_card")
     dealer_frame_card_6_label.configure(image=my_image)
     dealer_frame_card_6_label.image = my_image 
-    determine_round_winner()        
+
+    determine_winner_of_this_hand()        
 
 ###########################################################################################
 
 def calculate_points_per_card (one_card):
 
-    points_per_card = 0
+    #points_per_card = 0
 
     if one_card.card_value < 10:
 
@@ -597,7 +624,10 @@ def calculate_points_per_hand ():
 
 ###########################################################################################
 
-def determine_round_winner ():
+def determine_winner_of_this_hand ():
+
+    global points_this_round_player
+    global points_this_round_dealer
 
     winner = "* ERROR - NO WINNER CALCULATED*"
 
@@ -643,18 +673,52 @@ def determine_round_winner ():
         winner = 'player'  
 
     # Calculate points for this hand:
-    points_this_round = calculate_points_per_hand()
+    points_this_hand = calculate_points_per_hand()
+
+    # Update cumulative point counters for this round:
+    if winner == 'player':
+        points_this_round_player += points_this_hand
+    elif winner == 'dealer':
+        points_this_round_dealer += points_this_hand
+
+    # Determine who has played the highest Trump card:
+
 
     # Display message showing who won and how many points were won this hand:
-    if points_this_round == 0:
+    if points_this_hand == 0:
         winner_of_current_hand_label.configure(text=winner.title() + " wins!")
-    elif points_this_round > 0:
-        winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_round.__str__() + " points!")
-    
-    #if points_this_round == 0:
-    #    messagebox.showinfo ("Results", winner.title() + " wins this round!" )
-    #elif points_this_round > 0:
-    #    messagebox.showinfo ("Results", winner.title() + " wins this round with "  + points_this_round.__str__() + " points!" )
+    elif points_this_hand == 1:
+        winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_hand.__str__() + " point!")
+    elif points_this_hand > 1:
+            winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_hand.__str__() + " points!")
+
+    # Determine if this round is over:
+    is_this_round_over()
+
+    update_round_summary()
+
+###########################################################################################
+
+def is_this_round_over ():
+
+    if player_1_hand [0] is None and player_1_hand [1] is None and player_1_hand [2] is None and player_1_hand [3] is None and \
+        player_1_hand [4] is None and player_1_hand [5] is None:
+        messagebox.showinfo ("", "This hand is over")
+
+###########################################################################################
+
+def update_round_summary ():
+
+    global points_this_round_dealer
+    global points_this_round_player
+    global round_summary_text
+
+    # Generate summary of points in this round:
+    summary = '\n  Dealer points: ' + points_this_round_dealer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() + ' \n\n  High card: \n\n  Low card: \n\n  Hang jack:'
+
+    # Update summary box which list all points this round:
+    round_summary_text.delete("1.0", "end")
+    round_summary_text.insert ("1.0",summary)    
 
 ###########################################################################################
 
@@ -694,15 +758,15 @@ def create_new_deck ():
             # Append playing card to list:
             all_playing_cards.append(one_card)
 
-    for one_playing_card in all_playing_cards:
-        print (one_playing_card.card_name)
+    #for one_playing_card in all_playing_cards:
+    #    print (one_playing_card.card_value)
 
 ###########################################################################################
 
 def deal_cards ():
 
     # Deal cards to each player one at a time until each player has the required number of cards:
-    for i in range(1, 1 + no_cards_per_player):
+    for i in range(1, 1 + num_cards_per_player):
 
         # Pick a random card:
         #one_card = random.choice(deck_of_cards)
@@ -729,33 +793,6 @@ def kick_trump_card ():
     # Add random card the trump list and remove it from the deck:
     trump_card.append (one_card)
     all_playing_cards.remove (one_card)
-
-###########################################################################################
-
-def create_buttons ():
-
-    # Create button to shuffle the deck:
-    shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
-    shuffle_button.grid(row=1, column=0, padx=5, pady=5)
-
-###########################################################################################
-
-def create_point_counters ():
-
-    # This label shows the winner for this hand:
-    global winner_of_current_hand_label
-    winner_of_current_hand_label = Label(frame_right_sidebar, text="Current hand results", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
-    winner_of_current_hand_label.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
-
-    # This label shows the total points for the dealer:
-    global points_dealer_label
-    points_dealer_label = Label(frame_right_sidebar, text="Dealer points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
-    points_dealer_label.grid(row=3, column=0, padx=10, pady=10, sticky="nsew")
-
-    # This label shows the total points for the player:
-    global points_player_label
-    points_player_label = Label(frame_right_sidebar, text="Player points: 0", background="black", foreground="white", font=("Arial", 12, "bold"), width=20)
-    points_player_label.grid(row=4, column=0, padx=10, pady=10, sticky="nsew")
 
 ###########################################################################################
 
@@ -908,18 +945,14 @@ def exit_game():
 ###########################################################################################
 
 # Create the All Fours game application:
-create_application()
+create_application ()
 
 # Create frames to hold the cards:
-create_frames()
+create_frames_and_buttons ()
 
 # Create a new deck of cards:
-create_new_deck()
+create_new_deck ()
 
-# Create buttons to play the game:
-create_buttons()
-
-# Create counter for points:
-create_point_counters ()
-
+# Start application:
 root.mainloop()
+
