@@ -328,7 +328,7 @@ def create_frames_and_buttons ():
     trump_label.image = my_image 
 
     # Create button to shuffle the deck:
-    shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=begin_game)
+    shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=start_new_game)
     shuffle_button.grid(row=1, column=0, padx=5, pady=5)
 
     # Configure label to show messages for the current round. This label shows messages as the hands are played:
@@ -816,7 +816,10 @@ def kick_trump_card ():
 
 ###########################################################################################
 
-def begin_game ():
+def start_new_game ():
+
+    # Create a new deck of cards:
+    create_new_deck ()
   
     # Deal the cards to all players:
     deal_cards()
@@ -969,9 +972,6 @@ create_application ()
 
 # Create frames to hold the cards:
 create_frames_and_buttons ()
-
-# Create a new deck of cards:
-create_new_deck ()
 
 # Start application:
 root.mainloop()
