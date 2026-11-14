@@ -214,7 +214,7 @@ def create_frames_and_buttons ():
 
     # Configure label to show messages for the current round. This label shows messages as the hands are played:
     global winner_of_current_hand_label
-    winner_of_current_hand_label = Label(frame_main_board, background="blue", foreground="white", font=("Arial", 12, "bold"), width=20)
+    winner_of_current_hand_label = Label(frame_main_board, background=bgcolor, foreground="white", font=("Arial", 12, "bold"), width=15)
     winner_of_current_hand_label.grid(row=4, column=2, columnspan=2, padx=0, pady=0)
 
     ##########################################################################################################################
@@ -334,7 +334,6 @@ def create_frames_and_buttons ():
     # Create button to shuffle the deck:
     shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=start_new_game)
     shuffle_button.grid(row=1, column=0, padx=5, pady=5)
-
 
 
 
