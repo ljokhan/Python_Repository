@@ -824,6 +824,9 @@ def start_new_game ():
     # Deal the cards to all players:
     deal_cards()
 
+    # Allow user to kick the Trump card:
+    messagebox.showinfo ("Trump Card", "Click to kick the Trump card!")
+
     # Kick the trump card:
     kick_trump_card()
 
