@@ -19,7 +19,7 @@ num_chalks_player = 0
 
 # Variables for background colors:
 bgcolor = "green"
-bgcolor_hands = "black"
+bgcolor_hands = "green"
 
 # These store the total point for a single round of play:
 global points_this_round_player
@@ -99,11 +99,11 @@ def create_frames_and_buttons ():
     ###########################################################################################
 
     global frame_dealer_cards
-    frame_dealer_cards = LabelFrame(frame_main_board, text="Your hand", width = 1200, height = 20, bd=0, background=bgcolor_hands)  
+    frame_dealer_cards = LabelFrame(frame_main_board, width = 1200, height = 20, border=3, background=bgcolor_hands)  
     frame_dealer_cards.grid(row=1, column=0, columnspan=6,  padx=5, pady=5)  
     
     # Add text indicating this section contains the dealer hand:
-    frame_main_board_label = Label(frame_dealer_cards, text="Dealer hand", background="black", foreground="white", font=("Arial", 12, "bold"), width=100)
+    frame_main_board_label = Label(frame_dealer_cards, text="Dealer cards", background=bgcolor_hands, foreground="white", font=("Arial", 12, "bold"), width=100)
     frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
         
     global dealer_frame_card_1
@@ -222,11 +222,11 @@ def create_frames_and_buttons ():
     ##########################################################################################################################
 
     global frame_player_cards
-    frame_player_cards = LabelFrame(frame_main_board, text="Your hand", width = 1000, height = 20, bd=0, background=bgcolor_hands)  
+    frame_player_cards = LabelFrame(frame_main_board, width = 1000, height = 20, border=3, background=bgcolor_hands)  
     frame_player_cards.grid(row=6, column=0, columnspan=6,  padx=5, pady=5)  
 
     # Add text indicating this section contains the dealer hand:
-    player_frame_card_label = Label(frame_player_cards, text="Your hand", background="black", foreground="white", font=("Arial", 12, "bold"), width=100)
+    player_frame_card_label = Label(frame_player_cards, text="Your cards", background=bgcolor_hands, foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=8, column=0, columnspan=6, padx=5, pady=5)
 
     global player_frame_card_1
