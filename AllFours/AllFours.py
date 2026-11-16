@@ -232,7 +232,7 @@ def create_frames_and_buttons ():
     global player_frame_card_1
     player_frame_card_1 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
     player_frame_card_1.grid(row=7, column=0, padx=20, ipadx=40, pady=20)
-    player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
+    #player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
 
     global player_frame_card_1_label
     player_frame_card_1_label = Label(player_frame_card_1, text='1. This is a Label.')
@@ -245,7 +245,7 @@ def create_frames_and_buttons ():
     global player_frame_card_2
     player_frame_card_2 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
     player_frame_card_2.grid(row=7, column=1, padx=20, ipadx=40, pady=20)
-    player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
+    #player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
 
     global player_frame_card_2_label
     player_frame_card_2_label = Label(player_frame_card_2, text='1. This is a Label.')
@@ -258,7 +258,7 @@ def create_frames_and_buttons ():
     global player_frame_card_3
     player_frame_card_3 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
     player_frame_card_3.grid(row=7, column=2, padx=20, ipadx=40, pady=20)
-    player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
+    #player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
 
     global player_frame_card_3_label
     player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
@@ -271,7 +271,7 @@ def create_frames_and_buttons ():
     global player_frame_card_4
     player_frame_card_4 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
     player_frame_card_4.grid(row=7, column=3, padx=20, ipadx=40, pady=20)
-    player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
+    #player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
 
     global player_frame_card_4_label
     player_frame_card_4_label = Label(player_frame_card_4, text='1. This is a Label.')
@@ -284,7 +284,7 @@ def create_frames_and_buttons ():
     global player_frame_card_5
     player_frame_card_5 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
     player_frame_card_5.grid(row=7, column=4, padx=20, ipadx=40, pady=20)
-    player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
+    #player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
 
     global player_frame_card_5_label
     player_frame_card_5_label = Label(player_frame_card_5, text='1. This is a Label.')
@@ -297,7 +297,7 @@ def create_frames_and_buttons ():
     global player_frame_card_6
     player_frame_card_6 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
     player_frame_card_6.grid(row=7, column=5, padx=20, ipadx=40, pady=20)
-    player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
+    ##player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
 
     global player_frame_card_6_label
     player_frame_card_6_label = Label(player_frame_card_6, text='1. This is a Label.')
@@ -825,20 +825,20 @@ def kick_trump_card ():
 def enable_or_disable_player (enable_or_disable):
 
     if enable_or_disable == 'E':
-        player_frame_card_1.bind ("<Button-1>", player_frame_card_1_click)
-        player_frame_card_2.bind ("<Button-1>", player_frame_card_2_click)
-        player_frame_card_3.bind ("<Button-1>", player_frame_card_3_click)
-        player_frame_card_4.bind ("<Button-1>", player_frame_card_4_click)
-        player_frame_card_5.bind ("<Button-1>", player_frame_card_5_click)
-        player_frame_card_6.bind ("<Button-1>", player_frame_card_6_click)
+        player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
+        player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
+        player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
+        player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
+        player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
+        player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)
 
     elif enable_or_disable == 'D':
-        player_frame_card_1.unbind ("<Button-1>")
-        player_frame_card_2.unbind ("<Button-1>")
-        player_frame_card_3.unbind ("<Button-1>")
-        player_frame_card_4.unbind ("<Button-1>")
-        player_frame_card_5.unbind ("<Button-1>")
-        player_frame_card_6.unbind ("<Button-1>")
+        player_frame_card_1_label.unbind("<Button-1>")
+        player_frame_card_2_label.unbind("<Button-1>")
+        player_frame_card_3_label.unbind("<Button-1>")
+        player_frame_card_4_label.unbind("<Button-1>")
+        player_frame_card_5_label.unbind("<Button-1>")
+        player_frame_card_6_label.unbind("<Button-1>")
 
 ###########################################################################################
 
@@ -870,7 +870,7 @@ def start_new_game ():
     put_cards_in_frames()
 
     # Determine whose turn to play:
-    determine_turn_to_play ('P')
+    #determine_turn_to_play ('P')
 
 ###########################################################################################
 
@@ -938,7 +938,7 @@ def put_cards_in_frames ():
     my_image = resize_card_image(player_1_hand[0].card_name)
     player_frame_card_1_label.configure(image=my_image)
     player_frame_card_1_label.image = my_image 
-    player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
+    #player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
 
     # Update location so we know which card is in which position on the screen:
     player_1_hand[0].card_location = 'P1'
@@ -946,7 +946,7 @@ def put_cards_in_frames ():
     my_image = resize_card_image(player_1_hand[1].card_name)
     player_frame_card_2_label.configure(image=my_image)
     player_frame_card_2_label.image = my_image 
-    player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
+    #player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
 
     # Update location so we know which card is in which position on the screen:
     player_1_hand[0].card_location = 'P2'    
@@ -954,7 +954,7 @@ def put_cards_in_frames ():
     my_image = resize_card_image(player_1_hand[2].card_name)
     player_frame_card_3_label.configure(image=my_image)
     player_frame_card_3_label.image = my_image 
-    player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
+    #player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
 
     # Update location so we know which card is in which position on the screen:
     player_1_hand[0].card_location = 'P3'    
@@ -962,7 +962,7 @@ def put_cards_in_frames ():
     my_image = resize_card_image(player_1_hand[3].card_name)
     player_frame_card_4_label.configure(image=my_image)
     player_frame_card_4_label.image = my_image 
-    player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
+    #player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
 
     # Update location so we know which card is in which position on the screen:
     player_1_hand[0].card_location = 'P4'    
@@ -970,7 +970,7 @@ def put_cards_in_frames ():
     my_image = resize_card_image(player_1_hand[4].card_name)
     player_frame_card_5_label.configure(image=my_image)
     player_frame_card_5_label.image = my_image 
-    player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
+    #player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
 
     # Update location so we know which card is in which position on the screen:
     player_1_hand[0].card_location = 'P5'    
@@ -978,7 +978,7 @@ def put_cards_in_frames ():
     my_image = resize_card_image(player_1_hand[5].card_name)
     player_frame_card_6_label.configure(image=my_image)
     player_frame_card_6_label.image = my_image 
-    player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)   
+    #player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)   
 
     # Update location so we know which card is in which position on the screen:
     player_1_hand[0].card_location = 'P6'     
