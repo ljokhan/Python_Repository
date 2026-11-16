@@ -335,13 +335,6 @@ def create_frames_and_buttons ():
     shuffle_button = Button(frame_right_sidebar, text="Shuffle and Deal", command=start_new_game)
     shuffle_button.grid(row=1, column=0, padx=5, pady=5)
 
-
-
-
-
-
-
-
     # Create box which shows the accumulated points for this round (dealer points, player points, high card, low card, etc)
     global current_round_point_summary_text
     current_round_point_summary_text = Text(frame_right_sidebar, width=30, height=11, wrap="word", background="black", foreground ="white", font=("Arial", 12, "bold"))
@@ -821,60 +814,9 @@ def kick_trump_card ():
     all_playing_cards.remove (one_card)
 
 ###########################################################################################
-
-def enable_or_disable_player (enable_or_disable):
-
-    if enable_or_disable == 'E':
-        player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
-        player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
-        player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
-        player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
-        player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
-        player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)
-
-    elif enable_or_disable == 'D':
-        player_frame_card_1_label.unbind("<Button-1>")
-        player_frame_card_2_label.unbind("<Button-1>")
-        player_frame_card_3_label.unbind("<Button-1>")
-        player_frame_card_4_label.unbind("<Button-1>")
-        player_frame_card_5_label.unbind("<Button-1>")
-        player_frame_card_6_label.unbind("<Button-1>")
-
-###########################################################################################
-
-def determine_turn_to_play(player_or_computer):
-
-    if player_or_computer.upper() == 'P':
-        enable_or_disable_player ('E')
-
-    elif player_or_computer.upper() =='C':
-        enable_or_disable_player ('D')
-
-###########################################################################################
-
-def start_new_game ():
-
-    # Create a new deck of cards:
-    create_new_deck ()
-  
-    # Deal the cards to all players:
-    deal_cards()
-
-    # Allow user to kick the Trump card:
-    messagebox.showinfo ("Trump Card", "Click to kick the Trump card!")
-
-    # Kick the trump card:
-    kick_trump_card()
-
-    # Place cards in the frames:
-    put_cards_in_frames()
-
-    # Determine whose turn to play:
-    #determine_turn_to_play ('P')
-
-###########################################################################################
-
 def put_cards_in_frames ():
+###########################################################################################
+
 
     #######################################################################################
     # Trump card section:
@@ -988,8 +930,8 @@ def put_cards_in_frames ():
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
     
 ###########################################################################################
-
 def resize_card_image (card):
+###########################################################################################
 
     image_path = "./AllFours/PlayingCardImages/" + card + ".png"
     pil_image = Image.open(image_path)
@@ -999,12 +941,73 @@ def resize_card_image (card):
     return tk_image 
 
 ###########################################################################################
-
 def exit_game():
+#########################################################################################
 
     # This will close the game window:
     root.destroy() 
-    
+
+###########################################################################################
+def enable_or_disable_player (enable_or_disable):
+###########################################################################################
+
+    if enable_or_disable == 'E':
+
+        player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
+        player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
+        player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
+        player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
+        player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
+        player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
+
+        player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
+        player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
+        player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
+        player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
+        player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
+        player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)
+
+    elif enable_or_disable == 'D':
+
+        player_frame_card_1_label.unbind("<Button-1>")
+        player_frame_card_2_label.unbind("<Button-1>")
+        player_frame_card_3_label.unbind("<Button-1>")
+        player_frame_card_4_label.unbind("<Button-1>")
+        player_frame_card_5_label.unbind("<Button-1>")
+        player_frame_card_6_label.unbind("<Button-1>")
+
+###########################################################################################
+def determine_turn_to_play(player_or_computer):
+###########################################################################################
+
+    if player_or_computer.upper() == 'P':
+        enable_or_disable_player ('E')
+
+    elif player_or_computer.upper() =='C':
+        enable_or_disable_player ('D')
+
+###########################################################################################
+def start_new_game ():
+###########################################################################################
+
+    # Create a new deck of cards:
+    create_new_deck ()
+  
+    # Deal the cards to all players:
+    deal_cards()
+
+    # Allow user to kick the Trump card:
+    messagebox.showinfo ("Trump Card", "Click to kick the Trump card!")
+
+    # Kick the trump card:
+    kick_trump_card()
+
+    # Place cards in the frames:
+    put_cards_in_frames()
+
+    # Determine whose turn to play:
+    determine_turn_to_play ('P')
+
 ###########################################################################################
 # Main program:
 ###########################################################################################
