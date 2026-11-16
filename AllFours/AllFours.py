@@ -969,6 +969,13 @@ def enable_or_disable_player (enable_or_disable):
 
     elif enable_or_disable == 'D':
 
+        player_frame_card_1.unbind("<Button-1>")
+        player_frame_card_2.unbind("<Button-1>")
+        player_frame_card_3.unbind("<Button-1>")
+        player_frame_card_4.unbind("<Button-1>")
+        player_frame_card_5.unbind("<Button-1>")
+        player_frame_card_6.unbind("<Button-1>")
+
         player_frame_card_1_label.unbind("<Button-1>")
         player_frame_card_2_label.unbind("<Button-1>")
         player_frame_card_3_label.unbind("<Button-1>")
