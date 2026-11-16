@@ -951,7 +951,7 @@ def exit_game():
 def enable_or_disable_player (enable_or_disable):
 ###########################################################################################
 
-    if enable_or_disable == 'E':
+    if enable_or_disable.upper() == 'E':
 
         player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
         player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
@@ -967,7 +967,7 @@ def enable_or_disable_player (enable_or_disable):
         player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
         player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)
 
-    elif enable_or_disable == 'D':
+    elif enable_or_disable.upper() == 'D':
 
         player_frame_card_1.unbind("<Button-1>")
         player_frame_card_2.unbind("<Button-1>")
@@ -984,7 +984,7 @@ def enable_or_disable_player (enable_or_disable):
         player_frame_card_6_label.unbind("<Button-1>")
 
 ###########################################################################################
-def determine_turn_to_play(player_or_computer):
+def turn_to_play(player_or_computer):
 ###########################################################################################
 
     if player_or_computer.upper() == 'P':
@@ -1013,7 +1013,7 @@ def start_new_game ():
     put_cards_in_frames()
 
     # Determine whose turn to play:
-    determine_turn_to_play ('P')
+    turn_to_play ('P')
 
 ###########################################################################################
 # Main program:
