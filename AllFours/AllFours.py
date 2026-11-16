@@ -822,6 +822,31 @@ def kick_trump_card ():
 
 ###########################################################################################
 
+def enable_or_disable_player (enable_or_disable):
+
+    if enable_or_disable == 'E':
+        player_frame_card_1.bind ("<Button-1>", player_frame_card_1_click)
+        player_frame_card_2.bind ("<Button-1>", player_frame_card_2_click)
+        player_frame_card_3.bind ("<Button-1>", player_frame_card_3_click)
+        player_frame_card_4.bind ("<Button-1>", player_frame_card_4_click)
+        player_frame_card_5.bind ("<Button-1>", player_frame_card_5_click)
+        player_frame_card_6.bind ("<Button-1>", player_frame_card_6_click)
+
+    elif enable_or_disable == 'D':
+        pass
+
+###########################################################################################
+
+def determine_turn_to_play(player_or_computer):
+
+    if player_or_computer.upper() == 'P':
+        enable_or_disable_player ('E')
+
+    elif player_or_computer.upper() =='C':
+        enable_or_disable_player ('D')
+
+###########################################################################################
+
 def start_new_game ():
 
     # Create a new deck of cards:
@@ -838,6 +863,9 @@ def start_new_game ():
 
     # Place cards in the frames:
     put_cards_in_frames()
+
+    # Determine whose turn to play:
+    determine_turn_to_play ('P')
 
 ###########################################################################################
 
