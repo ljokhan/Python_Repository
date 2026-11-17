@@ -828,7 +828,6 @@ def deal_cards ():
     for i in range(1, 1 + num_cards_per_player):
 
         # Pick a random card:
-        #one_card = random.choice(deck_of_cards)
         one_card = random.choice(all_playing_cards)
 
         # Add random card to the player hand:
@@ -1024,7 +1023,7 @@ def enable_or_disable_player (enable_or_disable):
         player_frame_card_6_label.unbind("<Button-1>")
 
 ###########################################################################################
-def turn_to_play(player_or_computer):
+def play_turn (player_or_computer):
 ###########################################################################################
 
     if player_or_computer.upper() == 'P':
@@ -1038,7 +1037,7 @@ def start_new_game ():
 ###########################################################################################
 
     # Create a new deck of cards:
-    create_new_deck ()
+    create_new_deck()
   
     # Deal the cards to all players:
     deal_cards()
@@ -1053,17 +1052,17 @@ def start_new_game ():
     put_cards_in_frames()
 
     # Player gets 1st turn to play:
-    turn_to_play ('P')
+    play_turn ('P')
 
 ###########################################################################################
 # Main program:
 ###########################################################################################
 
 # Create the All Fours game application:
-create_application ()
+create_application()
 
 # Create frames to hold the cards:
-create_frames_and_buttons ()
+create_frames_and_buttons()
 
 # Start application:
 root.mainloop()
