@@ -349,10 +349,19 @@ def create_frames_and_buttons ():
 
 def dealer_chooses_card():
 
+    random_card_index = random.randint(0,5)
 
+    while computer_hand[random_card_index] == None:
+        random_card_index = random.randint(0,5)
 
-    return computer_hand[0]
+    # Replace the dealer card with NULL:
+    card_to_return = computer_hand[random_card_index]
 
+    print(computer_hand[random_card_index].card_value)
+
+    computer_hand[random_card_index] = None 
+
+    return card_to_return
 
 def dealer_plays_card():
 
@@ -366,7 +375,7 @@ def dealer_plays_card():
     round_frame_card_2_label.image = my_image
 
     # Replace the dealer card with NULL:
-    computer_hand[0] = None
+    #computer_hand[0] = None
 
     # Generate image of a blank card and place it in dealer's hand:
     my_image = resize_card_image("blank_card")
