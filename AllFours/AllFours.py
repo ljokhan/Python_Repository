@@ -347,6 +347,33 @@ def create_frames_and_buttons ():
     game_point_summary_text.grid (row=9, column=0, sticky="nsew", padx=20, pady=20)
     game_point_summary_text.insert ("1.0",'\n  Current game - 14 to Win: \n\n  Dealer chalks: lllll \n\n  Player chalks: llll')    
 
+def dealer_chooses_card():
+
+
+
+    return computer_hand[0]
+
+
+def dealer_plays_card():
+
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
+    #board_hand[1] = computer_hand[0]
+    board_hand[1] = dealer_chooses_card()
+    
+    # Generate image to place on the board:
+    my_image = resize_card_image (board_hand[1].card_name)
+    round_frame_card_2_label.configure(image=my_image)
+    round_frame_card_2_label.image = my_image
+
+    # Replace the dealer card with NULL:
+    computer_hand[0] = None
+
+    # Generate image of a blank card and place it in dealer's hand:
+    my_image = resize_card_image("blank_card")
+    dealer_frame_card_1_label.configure(image=my_image)
+    dealer_frame_card_1_label.image = my_image 
+
+
 ###########################################################################################
 
 def player_frame_card_1_click (event):
@@ -369,21 +396,25 @@ def player_frame_card_1_click (event):
     player_frame_card_1_label.configure(image=my_image)
     player_frame_card_1_label.image = my_image 
 
+    dealer_plays_card()
+
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[0]
+    #board_hand[1] = computer_hand[0]
     
     # Generate image to place on the board:
-    my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    #my_image = resize_card_image (board_hand[1].card_name)
+    #round_frame_card_2_label.configure(image=my_image)
+    #round_frame_card_2_label.image = my_image
 
     # Replace the dealer card with NULL:
-    computer_hand[0] = None
+    #computer_hand[0] = None
 
     # Generate image of a blank card and place it in dealer's hand:
-    my_image = resize_card_image("blank_card")
-    dealer_frame_card_1_label.configure(image=my_image)
-    dealer_frame_card_1_label.image = my_image 
+    #my_image = resize_card_image("blank_card")
+    #dealer_frame_card_1_label.configure(image=my_image)
+    #dealer_frame_card_1_label.image = my_image 
+
+
 
     determine_winner_of_this_hand()
 
@@ -1012,7 +1043,7 @@ def start_new_game ():
     # Place cards in the frames:
     put_cards_in_frames()
 
-    # Determine whose turn to play:
+    # Player gets 1st turn to play:
     turn_to_play ('P')
 
 ###########################################################################################
