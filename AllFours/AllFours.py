@@ -12,7 +12,7 @@ import time
 # Declare global variables:
 ###########################################################################################
 
-deck_of_cards = []
+#deck_of_cards = []
 num_cards_per_player = 6
 num_chalks_dealer = 0
 num_chalks_player = 0
@@ -809,7 +809,7 @@ def create_new_deck ():
                 tempcard = (f"Ace_of_{one_suit}")
             else:
                 tempcard = (f"{one_card_value}_of_{one_suit}")
-            deck_of_cards.append(tempcard)
+            #deck_of_cards.append(tempcard)
 
             # Generate one instance of the playing card class:
             one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png", None)
