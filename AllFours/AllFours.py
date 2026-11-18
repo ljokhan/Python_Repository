@@ -190,28 +190,28 @@ def create_frames_and_buttons ():
     #player_frame_card_label = Label(frame_main_board, text="Playing area", background="black", foreground="white", font=("Arial", 12, "bold"), width=100)
     #player_frame_card_label.grid(row=3, column=0, columnspan=6, padx=5, pady=5)
 
+    global round_frame_card_0
+    round_frame_card_0 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
+    round_frame_card_0.grid(row=4, column=2, padx=20, ipadx=40, pady=20)
+
+    global round_frame_card_0_label   
+    round_frame_card_0_label = Label(round_frame_card_0)
+    round_frame_card_0_label.place(x=0, y=5)
+    #my_image = resize_card_image("blank_card")
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image 
+
+    # Create frame to hold card 2 for each round:
     global round_frame_card_1
     round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
-    round_frame_card_1.grid(row=4, column=2, padx=20, ipadx=40, pady=20)
+    round_frame_card_1.grid(row=4, column=3, padx=20, ipadx=40, pady=20)
 
-    global round_frame_card_1_label   
+    global round_frame_card_1_label
     round_frame_card_1_label = Label(round_frame_card_1)
-    round_frame_card_1_label.place(x=0, y=5)
+    round_frame_card_1_label.place(x=0, y=5)   
     #my_image = resize_card_image("blank_card")
     round_frame_card_1_label.configure(image=my_image)
     round_frame_card_1_label.image = my_image 
-
-    # Create frame to hold card 2 for each round:
-    global round_frame_card_2
-    round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
-    round_frame_card_2.grid(row=4, column=3, padx=20, ipadx=40, pady=20)
-
-    global round_frame_card_2_label
-    round_frame_card_2_label = Label(round_frame_card_2)
-    round_frame_card_2_label.place(x=0, y=5)   
-    #my_image = resize_card_image("blank_card")
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image 
 
     # Configure label to show messages for the current round. This label shows messages as the hands are played:
     global winner_of_current_hand_label
