@@ -43,8 +43,8 @@ board_hand = ["placeholder1", "placeholder2"]
 trump_card = []
 
 ###########################################################################################
-
 def create_application ():
+###########################################################################################
 
     # Create the main application window:
     global root
@@ -65,9 +65,10 @@ def exit_fullscreen (event=None):
     # This functions changes game to full screen:
     root.attributes('-fullscreen', False)
 
-###########################################################################################
 
+###########################################################################################
 def create_frames_and_buttons ():
+###########################################################################################
 
     ###########################################################################################
     # Split main application window into (1) side-bar to display points and (2) main board where cards are played:
@@ -370,12 +371,15 @@ def dealer_plays_card():
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     #board_hand[1] = computer_hand[0]
     board_hand[1] = dealer_chooses_card()
+
+    print (board_hand[1].card_name)
     
     # Generate image to place on the board:
     my_image = resize_card_image (board_hand[1].card_name)
     round_frame_card_2_label.configure(image=my_image)
     round_frame_card_2_label.image = my_image
 
+'''
     # Replace the dealer card with NULL. Then replace the card from with a blank card:
     if board_hand[1].board_location[2,1] == "1":
         computer_hand[1] = None
@@ -417,6 +421,7 @@ def dealer_plays_card():
     #y_image = resize_card_image("blank_card")
     ##ealer_frame_card_1_label.configure(image=my_image)
     #dealer_frame_card_1_label.image = my_image 
+'''
 
 ###########################################################################################
 
@@ -860,10 +865,12 @@ def create_new_deck ():
 def deal_cards ():
 
     # Deal cards to each player one at a time until each player has the required number of cards:
-    for i in range(1, 1 + num_cards_per_player):
+    #for i in range(1, 1 + num_cards_per_player):
+    for counter_deal_cards in range(0, num_cards_per_player):
 
         # Pick a random card:
         one_card = random.choice(all_playing_cards)
+        one_card.board_location = 'P' + counter_deal_cards.__str__()
 
         # Add random card to the player hand:
         player_1_hand.append (one_card)
@@ -871,6 +878,7 @@ def deal_cards ():
 
         # Pick another random card:
         one_card = random.choice(all_playing_cards)
+        one_card.board_location = 'D' + counter_deal_cards.__str__()
 
         # Add random card to the computer hand:
         computer_hand.append (one_card)
