@@ -425,49 +425,87 @@ def dealer_plays_card():
 
 ###########################################################################################
 
-def player_frame_card_1_click (event):
+def player_frame_card_0_click (event):
 
-    print("Frame 1 was clicked")
+    print("Frame 0 was clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
     board_hand[0] = player_1_hand[0]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image 
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image 
     
     # Replace the player card with NULL:
     player_1_hand[0] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
-    player_frame_card_1_label.configure(image=my_image)
-    player_frame_card_1_label.image = my_image 
+    player_frame_card_0_label.configure(image=my_image)
+    player_frame_card_0_label.image = my_image 
 
-    dealer_plays_card()
+    #dealer_plays_card()
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    #board_hand[1] = computer_hand[0]
+    board_hand[1] = computer_hand[0]
     
     # Generate image to place on the board:
-    #my_image = resize_card_image (board_hand[1].card_name)
-    #round_frame_card_2_label.configure(image=my_image)
-    #round_frame_card_2_label.image = my_image
+    my_image = resize_card_image (board_hand[1].card_name)
+    round_frame_card_1_label.configure(image=my_image)
+    round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
-    #computer_hand[0] = None
+    computer_hand[0] = None
 
     # Generate image of a blank card and place it in dealer's hand:
-    #my_image = resize_card_image("blank_card")
-    #dealer_frame_card_1_label.configure(image=my_image)
-    #dealer_frame_card_1_label.image = my_image 
-
-
+    my_image = resize_card_image("blank_card")
+    dealer_frame_card_0_label.configure(image=my_image)
+    dealer_frame_card_0_label.image = my_image 
 
     determine_winner_of_this_hand()
 
     update_round_summary ()
+
+###########################################################################################
+
+def player_frame_card_1_click (event):
+
+    print("Frame 1 was clicked")
+
+    # Player clicked the card to play, so move the card from the player hand to the board:
+    board_hand[0] = player_1_hand[1]
+
+    # Generate image to place on the board:
+    my_image = resize_card_image(board_hand[0].card_name)
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
+    
+    # Replace the player card with NULL:
+    player_1_hand[1] = None
+
+    # Generate image of a blank card and place it in player's hand:
+    my_image = resize_card_image("blank_card")
+    player_frame_card_1_label.configure(image=my_image)
+    player_frame_card_1_label.image = my_image 
+
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
+    board_hand[1] = computer_hand[1]
+    
+    # Generate image to place on the board:
+    my_image = resize_card_image (board_hand[1].card_name)
+    round_frame_card_1_label.configure(image=my_image)
+    round_frame_card_1_label.image = my_image
+
+    # Replace the dealer card with NULL:
+    computer_hand[1] = None
+
+    # Generate image of a blank card and place it in dealer's hand:
+    my_image = resize_card_image("blank_card")
+    dealer_frame_card_1_label.configure(image=my_image)
+    dealer_frame_card_1_label.image = my_image 
+    
+    determine_winner_of_this_hand()
 
 ###########################################################################################
 
@@ -476,15 +514,15 @@ def player_frame_card_2_click (event):
     print("Frame 2 was clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[1]
+    board_hand[0] = player_1_hand[2]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
     
     # Replace the player card with NULL:
-    player_1_hand[1] = None
+    player_1_hand[2] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
@@ -492,39 +530,41 @@ def player_frame_card_2_click (event):
     player_frame_card_2_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[1]
+    board_hand[1] = computer_hand[2]
     
     # Generate image to place on the board:
     my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    round_frame_card_1_label.configure(image=my_image)
+    round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
-    computer_hand[1] = None
+    computer_hand[2] = None
 
     # Generate image of a blank card and place it in dealer's hand:
     my_image = resize_card_image("blank_card")
     dealer_frame_card_2_label.configure(image=my_image)
     dealer_frame_card_2_label.image = my_image 
-    
+
     determine_winner_of_this_hand()
 
 ###########################################################################################
 
 def player_frame_card_3_click (event):
+    
+###########################################################################################
 
-    print("Frame 3 was clicked")
+    print("Frame was 3 clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[2]
+    board_hand[0] = player_1_hand[3]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
     
     # Replace the player card with NULL:
-    player_1_hand[2] = None
+    player_1_hand[3] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
@@ -532,41 +572,39 @@ def player_frame_card_3_click (event):
     player_frame_card_3_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[2]
+    board_hand[1] = computer_hand[3]
     
     # Generate image to place on the board:
     my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    round_frame_card_1_label.configure(image=my_image)
+    round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
-    computer_hand[1] = None
+    computer_hand[3] = None
 
     # Generate image of a blank card and place it in dealer's hand:
     my_image = resize_card_image("blank_card")
     dealer_frame_card_3_label.configure(image=my_image)
     dealer_frame_card_3_label.image = my_image 
 
-    determine_winner_of_this_hand()
+    determine_winner_of_this_hand()    
 
 ###########################################################################################
 
 def player_frame_card_4_click (event):
-    
-###########################################################################################
 
     print("Frame was 4 clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[3]
+    board_hand[0] = player_1_hand[4]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
     
     # Replace the player card with NULL:
-    player_1_hand[3] = None
+    player_1_hand[4] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
@@ -574,15 +612,15 @@ def player_frame_card_4_click (event):
     player_frame_card_4_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[3]
+    board_hand[1] = computer_hand[4]
     
     # Generate image to place on the board:
     my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    round_frame_card_1_label.configure(image=my_image)
+    round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
-    computer_hand[3] = None
+    computer_hand[4] = None
 
     # Generate image of a blank card and place it in dealer's hand:
     my_image = resize_card_image("blank_card")
@@ -595,18 +633,18 @@ def player_frame_card_4_click (event):
 
 def player_frame_card_5_click (event):
 
-    print("Frame was 5 clicked")
+    print("Frame 5 was clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[4]
+    board_hand[0] = player_1_hand[5]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
     
     # Replace the player card with NULL:
-    player_1_hand[4] = None
+    player_1_hand[5] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
@@ -614,60 +652,20 @@ def player_frame_card_5_click (event):
     player_frame_card_5_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[4]
-    
-    # Generate image to place on the board:
-    my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
-
-    # Replace the dealer card with NULL:
-    computer_hand[4] = None
-
-    # Generate image of a blank card and place it in dealer's hand:
-    my_image = resize_card_image("blank_card")
-    dealer_frame_card_5_label.configure(image=my_image)
-    dealer_frame_card_5_label.image = my_image 
-
-    determine_winner_of_this_hand()    
-
-###########################################################################################
-
-def player_frame_card_6_click (event):
-
-    print("Frame 6 was clicked")
-
-    # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[5]
-
-    # Generate image to place on the board:
-    my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
-    
-    # Replace the player card with NULL:
-    player_1_hand[5] = None
-
-    # Generate image of a blank card and place it in player's hand:
-    my_image = resize_card_image("blank_card")
-    player_frame_card_6_label.configure(image=my_image)
-    player_frame_card_6_label.image = my_image 
-
-    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     board_hand[1] = computer_hand[5]
     
     # Generate image to place on the board:
     my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    round_frame_card_1_label.configure(image=my_image)
+    round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
     computer_hand[5] = None
 
     # Generate image of a blank card and place it in dealer's hand:
     my_image = resize_card_image("blank_card")
-    dealer_frame_card_6_label.configure(image=my_image)
-    dealer_frame_card_6_label.image = my_image 
+    dealer_frame_card_5_label.configure(image=my_image)
+    dealer_frame_card_5_label.image = my_image 
 
     determine_winner_of_this_hand()        
 
