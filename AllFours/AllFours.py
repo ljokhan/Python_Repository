@@ -449,14 +449,12 @@ def player_frame_card_0_click (event):
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     board_hand[1] = computer_hand[0]
-    
+    computer_hand[0] = None
+
     # Generate image to place on the board:
     my_image = resize_card_image (board_hand[1].card_name)
     round_frame_card_1_label.configure(image=my_image)
     round_frame_card_1_label.image = my_image
-
-    # Replace the dealer card with NULL:
-    computer_hand[0] = None
 
     # Generate image of a blank card and place it in dealer's hand:
     my_image = resize_card_image("blank_card")
