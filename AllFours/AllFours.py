@@ -453,6 +453,12 @@ def dealer_turn_to_play():
 
 ###########################################################################################
 
+def clear_board_for_next_round():
+
+    pass
+
+###########################################################################################
+
 def player_frame_card_0_click (event):
 
     print("Frame 0 was clicked")
@@ -489,7 +495,11 @@ def player_frame_card_0_click (event):
     #dealer_frame_card_0_label.configure(image=my_image)
     #dealer_frame_card_0_label.image = my_image 
 
-    determine_winner_of_this_hand()
+    if determine_winner_of_this_hand() == 'dealer':
+
+        messagebox.showinfo ("","Dealer won this hand. Click to have dealer play first....")
+
+        clear_board_for_next_round()
 
     #update_round_summary ()
 
