@@ -927,12 +927,23 @@ def deal_cards ():
 
 def kick_trump_card ():
 
+    global points_this_round_player
+
     # Pick a random card:
     one_card = random.choice(all_playing_cards)
 
     # Add random card the trump list and remove it from the deck:
     trump_card.append (one_card)
     all_playing_cards.remove (one_card)
+
+    # Assign points for kicking any Ace, any Jack:
+    if trump_card[0].card_value == 14:
+        points_this_round_player += 1
+        messagebox.showinfo ("","Congratulations! You kicked an Ace for 1 point")
+    elif trump_card[0].card_value == 11:
+        points_this_round_player += 3
+        messagebox.showinfo ("","Congratulations! You kicked a Jack for 3 points")
+
 
 ###########################################################################################
 def put_cards_in_frames ():
