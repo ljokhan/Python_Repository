@@ -68,7 +68,6 @@ def exit_fullscreen (event=None):
     # This functions changes game to full screen:
     root.attributes('-fullscreen', False)
 
-
 ###########################################################################################
 def create_frames_and_buttons ():
 ###########################################################################################
@@ -353,12 +352,30 @@ def create_frames_and_buttons ():
 
 def dealer_chooses_card():
 
-    # Use an algorithm to help the dealer choose the correct card to play:
+    # Determine if dealer has a card in the same suit that Player 1 played.
 
-    random_card_index = random.randint(0,5)
+    # Get which suit was played by Player 1:
+    suit_to_find = board_hand[0].card_suit
 
-    while computer_hand[random_card_index] == None:
+    # Create a list of indexes for computer hand with  cards in same suit played by Player 1:
+    list_of_indexes = []
+    for cardindex in range (0,6):
+        if computer_hand[cardindex] != None and computer_hand[cardindex].card_suit == suit_to_find:
+            list_of_indexes.append (cardindex)
+
+    # Determine card to playL:
+    if len(list_of_indexes)  > 0:
+
+        # If computer hand has card with the same suit Player 1 played, choose one of those cards:
+        random_card_index = list_of_indexes[0]
+
+    else:
+        # Computer hand does not have any cards in the same suit Player I played, so randomly choose any of the cards:
         random_card_index = random.randint(0,5)
+
+        # Keep getting random cards from Computer hand until you get a valid one:
+        while computer_hand[random_card_index] == None:
+            random_card_index = random.randint(0,5)
 
     # Replace the dealer card with NULL:
     card_to_return = computer_hand[random_card_index]
