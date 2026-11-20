@@ -12,7 +12,7 @@ import time
 # Declare global variables:
 ###########################################################################################
 
-deck_of_cards = []
+#deck_of_cards = []
 num_cards_per_player = 6
 num_chalks_dealer = 0
 num_chalks_player = 0
@@ -43,8 +43,8 @@ board_hand = ["placeholder1", "placeholder2"]
 trump_card = []
 
 ###########################################################################################
-
 def create_application ():
+###########################################################################################
 
     # Create the main application window:
     global root
@@ -65,9 +65,10 @@ def exit_fullscreen (event=None):
     # This functions changes game to full screen:
     root.attributes('-fullscreen', False)
 
-###########################################################################################
 
+###########################################################################################
 def create_frames_and_buttons ():
+###########################################################################################
 
     ###########################################################################################
     # Split main application window into (1) side-bar to display points and (2) main board where cards are played:
@@ -106,9 +107,21 @@ def create_frames_and_buttons ():
     frame_main_board_label = Label(frame_dealer_cards, text="Dealer cards", background=bgcolor_hands, foreground="white", font=("Arial", 12, "bold"), width=100)
     frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
         
+    global dealer_frame_card_0
+    dealer_frame_card_0 = LabelFrame(frame_dealer_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
+    dealer_frame_card_0.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
+
+    global dealer_frame_card_0_label
+    dealer_frame_card_0_label = Label(dealer_frame_card_0, text='1. This is a Label.')
+    dealer_frame_card_0_label.place(x=0, y=5)
+
+    # Add image of overturned card:
+    dealer_frame_card_0_label.configure(image=my_image)
+    dealer_frame_card_0_label.image = my_image           
+
     global dealer_frame_card_1
     dealer_frame_card_1 = LabelFrame(frame_dealer_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    dealer_frame_card_1.grid(row=2, column=0, padx=20, ipadx=40, pady=20)
+    dealer_frame_card_1.grid(row=2, column=1, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_1_label
     dealer_frame_card_1_label = Label(dealer_frame_card_1, text='1. This is a Label.')
@@ -116,11 +129,11 @@ def create_frames_and_buttons ():
 
     # Add image of overturned card:
     dealer_frame_card_1_label.configure(image=my_image)
-    dealer_frame_card_1_label.image = my_image           
+    dealer_frame_card_1_label.image = my_image         
 
     global dealer_frame_card_2
-    dealer_frame_card_2 = LabelFrame(frame_dealer_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    dealer_frame_card_2.grid(row=2, column=1, padx=20, ipadx=40, pady=20)
+    dealer_frame_card_2 = LabelFrame(frame_dealer_cards, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor_hands)
+    dealer_frame_card_2.grid(row=2, column=2, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_2_label
     dealer_frame_card_2_label = Label(dealer_frame_card_2, text='1. This is a Label.')
@@ -128,11 +141,11 @@ def create_frames_and_buttons ():
 
     # Add image of overturned card:
     dealer_frame_card_2_label.configure(image=my_image)
-    dealer_frame_card_2_label.image = my_image         
+    dealer_frame_card_2_label.image = my_image       
 
     global dealer_frame_card_3
     dealer_frame_card_3 = LabelFrame(frame_dealer_cards, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor_hands)
-    dealer_frame_card_3.grid(row=2, column=2, padx=20, ipadx=40, pady=20)
+    dealer_frame_card_3.grid(row=2, column=3, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_3_label
     dealer_frame_card_3_label = Label(dealer_frame_card_3, text='1. This is a Label.')
@@ -140,11 +153,11 @@ def create_frames_and_buttons ():
 
     # Add image of overturned card:
     dealer_frame_card_3_label.configure(image=my_image)
-    dealer_frame_card_3_label.image = my_image       
+    dealer_frame_card_3_label.image = my_image         
 
     global dealer_frame_card_4
     dealer_frame_card_4 = LabelFrame(frame_dealer_cards, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor_hands)
-    dealer_frame_card_4.grid(row=2, column=3, padx=20, ipadx=40, pady=20)
+    dealer_frame_card_4.grid(row=2, column=4, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_4_label
     dealer_frame_card_4_label = Label(dealer_frame_card_4, text='1. This is a Label.')
@@ -152,11 +165,11 @@ def create_frames_and_buttons ():
 
     # Add image of overturned card:
     dealer_frame_card_4_label.configure(image=my_image)
-    dealer_frame_card_4_label.image = my_image         
+    dealer_frame_card_4_label.image = my_image     
 
     global dealer_frame_card_5
     dealer_frame_card_5 = LabelFrame(frame_dealer_cards, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor_hands)
-    dealer_frame_card_5.grid(row=2, column=4, padx=20, ipadx=40, pady=20)
+    dealer_frame_card_5.grid(row=2, column=5, padx=20, ipadx=40, pady=20)
 
     global dealer_frame_card_5_label
     dealer_frame_card_5_label = Label(dealer_frame_card_5, text='1. This is a Label.')
@@ -164,19 +177,7 @@ def create_frames_and_buttons ():
 
     # Add image of overturned card:
     dealer_frame_card_5_label.configure(image=my_image)
-    dealer_frame_card_5_label.image = my_image     
-
-    global dealer_frame_card_6
-    dealer_frame_card_6 = LabelFrame(frame_dealer_cards, width = frame_width, height = frame_height, text="", bd=0, background=bgcolor_hands)
-    dealer_frame_card_6.grid(row=2, column=5, padx=20, ipadx=40, pady=20)
-
-    global dealer_frame_card_6_label
-    dealer_frame_card_6_label = Label(dealer_frame_card_6, text='1. This is a Label.')
-    dealer_frame_card_6_label.place(x=0, y=5)
-
-    # Add image of overturned card:
-    dealer_frame_card_6_label.configure(image=my_image)
-    dealer_frame_card_6_label.image = my_image 
+    dealer_frame_card_5_label.image = my_image 
 
     ##########################################################################################################################
     # Create frames to show cards that are played within each round:
@@ -189,28 +190,28 @@ def create_frames_and_buttons ():
     #player_frame_card_label = Label(frame_main_board, text="Playing area", background="black", foreground="white", font=("Arial", 12, "bold"), width=100)
     #player_frame_card_label.grid(row=3, column=0, columnspan=6, padx=5, pady=5)
 
+    global round_frame_card_0
+    round_frame_card_0 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
+    round_frame_card_0.grid(row=4, column=2, padx=20, ipadx=40, pady=20)
+
+    global round_frame_card_0_label   
+    round_frame_card_0_label = Label(round_frame_card_0)
+    round_frame_card_0_label.place(x=0, y=5)
+    #my_image = resize_card_image("blank_card")
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image 
+
+    # Create frame to hold card 2 for each round:
     global round_frame_card_1
     round_frame_card_1 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
-    round_frame_card_1.grid(row=4, column=2, padx=20, ipadx=40, pady=20)
+    round_frame_card_1.grid(row=4, column=3, padx=20, ipadx=40, pady=20)
 
-    global round_frame_card_1_label   
+    global round_frame_card_1_label
     round_frame_card_1_label = Label(round_frame_card_1)
-    round_frame_card_1_label.place(x=0, y=5)
+    round_frame_card_1_label.place(x=0, y=5)   
     #my_image = resize_card_image("blank_card")
     round_frame_card_1_label.configure(image=my_image)
     round_frame_card_1_label.image = my_image 
-
-    # Create frame to hold card 2 for each round:
-    global round_frame_card_2
-    round_frame_card_2 = LabelFrame(frame_main_board, width = frame_width, height = frame_height, bd=0, background=bgcolor)    
-    round_frame_card_2.grid(row=4, column=3, padx=20, ipadx=40, pady=20)
-
-    global round_frame_card_2_label
-    round_frame_card_2_label = Label(round_frame_card_2)
-    round_frame_card_2_label.place(x=0, y=5)   
-    #my_image = resize_card_image("blank_card")
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image 
 
     # Configure label to show messages for the current round. This label shows messages as the hands are played:
     global winner_of_current_hand_label
@@ -229,10 +230,23 @@ def create_frames_and_buttons ():
     player_frame_card_label = Label(frame_player_cards, text="Your cards", background=bgcolor_hands, foreground="white", font=("Arial", 12, "bold"), width=100)
     player_frame_card_label.grid(row=8, column=0, columnspan=6, padx=5, pady=5)
 
+    global player_frame_card_0
+    player_frame_card_0 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
+    player_frame_card_0.grid(row=7, column=0, padx=20, ipadx=40, pady=20)
+    #player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
+
+    global player_frame_card_0_label
+    player_frame_card_0_label = Label(player_frame_card_0, text='1. This is a Label.')
+    player_frame_card_0_label.place(x=0, y=5)
+
+    # Add image of overturned card:
+    player_frame_card_0_label.configure(image=my_image)
+    player_frame_card_0_label.image = my_image 
+
     global player_frame_card_1
     player_frame_card_1 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_1.grid(row=7, column=0, padx=20, ipadx=40, pady=20)
-    #player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
+    player_frame_card_1.grid(row=7, column=1, padx=20, ipadx=40, pady=20)
+    #player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
 
     global player_frame_card_1_label
     player_frame_card_1_label = Label(player_frame_card_1, text='1. This is a Label.')
@@ -244,8 +258,8 @@ def create_frames_and_buttons ():
 
     global player_frame_card_2
     player_frame_card_2 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_2.grid(row=7, column=1, padx=20, ipadx=40, pady=20)
-    #player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
+    player_frame_card_2.grid(row=7, column=2, padx=20, ipadx=40, pady=20)
+    #player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
 
     global player_frame_card_2_label
     player_frame_card_2_label = Label(player_frame_card_2, text='1. This is a Label.')
@@ -257,8 +271,8 @@ def create_frames_and_buttons ():
 
     global player_frame_card_3
     player_frame_card_3 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_3.grid(row=7, column=2, padx=20, ipadx=40, pady=20)
-    #player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
+    player_frame_card_3.grid(row=7, column=3, padx=20, ipadx=40, pady=20)
+    #player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
 
     global player_frame_card_3_label
     player_frame_card_3_label = Label(player_frame_card_3, text='1. This is a Label.')
@@ -270,8 +284,8 @@ def create_frames_and_buttons ():
 
     global player_frame_card_4
     player_frame_card_4 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_4.grid(row=7, column=3, padx=20, ipadx=40, pady=20)
-    #player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
+    player_frame_card_4.grid(row=7, column=4, padx=20, ipadx=40, pady=20)
+    #player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
 
     global player_frame_card_4_label
     player_frame_card_4_label = Label(player_frame_card_4, text='1. This is a Label.')
@@ -279,12 +293,12 @@ def create_frames_and_buttons ():
 
     # Add image of overturned card:
     player_frame_card_4_label.configure(image=my_image)
-    player_frame_card_4_label.image = my_image 
+    player_frame_card_4_label.image = my_image     
 
     global player_frame_card_5
     player_frame_card_5 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_5.grid(row=7, column=4, padx=20, ipadx=40, pady=20)
-    #player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
+    player_frame_card_5.grid(row=7, column=5, padx=20, ipadx=40, pady=20)
+    ##player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
 
     global player_frame_card_5_label
     player_frame_card_5_label = Label(player_frame_card_5, text='1. This is a Label.')
@@ -292,20 +306,7 @@ def create_frames_and_buttons ():
 
     # Add image of overturned card:
     player_frame_card_5_label.configure(image=my_image)
-    player_frame_card_5_label.image = my_image     
-
-    global player_frame_card_6
-    player_frame_card_6 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_6.grid(row=7, column=5, padx=20, ipadx=40, pady=20)
-    ##player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
-
-    global player_frame_card_6_label
-    player_frame_card_6_label = Label(player_frame_card_6, text='1. This is a Label.')
-    player_frame_card_6_label.place(x=0, y=5)
-
-    # Add image of overturned card:
-    player_frame_card_6_label.configure(image=my_image)
-    player_frame_card_6_label.image = my_image   
+    player_frame_card_5_label.image = my_image   
 
     # Add text indicating this section contains the dealer hand:
     #player_frame_card_label = Label(frame_main_board, text="Your hand", background="black", foreground="white", font=("Arial", 12, "bold"), width=100)
@@ -349,6 +350,8 @@ def create_frames_and_buttons ():
 
 def dealer_chooses_card():
 
+    # Use an algorithm to help the dealer choose the correct card to play:
+
     random_card_index = random.randint(0,5)
 
     while computer_hand[random_card_index] == None:
@@ -357,31 +360,118 @@ def dealer_chooses_card():
     # Replace the dealer card with NULL:
     card_to_return = computer_hand[random_card_index]
 
-    print(computer_hand[random_card_index].card_value)
+    #print ("dealer chooses card - card value...")
+    #print(computer_hand[random_card_index].card_value)
+
+    #print ("dealer chooses card - board position...")
+    #print(computer_hand[random_card_index].board_location)
 
     computer_hand[random_card_index] = None 
 
     return card_to_return
 
+###########################################################################################
 def dealer_plays_card():
+###########################################################################################
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     #board_hand[1] = computer_hand[0]
     board_hand[1] = dealer_chooses_card()
+
+    #print ("dealer plays card - card value...")
+    #print(board_hand[1].card_value)
+
+    #print ("dealer plays card - board position...")
+    #print(board_hand[1].board_location)
     
     # Generate image to place on the board:
     my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    round_frame_card_1_label.configure(image=my_image)
+    round_frame_card_1_label.image = my_image
 
-    # Replace the dealer card with NULL:
-    #computer_hand[0] = None
+    # Replace the dealer card with NULL. Then replace the card from with a blank card:
+    if board_hand[1].board_location[1] == "0":
+        computer_hand[0] = None
+        my_image = resize_card_image("blank_card")
+        dealer_frame_card_0_label.configure(image=my_image)
+        dealer_frame_card_0_label.image = my_image 
+
+    elif board_hand[1].board_location[1] == "1":
+        computer_hand[1] = None
+        my_image = resize_card_image("blank_card")
+        dealer_frame_card_1_label.configure(image=my_image)
+        dealer_frame_card_1_label.image = my_image 
+
+    elif board_hand[1].board_location[1] == "2":
+        computer_hand[2] = None
+        my_image = resize_card_image("blank_card")
+        dealer_frame_card_2_label.configure(image=my_image)
+        dealer_frame_card_2_label.image = my_image 
+
+    elif board_hand[1].board_location[1] == "3":
+        computer_hand[3] = None
+        my_image = resize_card_image("blank_card")
+        dealer_frame_card_3_label.configure(image=my_image)
+        dealer_frame_card_3_label.image = my_image 
+
+    elif board_hand[1].board_location[1] == "4":
+        computer_hand[4] = None
+        my_image = resize_card_image("blank_card")
+        dealer_frame_card_4_label.configure(image=my_image)
+        dealer_frame_card_4_label.image = my_image 
+
+    elif board_hand[1].board_location[1] == "5":
+        computer_hand[5] = None
+        my_image = resize_card_image("blank_card")
+        dealer_frame_card_5_label.configure(image=my_image)
+        dealer_frame_card_5_label.image = my_image 
 
     # Generate image of a blank card and place it in dealer's hand:
-    my_image = resize_card_image("blank_card")
-    dealer_frame_card_1_label.configure(image=my_image)
-    dealer_frame_card_1_label.image = my_image 
+    #y_image = resize_card_image("blank_card")
+    ##ealer_frame_card_1_label.configure(image=my_image)
+    #dealer_frame_card_1_label.image = my_image 
 
+###########################################################################################
+
+def player_frame_card_0_click (event):
+
+    print("Frame 0 was clicked")
+
+    # Player clicked the card to play, so move the card from the player hand to the board:
+    board_hand[0] = player_1_hand[0]
+
+    # Generate image to place on the board:
+    my_image = resize_card_image(board_hand[0].card_name)
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image 
+    
+    # Replace the player card with NULL:
+    player_1_hand[0] = None
+
+    # Generate image of a blank card and place it in player's hand:
+    my_image = resize_card_image("blank_card")
+    player_frame_card_0_label.configure(image=my_image)
+    player_frame_card_0_label.image = my_image 
+
+    dealer_plays_card()
+
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
+    #board_hand[1] = computer_hand[0]
+    #computer_hand[0] = None
+
+    # Generate image to place on the board:
+    #my_image = resize_card_image (board_hand[1].card_name)
+    #round_frame_card_1_label.configure(image=my_image)
+    #round_frame_card_1_label.image = my_image
+
+    # Generate image of a blank card and place it in dealer's hand:
+    #my_image = resize_card_image("blank_card")
+    #dealer_frame_card_0_label.configure(image=my_image)
+    #dealer_frame_card_0_label.image = my_image 
+
+    determine_winner_of_this_hand()
+
+    update_round_summary ()
 
 ###########################################################################################
 
@@ -390,44 +480,40 @@ def player_frame_card_1_click (event):
     print("Frame 1 was clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[0]
+    board_hand[0] = player_1_hand[1]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image 
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
     
     # Replace the player card with NULL:
-    player_1_hand[0] = None
+    player_1_hand[1] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
     player_frame_card_1_label.configure(image=my_image)
     player_frame_card_1_label.image = my_image 
 
+    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     dealer_plays_card()
 
-    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    #board_hand[1] = computer_hand[0]
+    #board_hand[1] = computer_hand[1]
     
     # Generate image to place on the board:
     #my_image = resize_card_image (board_hand[1].card_name)
-    #round_frame_card_2_label.configure(image=my_image)
-    #round_frame_card_2_label.image = my_image
+    #round_frame_card_1_label.configure(image=my_image)
+    #round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
-    #computer_hand[0] = None
+    #computer_hand[1] = None
 
     # Generate image of a blank card and place it in dealer's hand:
     #my_image = resize_card_image("blank_card")
     #dealer_frame_card_1_label.configure(image=my_image)
     #dealer_frame_card_1_label.image = my_image 
-
-
-
+    
     determine_winner_of_this_hand()
-
-    update_round_summary ()
 
 ###########################################################################################
 
@@ -436,15 +522,15 @@ def player_frame_card_2_click (event):
     print("Frame 2 was clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[1]
+    board_hand[0] = player_1_hand[2]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
     
     # Replace the player card with NULL:
-    player_1_hand[1] = None
+    player_1_hand[2] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
@@ -452,39 +538,42 @@ def player_frame_card_2_click (event):
     player_frame_card_2_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[1]
+    dealer_plays_card()
+    #board_hand[1] = computer_hand[2]
     
     # Generate image to place on the board:
-    my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    #my_image = resize_card_image (board_hand[1].card_name)
+    #round_frame_card_1_label.configure(image=my_image)
+    #round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
-    computer_hand[1] = None
+    #computer_hand[2] = None
 
     # Generate image of a blank card and place it in dealer's hand:
-    my_image = resize_card_image("blank_card")
-    dealer_frame_card_2_label.configure(image=my_image)
-    dealer_frame_card_2_label.image = my_image 
-    
+    #my_image = resize_card_image("blank_card")
+    #dealer_frame_card_2_label.configure(image=my_image)
+    #dealer_frame_card_2_label.image = my_image 
+
     determine_winner_of_this_hand()
 
 ###########################################################################################
 
 def player_frame_card_3_click (event):
+    
+###########################################################################################
 
-    print("Frame 3 was clicked")
+    print("Frame was 3 clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[2]
+    board_hand[0] = player_1_hand[3]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
     
     # Replace the player card with NULL:
-    player_1_hand[2] = None
+    player_1_hand[3] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
@@ -492,41 +581,40 @@ def player_frame_card_3_click (event):
     player_frame_card_3_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[2]
+    dealer_plays_card()
+    #board_hand[1] = computer_hand[3]
     
     # Generate image to place on the board:
-    my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    #my_image = resize_card_image (board_hand[1].card_name)
+    #round_frame_card_1_label.configure(image=my_image)
+    #round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
-    computer_hand[1] = None
+    #computer_hand[3] = None
 
     # Generate image of a blank card and place it in dealer's hand:
-    my_image = resize_card_image("blank_card")
-    dealer_frame_card_3_label.configure(image=my_image)
-    dealer_frame_card_3_label.image = my_image 
+    #my_image = resize_card_image("blank_card")
+    #dealer_frame_card_3_label.configure(image=my_image)
+    #dealer_frame_card_3_label.image = my_image 
 
-    determine_winner_of_this_hand()
+    determine_winner_of_this_hand()    
 
 ###########################################################################################
 
 def player_frame_card_4_click (event):
-    
-###########################################################################################
 
     print("Frame was 4 clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[3]
+    board_hand[0] = player_1_hand[4]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
     
     # Replace the player card with NULL:
-    player_1_hand[3] = None
+    player_1_hand[4] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
@@ -534,20 +622,21 @@ def player_frame_card_4_click (event):
     player_frame_card_4_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[3]
+    dealer_plays_card()
+    #board_hand[1] = computer_hand[4]
     
     # Generate image to place on the board:
-    my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    #my_image = resize_card_image (board_hand[1].card_name)
+    #round_frame_card_1_label.configure(image=my_image)
+    #round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
-    computer_hand[3] = None
+    #computer_hand[4] = None
 
     # Generate image of a blank card and place it in dealer's hand:
-    my_image = resize_card_image("blank_card")
-    dealer_frame_card_4_label.configure(image=my_image)
-    dealer_frame_card_4_label.image = my_image 
+    #my_image = resize_card_image("blank_card")
+    #dealer_frame_card_4_label.configure(image=my_image)
+    #dealer_frame_card_4_label.image = my_image 
 
     determine_winner_of_this_hand()    
 
@@ -555,18 +644,18 @@ def player_frame_card_4_click (event):
 
 def player_frame_card_5_click (event):
 
-    print("Frame was 5 clicked")
+    print("Frame 5 was clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[4]
+    board_hand[0] = player_1_hand[5]
 
     # Generate image to place on the board:
     my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
+    round_frame_card_0_label.configure(image=my_image)
+    round_frame_card_0_label.image = my_image
     
     # Replace the player card with NULL:
-    player_1_hand[4] = None
+    player_1_hand[5] = None
 
     # Generate image of a blank card and place it in player's hand:
     my_image = resize_card_image("blank_card")
@@ -574,60 +663,21 @@ def player_frame_card_5_click (event):
     player_frame_card_5_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[4]
+    dealer_plays_card()
+    #board_hand[1] = computer_hand[5]
     
     # Generate image to place on the board:
-    my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
+    #my_image = resize_card_image (board_hand[1].card_name)
+    #round_frame_card_1_label.configure(image=my_image)
+    #round_frame_card_1_label.image = my_image
 
     # Replace the dealer card with NULL:
-    computer_hand[4] = None
+    #computer_hand[5] = None
 
     # Generate image of a blank card and place it in dealer's hand:
-    my_image = resize_card_image("blank_card")
-    dealer_frame_card_5_label.configure(image=my_image)
-    dealer_frame_card_5_label.image = my_image 
-
-    determine_winner_of_this_hand()    
-
-###########################################################################################
-
-def player_frame_card_6_click (event):
-
-    print("Frame 6 was clicked")
-
-    # Player clicked the card to play, so move the card from the player hand to the board:
-    board_hand[0] = player_1_hand[5]
-
-    # Generate image to place on the board:
-    my_image = resize_card_image(board_hand[0].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
-    
-    # Replace the player card with NULL:
-    player_1_hand[5] = None
-
-    # Generate image of a blank card and place it in player's hand:
-    my_image = resize_card_image("blank_card")
-    player_frame_card_6_label.configure(image=my_image)
-    player_frame_card_6_label.image = my_image 
-
-    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    board_hand[1] = computer_hand[5]
-    
-    # Generate image to place on the board:
-    my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_2_label.configure(image=my_image)
-    round_frame_card_2_label.image = my_image
-
-    # Replace the dealer card with NULL:
-    computer_hand[5] = None
-
-    # Generate image of a blank card and place it in dealer's hand:
-    my_image = resize_card_image("blank_card")
-    dealer_frame_card_6_label.configure(image=my_image)
-    dealer_frame_card_6_label.image = my_image 
+    #my_image = resize_card_image("blank_card")
+    #dealer_frame_card_5_label.configure(image=my_image)
+    #dealer_frame_card_5_label.image = my_image 
 
     determine_winner_of_this_hand()        
 
@@ -809,7 +859,7 @@ def create_new_deck ():
                 tempcard = (f"Ace_of_{one_suit}")
             else:
                 tempcard = (f"{one_card_value}_of_{one_suit}")
-            deck_of_cards.append(tempcard)
+            #deck_of_cards.append(tempcard)
 
             # Generate one instance of the playing card class:
             one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png", None)
@@ -825,11 +875,12 @@ def create_new_deck ():
 def deal_cards ():
 
     # Deal cards to each player one at a time until each player has the required number of cards:
-    for i in range(1, 1 + num_cards_per_player):
+    #for i in range(1, 1 + num_cards_per_player):
+    for counter_deal_cards in range(0, num_cards_per_player):
 
         # Pick a random card:
-        #one_card = random.choice(deck_of_cards)
         one_card = random.choice(all_playing_cards)
+        one_card.board_location = 'P' + counter_deal_cards.__str__()
 
         # Add random card to the player hand:
         player_1_hand.append (one_card)
@@ -837,6 +888,7 @@ def deal_cards ():
 
         # Pick another random card:
         one_card = random.choice(all_playing_cards)
+        one_card.board_location = 'D' + counter_deal_cards.__str__()
 
         # Add random card to the computer hand:
         computer_hand.append (one_card)
@@ -871,46 +923,46 @@ def put_cards_in_frames ():
     # Dealer card section
     #######################################################################################
     my_image = resize_card_image(computer_hand[0].card_name)
+    dealer_frame_card_0_label.configure(image=my_image)
+    dealer_frame_card_0_label.image = my_image 
+
+    # Update location so we know which card is in which position on the screen:
+    computer_hand[0].card_location = 'D0'
+
+    my_image = resize_card_image(computer_hand[1].card_name)
     dealer_frame_card_1_label.configure(image=my_image)
-    dealer_frame_card_1_label.image = my_image 
+    dealer_frame_card_1_label.image = my_image  
 
     # Update location so we know which card is in which position on the screen:
     computer_hand[0].card_location = 'D1'
 
-    my_image = resize_card_image(computer_hand[1].card_name)
+    my_image = resize_card_image(computer_hand[2].card_name)
     dealer_frame_card_2_label.configure(image=my_image)
-    dealer_frame_card_2_label.image = my_image  
+    dealer_frame_card_2_label.image = my_image 
 
     # Update location so we know which card is in which position on the screen:
     computer_hand[0].card_location = 'D2'
 
-    my_image = resize_card_image(computer_hand[2].card_name)
+    my_image = resize_card_image(computer_hand[3].card_name)
     dealer_frame_card_3_label.configure(image=my_image)
     dealer_frame_card_3_label.image = my_image 
 
     # Update location so we know which card is in which position on the screen:
     computer_hand[0].card_location = 'D3'
 
-    my_image = resize_card_image(computer_hand[3].card_name)
+    my_image = resize_card_image(computer_hand[4].card_name)
     dealer_frame_card_4_label.configure(image=my_image)
     dealer_frame_card_4_label.image = my_image 
 
     # Update location so we know which card is in which position on the screen:
-    computer_hand[0].card_location = 'D4'
-
-    my_image = resize_card_image(computer_hand[4].card_name)
-    dealer_frame_card_5_label.configure(image=my_image)
-    dealer_frame_card_5_label.image = my_image 
-
-    # Update location so we know which card is in which position on the screen:
-    computer_hand[0].card_location = 'D5'    
+    computer_hand[0].card_location = 'D4'    
 
     my_image = resize_card_image(computer_hand[5].card_name)
-    dealer_frame_card_6_label.configure(image=my_image)
-    dealer_frame_card_6_label.image = my_image      
+    dealer_frame_card_5_label.configure(image=my_image)
+    dealer_frame_card_5_label.image = my_image      
 
     # Update location so we know which card is in which position on the screen:
-    computer_hand[0].card_location = 'D6'           
+    computer_hand[0].card_location = 'D5'           
 
     #######################################################################################
     # Player card section
@@ -918,52 +970,52 @@ def put_cards_in_frames ():
 
     # Place the player cards in their frames:
     my_image = resize_card_image(player_1_hand[0].card_name)
-    player_frame_card_1_label.configure(image=my_image)
-    player_frame_card_1_label.image = my_image 
+    player_frame_card_0_label.configure(image=my_image)
+    player_frame_card_0_label.image = my_image 
     #player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
 
     # Update location so we know which card is in which position on the screen:
-    player_1_hand[0].card_location = 'P1'
+    player_1_hand[0].card_location = 'P0'
 
     my_image = resize_card_image(player_1_hand[1].card_name)
+    player_frame_card_1_label.configure(image=my_image)
+    player_frame_card_1_label.image = my_image 
+    #player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
+
+    # Update location so we know which card is in which position on the screen:
+    player_1_hand[0].card_location = 'P1'    
+
+    my_image = resize_card_image(player_1_hand[2].card_name)
     player_frame_card_2_label.configure(image=my_image)
     player_frame_card_2_label.image = my_image 
-    #player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
+    #player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
 
     # Update location so we know which card is in which position on the screen:
     player_1_hand[0].card_location = 'P2'    
 
-    my_image = resize_card_image(player_1_hand[2].card_name)
+    my_image = resize_card_image(player_1_hand[3].card_name)
     player_frame_card_3_label.configure(image=my_image)
     player_frame_card_3_label.image = my_image 
-    #player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
+    #player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
 
     # Update location so we know which card is in which position on the screen:
     player_1_hand[0].card_location = 'P3'    
 
-    my_image = resize_card_image(player_1_hand[3].card_name)
+    my_image = resize_card_image(player_1_hand[4].card_name)
     player_frame_card_4_label.configure(image=my_image)
     player_frame_card_4_label.image = my_image 
-    #player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
+    #player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
 
     # Update location so we know which card is in which position on the screen:
     player_1_hand[0].card_location = 'P4'    
 
-    my_image = resize_card_image(player_1_hand[4].card_name)
+    my_image = resize_card_image(player_1_hand[5].card_name)
     player_frame_card_5_label.configure(image=my_image)
     player_frame_card_5_label.image = my_image 
-    #player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
-
-    # Update location so we know which card is in which position on the screen:
-    player_1_hand[0].card_location = 'P5'    
-
-    my_image = resize_card_image(player_1_hand[5].card_name)
-    player_frame_card_6_label.configure(image=my_image)
-    player_frame_card_6_label.image = my_image 
     #player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)   
 
     # Update location so we know which card is in which position on the screen:
-    player_1_hand[0].card_location = 'P6'     
+    player_1_hand[0].card_location = 'P5'     
 
     # Indicate to user they can start playing:
     player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
@@ -993,38 +1045,38 @@ def enable_or_disable_player (enable_or_disable):
 
     if enable_or_disable.upper() == 'E':
 
+        player_frame_card_0.bind("<Button-1>", player_frame_card_0_click)
         player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
         player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
         player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
         player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
         player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
-        player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
 
+        player_frame_card_0_label.bind("<Button-1>", player_frame_card_0_click)
         player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
         player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
         player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
         player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
         player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
-        player_frame_card_6_label.bind("<Button-1>", player_frame_card_6_click)
 
     elif enable_or_disable.upper() == 'D':
 
+        player_frame_card_0.unbind("<Button-1>")
         player_frame_card_1.unbind("<Button-1>")
         player_frame_card_2.unbind("<Button-1>")
         player_frame_card_3.unbind("<Button-1>")
         player_frame_card_4.unbind("<Button-1>")
         player_frame_card_5.unbind("<Button-1>")
-        player_frame_card_6.unbind("<Button-1>")
 
+        player_frame_card_0_label.unbind("<Button-1>")
         player_frame_card_1_label.unbind("<Button-1>")
         player_frame_card_2_label.unbind("<Button-1>")
         player_frame_card_3_label.unbind("<Button-1>")
         player_frame_card_4_label.unbind("<Button-1>")
         player_frame_card_5_label.unbind("<Button-1>")
-        player_frame_card_6_label.unbind("<Button-1>")
 
 ###########################################################################################
-def turn_to_play(player_or_computer):
+def play_turn (player_or_computer):
 ###########################################################################################
 
     if player_or_computer.upper() == 'P':
@@ -1038,7 +1090,7 @@ def start_new_game ():
 ###########################################################################################
 
     # Create a new deck of cards:
-    create_new_deck ()
+    create_new_deck()
   
     # Deal the cards to all players:
     deal_cards()
@@ -1053,17 +1105,17 @@ def start_new_game ():
     put_cards_in_frames()
 
     # Player gets 1st turn to play:
-    turn_to_play ('P')
+    play_turn ('P')
 
 ###########################################################################################
 # Main program:
 ###########################################################################################
 
 # Create the All Fours game application:
-create_application ()
+create_application()
 
 # Create frames to hold the cards:
-create_frames_and_buttons ()
+create_frames_and_buttons()
 
 # Start application:
 root.mainloop()
