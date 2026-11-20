@@ -491,7 +491,7 @@ def player_frame_card_0_click (event):
 
     determine_winner_of_this_hand()
 
-    update_round_summary ()
+    #update_round_summary ()
 
 ###########################################################################################
 
@@ -580,8 +580,6 @@ def player_frame_card_2_click (event):
 
 def player_frame_card_3_click (event):
     
-###########################################################################################
-
     print("Frame was 3 clicked")
 
     # Player clicked the card to play, so move the card from the player hand to the board:
@@ -826,6 +824,8 @@ def determine_winner_of_this_hand ():
 
     update_round_summary()
 
+    return winner
+
 ###########################################################################################
 
 def is_this_round_over ():
@@ -895,22 +895,21 @@ def create_new_deck ():
 def deal_cards ():
 
     # Deal cards to each player one at a time until each player has the required number of cards:
-    #for i in range(1, 1 + num_cards_per_player):
     for counter_deal_cards in range(0, num_cards_per_player):
 
         # Pick a random card:
         one_card = random.choice(all_playing_cards)
-        one_card.board_location = 'P' + counter_deal_cards.__str__()
 
         # Add random card to the player hand:
+        one_card.board_location = 'P' + counter_deal_cards.__str__()
         player_1_hand.append (one_card)
         all_playing_cards.remove (one_card)
 
         # Pick another random card:
         one_card = random.choice(all_playing_cards)
-        one_card.board_location = 'D' + counter_deal_cards.__str__()
 
         # Add random card to the computer hand:
+        one_card.board_location = 'D' + counter_deal_cards.__str__()
         computer_hand.append (one_card)
         all_playing_cards.remove (one_card)
 
@@ -1096,8 +1095,8 @@ def enable_or_disable_player (enable_or_disable):
         player_frame_card_5_label.unbind("<Button-1>")
 
 ###########################################################################################
+
 def play_turn (player_or_computer):
-###########################################################################################
 
     if player_or_computer.upper() == 'P':
         enable_or_disable_player ('E')
@@ -1106,8 +1105,8 @@ def play_turn (player_or_computer):
         enable_or_disable_player ('D')
 
 ###########################################################################################
+
 def start_new_game ():
-###########################################################################################
 
     # Create a new deck of cards:
     create_new_deck()
