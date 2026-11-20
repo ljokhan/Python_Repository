@@ -374,7 +374,7 @@ def dealer_chooses_card():
     return card_to_return
 
 ###########################################################################################
-def dealer_plays_card():
+def dealer_turn_to_play():
 ###########################################################################################
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
@@ -456,7 +456,7 @@ def player_frame_card_0_click (event):
     player_frame_card_0_label.configure(image=my_image)
     player_frame_card_0_label.image = my_image 
 
-    dealer_plays_card()
+    dealer_turn_to_play()
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     #board_hand[1] = computer_hand[0]
@@ -499,7 +499,7 @@ def player_frame_card_1_click (event):
     player_frame_card_1_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    dealer_plays_card()
+    dealer_turn_to_play()
 
     #board_hand[1] = computer_hand[1]
     
@@ -541,7 +541,7 @@ def player_frame_card_2_click (event):
     player_frame_card_2_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    dealer_plays_card()
+    dealer_turn_to_play()
     #board_hand[1] = computer_hand[2]
     
     # Generate image to place on the board:
@@ -584,7 +584,7 @@ def player_frame_card_3_click (event):
     player_frame_card_3_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    dealer_plays_card()
+    dealer_turn_to_play()
     #board_hand[1] = computer_hand[3]
     
     # Generate image to place on the board:
@@ -625,7 +625,7 @@ def player_frame_card_4_click (event):
     player_frame_card_4_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    dealer_plays_card()
+    dealer_turn_to_play()
     #board_hand[1] = computer_hand[4]
     
     # Generate image to place on the board:
@@ -666,7 +666,7 @@ def player_frame_card_5_click (event):
     player_frame_card_5_label.image = my_image 
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    dealer_plays_card()
+    dealer_turn_to_play()
     #board_hand[1] = computer_hand[5]
     
     # Generate image to place on the board:
