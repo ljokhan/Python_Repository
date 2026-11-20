@@ -21,6 +21,9 @@ num_chalks_player = 0
 bgcolor = "green"
 bgcolor_hands = "green"
 
+# Variable for fonts:
+game_font = "Comic Sans MS"
+
 # These store the total point for a single round of play:
 global points_this_round_player
 points_this_round_player = 0
@@ -104,7 +107,7 @@ def create_frames_and_buttons ():
     frame_dealer_cards.grid(row=1, column=0, columnspan=6,  padx=5, pady=5)  
     
     # Add text indicating this section contains the dealer hand:
-    frame_main_board_label = Label(frame_dealer_cards, text="Dealer cards", background=bgcolor_hands, foreground="white", font=("Arial", 12, "bold"), width=100)
+    frame_main_board_label = Label(frame_dealer_cards, text="Dealer cards", background=bgcolor_hands, foreground="white", font=(game_font, 14, "bold"), width=100)
     frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
         
     global dealer_frame_card_0
@@ -215,7 +218,7 @@ def create_frames_and_buttons ():
 
     # Configure label to show messages for the current round. This label shows messages as the hands are played:
     global winner_of_current_hand_label
-    winner_of_current_hand_label = Label(frame_main_board, background=bgcolor, foreground="white", font=("Arial", 12, "bold"), width=15)
+    winner_of_current_hand_label = Label(frame_main_board, background=bgcolor, foreground="white", font=(game_font, 14, "bold"), width=15)
     winner_of_current_hand_label.grid(row=4, column=2, columnspan=2, padx=0, pady=0)
 
     ##########################################################################################################################
@@ -227,7 +230,7 @@ def create_frames_and_buttons ():
     frame_player_cards.grid(row=6, column=0, columnspan=6,  padx=5, pady=5)  
 
     # Add text indicating this section contains the dealer hand:
-    player_frame_card_label = Label(frame_player_cards, text="Your cards", background=bgcolor_hands, foreground="white", font=("Arial", 12, "bold"), width=100)
+    player_frame_card_label = Label(frame_player_cards, text="Your cards", background=bgcolor_hands, foreground="white", font=(game_font, 14, "bold"), width=100)
     player_frame_card_label.grid(row=8, column=0, columnspan=6, padx=5, pady=5)
 
     global player_frame_card_0
@@ -323,7 +326,7 @@ def create_frames_and_buttons ():
 
     # Configure frame for Trump card within right-side frame:
     global trump_frame
-    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump Card", background=bgcolor, font=("Arial", 12))
+    trump_frame = LabelFrame(frame_right_sidebar, width = frame_width, height = frame_height, bd=0, text="Trump Card", background=bgcolor, foreground="white", font=(game_font, 14))
     trump_frame.grid(row=0, column=0, padx=20, ipadx=40, pady=20)
 
     # Start Trump frame with image of overturned card:
@@ -338,13 +341,13 @@ def create_frames_and_buttons ():
 
     # Create box which shows the accumulated points for this round (dealer points, player points, high card, low card, etc)
     global current_round_point_summary_text
-    current_round_point_summary_text = Text(frame_right_sidebar, width=30, height=11, wrap="word", background="black", foreground ="white", font=("Arial", 12, "bold"))
+    current_round_point_summary_text = Text(frame_right_sidebar, width=30, height=15, wrap="word", background="black", foreground ="white", font=("Comic Sans MS", 11, "bold"))
     current_round_point_summary_text.grid(row=8, column=0, sticky="nsew", padx=20, pady=20)
-    current_round_point_summary_text.insert("1.0",'\n              Current round \n\n  Dealer points: 0 \n\n  Player points: 0 \n\n  High card: \n\n  Low card: \n\n  Hang jack:')
+    current_round_point_summary_text.insert("1.0",'\n              Current round \n\n  Dealer points: 0 \n\n  Player points: 0 \n\n  High card: \n\n  Low card: \n\n  Pass jack: \n\n  Hang jack:')
 
     # Create box which shows the accumulated points for this game:
     global game_point_summary_text
-    game_point_summary_text = Text(frame_right_sidebar, width=15, height=7, wrap="word", background="black", foreground ="white", font=("Arial", 12, "bold"))
+    game_point_summary_text = Text(frame_right_sidebar, width=15, height=7, wrap="word", background="black", foreground ="white", font=("Comic Sans MS", 11, "bold"))
     game_point_summary_text.grid (row=9, column=0, sticky="nsew", padx=20, pady=20)
     game_point_summary_text.insert ("1.0",'\n  Current game - 14 to Win: \n\n  Dealer chalks: lllll \n\n  Player chalks: llll')    
 
