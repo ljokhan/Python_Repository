@@ -46,6 +46,7 @@ board_hand = ["placeholder1", "placeholder2"]
 trump_card = []
 
 ###########################################################################################
+
 def create_application ():
 ###########################################################################################
 
@@ -69,6 +70,7 @@ def exit_fullscreen (event=None):
     root.attributes('-fullscreen', False)
 
 ###########################################################################################
+
 def create_frames_and_buttons ():
 ###########################################################################################
 
@@ -199,7 +201,9 @@ def create_frames_and_buttons ():
     global round_frame_card_0_label   
     round_frame_card_0_label = Label(round_frame_card_0)
     round_frame_card_0_label.place(x=0, y=5)
-    #my_image = resize_card_image("blank_card")
+
+    # The initial image for a board frame is blank, because nobody has played a card yet.
+    my_image = resize_card_image("blank_card")
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image 
 
@@ -211,18 +215,23 @@ def create_frames_and_buttons ():
     global round_frame_card_1_label
     round_frame_card_1_label = Label(round_frame_card_1)
     round_frame_card_1_label.place(x=0, y=5)   
-    #my_image = resize_card_image("blank_card")
+
+    # The initial image for a board frame is blank, because nobody has played a card yet.
+    my_image = resize_card_image("blank_card")
     round_frame_card_1_label.configure(image=my_image)
     round_frame_card_1_label.image = my_image 
 
     # Configure label to show messages for the current round. This label shows messages as the hands are played:
     global winner_of_current_hand_label
-    winner_of_current_hand_label = Label(frame_main_board, background=bgcolor, foreground="white", font=(game_font, 14, "bold"), width=15)
+    winner_of_current_hand_label = Label(frame_main_board, background=bgcolor, foreground="white", font=(game_font, 14, "bold"), width=16)
     winner_of_current_hand_label.grid(row=4, column=2, columnspan=2, padx=0, pady=0)
 
     ##########################################################################################################################
     # Create clickable frames to show player cards:
     ##########################################################################################################################
+
+    # Player 1 frame initially show an overturned playing card;
+    my_image = resize_card_image("back_of_playing_card")
 
     global frame_player_cards
     frame_player_cards = LabelFrame(frame_main_board, width = 1000, height = 20, border=3, background=bgcolor_hands)  
@@ -350,6 +359,8 @@ def create_frames_and_buttons ():
     game_point_summary_text.grid (row=9, column=0, sticky="nsew", padx=20, pady=20)
     game_point_summary_text.insert ("1.0",'\n  Current game - 14 to Win: \n\n  Dealer chalks: lllll \n\n  Player chalks: llll')    
 
+###########################################################################################
+
 def dealer_chooses_card():
 
     # Determine if dealer has a card in the same suit that Player 1 played.
@@ -391,6 +402,7 @@ def dealer_chooses_card():
     return card_to_return
 
 ###########################################################################################
+
 def dealer_turn_to_play():
 ###########################################################################################
 
@@ -480,6 +492,8 @@ def player_frame_card_0_click (event):
     player_frame_card_0_label.image = my_image 
 
     dealer_turn_to_play()
+    #####play_turn ('D')
+
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     #board_hand[1] = computer_hand[0]
@@ -495,11 +509,13 @@ def player_frame_card_0_click (event):
     #dealer_frame_card_0_label.configure(image=my_image)
     #dealer_frame_card_0_label.image = my_image 
 
-    if determine_winner_of_this_hand() == 'dealer':
+    determine_winner_of_this_hand()
 
-        messagebox.showinfo ("","Dealer won this hand. Click to have dealer play first....")
+    #if determine_winner_of_this_hand() == 'dealer':
 
-        clear_board_for_next_round()
+        #messagebox.showinfo ("","Dealer won this hand. Click to have dealer play first....")
+
+        #clear_board_for_next_round()
 
     #update_round_summary ()
 
@@ -825,9 +841,9 @@ def determine_winner_of_this_hand ():
     if points_this_hand == 0:
         winner_of_current_hand_label.configure(text=winner.title() + " wins!")
     elif points_this_hand == 1:
-        winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_hand.__str__() + " point!")
+        winner_of_current_hand_label.configure(text=winner.title() + " wins \n" + points_this_hand.__str__() + " point!")
     elif points_this_hand > 1:
-            winner_of_current_hand_label.configure(text=winner.title() + " wins " + points_this_hand.__str__() + " points!")
+            winner_of_current_hand_label.configure(text=winner.title() + " wins \n" + points_this_hand.__str__() + " points!")
 
     # Determine if this round is over:
     is_this_round_over()
@@ -944,8 +960,8 @@ def kick_trump_card ():
         points_this_round_player += 3
         messagebox.showinfo ("","Congratulations! You kicked a Jack for 3 points")
 
-
 ###########################################################################################
+
 def put_cards_in_frames ():
 ###########################################################################################
 
@@ -1062,6 +1078,7 @@ def put_cards_in_frames ():
     player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
     
 ###########################################################################################
+
 def resize_card_image (card):
 ###########################################################################################
 
@@ -1073,6 +1090,7 @@ def resize_card_image (card):
     return tk_image 
 
 ###########################################################################################
+
 def exit_game():
 #########################################################################################
 
@@ -1080,8 +1098,8 @@ def exit_game():
     root.destroy() 
 
 ###########################################################################################
-def enable_or_disable_player (enable_or_disable):
-###########################################################################################
+
+def enable_or_disable_player_1 (enable_or_disable):
 
     if enable_or_disable.upper() == 'E':
 
@@ -1120,10 +1138,10 @@ def enable_or_disable_player (enable_or_disable):
 def play_turn (player_or_computer):
 
     if player_or_computer.upper() == 'P':
-        enable_or_disable_player ('E')
+        enable_or_disable_player_1 ('E')
 
     elif player_or_computer.upper() =='C':
-        enable_or_disable_player ('D')
+        enable_or_disable_player_1 ('D')
 
 ###########################################################################################
 
