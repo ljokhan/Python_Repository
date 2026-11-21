@@ -48,7 +48,6 @@ trump_card = []
 ###########################################################################################
 
 def create_application ():
-###########################################################################################
 
     # Create the main application window:
     global root
@@ -239,11 +238,11 @@ def create_frames_and_buttons ():
 
     # Add text indicating this section contains the dealer hand:
     player_frame_card_label = Label(frame_player_cards, text="Your cards", background=bgcolor_hands, foreground="white", font=(game_font, 14, "bold"), width=100)
-    player_frame_card_label.grid(row=8, column=0, columnspan=6, padx=5, pady=5)
+    player_frame_card_label.grid(row=7, column=0, columnspan=6, padx=5, pady=5)
 
     global player_frame_card_0
     player_frame_card_0 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_0.grid(row=7, column=0, padx=20, ipadx=40, pady=20)
+    player_frame_card_0.grid(row=8, column=0, padx=20, ipadx=40, pady=20)
     #player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
 
     global player_frame_card_0_label
@@ -256,7 +255,7 @@ def create_frames_and_buttons ():
 
     global player_frame_card_1
     player_frame_card_1 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_1.grid(row=7, column=1, padx=20, ipadx=40, pady=20)
+    player_frame_card_1.grid(row=8, column=1, padx=20, ipadx=40, pady=20)
     #player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
 
     global player_frame_card_1_label
@@ -269,7 +268,7 @@ def create_frames_and_buttons ():
 
     global player_frame_card_2
     player_frame_card_2 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_2.grid(row=7, column=2, padx=20, ipadx=40, pady=20)
+    player_frame_card_2.grid(row=8, column=2, padx=20, ipadx=40, pady=20)
     #player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
 
     global player_frame_card_2_label
@@ -282,7 +281,7 @@ def create_frames_and_buttons ():
 
     global player_frame_card_3
     player_frame_card_3 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_3.grid(row=7, column=3, padx=20, ipadx=40, pady=20)
+    player_frame_card_3.grid(row=8, column=3, padx=20, ipadx=40, pady=20)
     #player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
 
     global player_frame_card_3_label
@@ -295,7 +294,7 @@ def create_frames_and_buttons ():
 
     global player_frame_card_4
     player_frame_card_4 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_4.grid(row=7, column=4, padx=20, ipadx=40, pady=20)
+    player_frame_card_4.grid(row=8, column=4, padx=20, ipadx=40, pady=20)
     #player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
 
     global player_frame_card_4_label
@@ -308,7 +307,7 @@ def create_frames_and_buttons ():
 
     global player_frame_card_5
     player_frame_card_5 = LabelFrame(frame_player_cards, width = frame_width, height = frame_height, text="",bd=0, background=bgcolor_hands)
-    player_frame_card_5.grid(row=7, column=5, padx=20, ipadx=40, pady=20)
+    player_frame_card_5.grid(row=8, column=5, padx=20, ipadx=40, pady=20)
     ##player_frame_card_6.bind("<Button-1>", player_frame_card_6_click)
 
     global player_frame_card_5_label
