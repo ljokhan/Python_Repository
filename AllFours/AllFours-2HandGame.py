@@ -401,7 +401,6 @@ def dealer_chooses_card():
 
     return card_to_return
 
-
 ###########################################################################################
 
 def clear_board_for_next_round():
