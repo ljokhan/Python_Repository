@@ -403,8 +403,61 @@ def dealer_chooses_card():
 
 ###########################################################################################
 
-def dealer_turn_to_play():
+
+
 ###########################################################################################
+
+def clear_board_for_next_round():
+
+    pass
+
+###########################################################################################
+
+def enable_or_disable_player_1 (enable_or_disable):
+
+    if enable_or_disable.upper() == 'ENABLE':
+
+        player_frame_card_0.bind("<Button-1>", player_frame_card_0_click)
+        player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
+        player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
+        player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
+        player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
+        player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
+
+        player_frame_card_0_label.bind("<Button-1>", player_frame_card_0_click)
+        player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
+        player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
+        player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
+        player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
+        player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
+
+    elif enable_or_disable.upper() == 'DISABLE':
+
+        player_frame_card_0.unbind("<Button-1>")
+        player_frame_card_1.unbind("<Button-1>")
+        player_frame_card_2.unbind("<Button-1>")
+        player_frame_card_3.unbind("<Button-1>")
+        player_frame_card_4.unbind("<Button-1>")
+        player_frame_card_5.unbind("<Button-1>")
+
+        player_frame_card_0_label.unbind("<Button-1>")
+        player_frame_card_1_label.unbind("<Button-1>")
+        player_frame_card_2_label.unbind("<Button-1>")
+        player_frame_card_3_label.unbind("<Button-1>")
+        player_frame_card_4_label.unbind("<Button-1>")
+        player_frame_card_5_label.unbind("<Button-1>")
+
+###########################################################################################
+
+def play_turn (player_or_computer):
+
+    if player_or_computer.upper() == 'PLAYER1':
+        enable_or_disable_player_1 ('ENABLE')
+
+    elif player_or_computer.upper() == 'DEALER':
+        enable_or_disable_player_1 ('DISABLE')
+
+    #def dealer_turn_to_play():
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     #board_hand[1] = computer_hand[0]
@@ -465,12 +518,6 @@ def dealer_turn_to_play():
 
 ###########################################################################################
 
-def clear_board_for_next_round():
-
-    pass
-
-###########################################################################################
-
 def player_frame_card_0_click (event):
 
     print("Frame 0 was clicked")
@@ -491,9 +538,8 @@ def player_frame_card_0_click (event):
     player_frame_card_0_label.configure(image=my_image)
     player_frame_card_0_label.image = my_image 
 
-    dealer_turn_to_play()
-    #####play_turn ('D')
-
+    #dealer_turn_to_play()
+    play_turn ('DEALER')
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     #board_hand[1] = computer_hand[0]
@@ -1099,49 +1145,11 @@ def exit_game():
 
 ###########################################################################################
 
-def enable_or_disable_player_1 (enable_or_disable):
 
-    if enable_or_disable.upper() == 'E':
-
-        player_frame_card_0.bind("<Button-1>", player_frame_card_0_click)
-        player_frame_card_1.bind("<Button-1>", player_frame_card_1_click)
-        player_frame_card_2.bind("<Button-1>", player_frame_card_2_click)
-        player_frame_card_3.bind("<Button-1>", player_frame_card_3_click)
-        player_frame_card_4.bind("<Button-1>", player_frame_card_4_click)
-        player_frame_card_5.bind("<Button-1>", player_frame_card_5_click)
-
-        player_frame_card_0_label.bind("<Button-1>", player_frame_card_0_click)
-        player_frame_card_1_label.bind("<Button-1>", player_frame_card_1_click)
-        player_frame_card_2_label.bind("<Button-1>", player_frame_card_2_click)
-        player_frame_card_3_label.bind("<Button-1>", player_frame_card_3_click)
-        player_frame_card_4_label.bind("<Button-1>", player_frame_card_4_click)
-        player_frame_card_5_label.bind("<Button-1>", player_frame_card_5_click)
-
-    elif enable_or_disable.upper() == 'D':
-
-        player_frame_card_0.unbind("<Button-1>")
-        player_frame_card_1.unbind("<Button-1>")
-        player_frame_card_2.unbind("<Button-1>")
-        player_frame_card_3.unbind("<Button-1>")
-        player_frame_card_4.unbind("<Button-1>")
-        player_frame_card_5.unbind("<Button-1>")
-
-        player_frame_card_0_label.unbind("<Button-1>")
-        player_frame_card_1_label.unbind("<Button-1>")
-        player_frame_card_2_label.unbind("<Button-1>")
-        player_frame_card_3_label.unbind("<Button-1>")
-        player_frame_card_4_label.unbind("<Button-1>")
-        player_frame_card_5_label.unbind("<Button-1>")
 
 ###########################################################################################
 
-def play_turn (player_or_computer):
 
-    if player_or_computer.upper() == 'P':
-        enable_or_disable_player_1 ('E')
-
-    elif player_or_computer.upper() =='C':
-        enable_or_disable_player_1 ('D')
 
 ###########################################################################################
 
