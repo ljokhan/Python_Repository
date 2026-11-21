@@ -401,9 +401,6 @@ def dealer_chooses_card():
 
     return card_to_return
 
-###########################################################################################
-
-
 
 ###########################################################################################
 
@@ -452,69 +449,71 @@ def enable_or_disable_player_1 (enable_or_disable):
 def play_turn (player_or_computer):
 
     if player_or_computer.upper() == 'PLAYER1':
+        # If Player 1 turn to play, enable Player 1 ability to click cards
         enable_or_disable_player_1 ('ENABLE')
 
-    elif player_or_computer.upper() == 'DEALER':
+    elif player_or_computer.upper() == 'COMPUTER':
+        # If Computer turn to play, disable Player 1 ability to click cards:
         enable_or_disable_player_1 ('DISABLE')
 
-    #def dealer_turn_to_play():
+        #def dealer_turn_to_play():
 
-    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    #board_hand[1] = computer_hand[0]
-    board_hand[1] = dealer_chooses_card()
+        # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
+        #board_hand[1] = computer_hand[0]
+        board_hand[1] = dealer_chooses_card()
 
-    #print ("dealer plays card - card value...")
-    #print(board_hand[1].card_value)
+        print ("dealer plays card - card value...")
+        print(board_hand[1].card_value)
 
-    #print ("dealer plays card - board position...")
-    #print(board_hand[1].board_location)
+        print ("dealer plays card - board position...")
+        print(board_hand[1].board_location)
     
-    # Generate image to place on the board:
-    my_image = resize_card_image (board_hand[1].card_name)
-    round_frame_card_1_label.configure(image=my_image)
-    round_frame_card_1_label.image = my_image
+        # Generate image to place on the board:
+        my_image = resize_card_image (board_hand[1].card_name)
+        round_frame_card_1_label.configure(image=my_image)
+        round_frame_card_1_label.image = my_image
 
-    # Replace the dealer card with NULL. Then replace the card from with a blank card:
-    if board_hand[1].board_location[1] == "0":
-        computer_hand[0] = None
-        my_image = resize_card_image("blank_card")
-        dealer_frame_card_0_label.configure(image=my_image)
-        dealer_frame_card_0_label.image = my_image 
+        # Replace the dealer card with NULL. Then replace the card from with a blank card:
+        if board_hand[1].board_location[1] == "0":
+            computer_hand[0] = None
+            my_image = resize_card_image("blank_card")
+            dealer_frame_card_0_label.configure(image=my_image)
+            dealer_frame_card_0_label.image = my_image 
 
-    elif board_hand[1].board_location[1] == "1":
-        computer_hand[1] = None
-        my_image = resize_card_image("blank_card")
-        dealer_frame_card_1_label.configure(image=my_image)
-        dealer_frame_card_1_label.image = my_image 
+        elif board_hand[1].board_location[1] == "1":
+            computer_hand[1] = None
+            my_image = resize_card_image("blank_card")
+            dealer_frame_card_1_label.configure(image=my_image)
+            dealer_frame_card_1_label.image = my_image 
 
-    elif board_hand[1].board_location[1] == "2":
-        computer_hand[2] = None
-        my_image = resize_card_image("blank_card")
-        dealer_frame_card_2_label.configure(image=my_image)
-        dealer_frame_card_2_label.image = my_image 
+        elif board_hand[1].board_location[1] == "2":
+            computer_hand[2] = None
+            my_image = resize_card_image("blank_card")
+            dealer_frame_card_2_label.configure(image=my_image)
+            dealer_frame_card_2_label.image = my_image 
 
-    elif board_hand[1].board_location[1] == "3":
-        computer_hand[3] = None
-        my_image = resize_card_image("blank_card")
-        dealer_frame_card_3_label.configure(image=my_image)
-        dealer_frame_card_3_label.image = my_image 
+        elif board_hand[1].board_location[1] == "3":
+            computer_hand[3] = None
+            my_image = resize_card_image("blank_card")
+            dealer_frame_card_3_label.configure(image=my_image)
+            dealer_frame_card_3_label.image = my_image 
 
-    elif board_hand[1].board_location[1] == "4":
-        computer_hand[4] = None
-        my_image = resize_card_image("blank_card")
-        dealer_frame_card_4_label.configure(image=my_image)
-        dealer_frame_card_4_label.image = my_image 
+        elif board_hand[1].board_location[1] == "4":
+            computer_hand[4] = None
+            my_image = resize_card_image("blank_card")
+            dealer_frame_card_4_label.configure(image=my_image)
+            dealer_frame_card_4_label.image = my_image 
 
-    elif board_hand[1].board_location[1] == "5":
-        computer_hand[5] = None
-        my_image = resize_card_image("blank_card")
-        dealer_frame_card_5_label.configure(image=my_image)
-        dealer_frame_card_5_label.image = my_image 
+        elif board_hand[1].board_location[1] == "5":
+            computer_hand[5] = None
+            my_image = resize_card_image("blank_card")
+            dealer_frame_card_5_label.configure(image=my_image)
+            dealer_frame_card_5_label.image = my_image 
 
-    # Generate image of a blank card and place it in dealer's hand:
-    #y_image = resize_card_image("blank_card")
-    ##ealer_frame_card_1_label.configure(image=my_image)
-    #dealer_frame_card_1_label.image = my_image 
+        # Generate image of a blank card and place it in dealer's hand:
+        #y_image = resize_card_image("blank_card")
+        ##ealer_frame_card_1_label.configure(image=my_image)
+        #dealer_frame_card_1_label.image = my_image 
 
 ###########################################################################################
 
@@ -539,7 +538,7 @@ def player_frame_card_0_click (event):
     player_frame_card_0_label.image = my_image 
 
     #dealer_turn_to_play()
-    play_turn ('DEALER')
+    play_turn ('COMPUTER')
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     #board_hand[1] = computer_hand[0]
@@ -1145,14 +1144,6 @@ def exit_game():
 
 ###########################################################################################
 
-
-
-###########################################################################################
-
-
-
-###########################################################################################
-
 def start_new_game ():
 
     # Create a new deck of cards:
@@ -1171,7 +1162,7 @@ def start_new_game ():
     put_cards_in_frames()
 
     # Player gets 1st turn to play:
-    play_turn ('P')
+    play_turn ('PLAYER1')
 
 ###########################################################################################
 # Main program:
