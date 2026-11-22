@@ -12,7 +12,6 @@ import time
 # Declare global variables:
 ###########################################################################################
 
-#deck_of_cards = []
 num_cards_per_player = 6
 num_chalks_dealer = 0
 num_chalks_player = 0
@@ -36,6 +35,7 @@ global current_round_high_card_value
 global current_round_high_card_name
 global current_round_low_card_value
 global current_round_low_card_name
+
 current_round_high_card_value = 0
 current_round_high_card_name = ''
 current_round_low_card_value = 999
@@ -49,7 +49,7 @@ global frame_height
 frame_height = 180
 
 # These global variables hold the cards for each player and the trump card:
-all_playing_cards = []
+deck_of_cards = []
 player_1_hand = []
 computer_hand = []
 board_hand = ["placeholder1", "placeholder2"]
@@ -369,6 +369,10 @@ def create_frames_and_buttons ():
     game_point_summary_text.insert ("1.0",'\n  Current game - 14 to Win: \n\n  Dealer chalks: lllll \n\n  Player chalks: llll')    
 
 ###########################################################################################
+
+def get_highest_Trump_card_played():
+
+    pass
 
 def dealer_chooses_card():
 
@@ -1049,13 +1053,13 @@ def create_new_deck ():
 
     # Create class to store each playing card:
     class class_playing_card:
-        def __init__(self, card_name, card_value, card_suit, card_image_path, board_location, highest_trump_card_played, lowest_Trump_card_played, played_by):
+        def __init__(self, card_name, card_value, card_suit, card_image_path, board_location, highest_Trump_card_played, lowest_Trump_card_played, played_by):
             self.card_name = card_name
             self.card_value = card_value
             self.card_suit = card_suit
             self.card_image_path = card_image_path
             self.board_location = board_location
-            self.highest_trump_card_played = highest_trump_card_played
+            self.highest_Trump_card_played = highest_Trump_card_played
             self.lowest_Trump_card_played = lowest_Trump_card_played
             self.played_by = played_by
     
@@ -1082,10 +1086,7 @@ def create_new_deck ():
             one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png", None, None, None, None)
 
             # Append playing card to list:
-            all_playing_cards.append(one_card)
-
-    #for one_playing_card in all_playing_cards:
-    #    print (one_playing_card.card_value)
+            deck_of_cards.append(one_card)
 
 ###########################################################################################
 
@@ -1095,20 +1096,20 @@ def deal_cards ():
     for counter_deal_cards in range(0, num_cards_per_player):
 
         # Pick a random card:
-        one_card = random.choice(all_playing_cards)
+        one_card = random.choice(deck_of_cards)
 
         # Add random card to the player hand:
         one_card.board_location = 'P' + counter_deal_cards.__str__()
         player_1_hand.append (one_card)
-        all_playing_cards.remove (one_card)
+        deck_of_cards.remove (one_card)
 
         # Pick another random card:
-        one_card = random.choice(all_playing_cards)
+        one_card = random.choice(deck_of_cards)
 
         # Add random card to the computer hand:
         one_card.board_location = 'D' + counter_deal_cards.__str__()
         computer_hand.append (one_card)
-        all_playing_cards.remove (one_card)
+        deck_of_cards.remove (one_card)
 
 ###########################################################################################
 
@@ -1118,11 +1119,11 @@ def kick_trump_card (player_or_computer):
     global points_this_round_computer
 
     # Pick a random card:
-    one_card = random.choice(all_playing_cards)
+    one_card = random.choice(deck_of_cards)
 
     # Add random card the trump list and remove it from the deck:
     trump_card.append (one_card)
-    all_playing_cards.remove (one_card)
+    deck_of_cards.remove (one_card)
 
     if player_or_computer == 'PLAYER1':
 
