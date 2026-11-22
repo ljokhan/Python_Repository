@@ -28,8 +28,8 @@ game_font = "Comic Sans MS"
 global points_this_round_player
 points_this_round_player = 0
 
-global points_this_round_dealer
-points_this_round_dealer = 0
+global points_this_round_computer
+points_this_round_computer = 0
 
 # These set the size of the frames which holds the cards:
 global frame_width
@@ -842,7 +842,7 @@ def calculate_points_per_hand ():
 def determine_winner_of_this_hand ():
 
     global points_this_round_player
-    global points_this_round_dealer
+    global points_this_round_computer
 
     winner = "* ERROR - NO WINNER CALCULATED*"
 
@@ -894,7 +894,7 @@ def determine_winner_of_this_hand ():
     if winner == 'player':
         points_this_round_player += points_this_hand
     elif winner == 'dealer':
-        points_this_round_dealer += points_this_hand
+        points_this_round_computer += points_this_hand
 
     # Determine who has played the highest Trump card:
 
@@ -926,12 +926,12 @@ def is_this_round_over ():
 
 def update_round_summary ():
 
-    global points_this_round_dealer
+    global points_this_round_computer
     global points_this_round_player
     global round_summary_text
 
     # Generate summary of points in this round:
-    summary = '\n  Dealer points: ' + points_this_round_dealer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() + ' \n\n  High card: \n\n  Low card: \n\n  Hang jack:'
+    summary = '\n  Dealer points: ' + points_this_round_computer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() + ' \n\n  High card: \n\n  Low card: \n\n  Hang jack:'
 
     # Update summary box which list all points this round:
     current_round_point_summary_text.delete("1.0", "end")
@@ -1003,9 +1003,10 @@ def deal_cards ():
 
 ###########################################################################################
 
-def kick_trump_card ():
+def kick_trump_card (player_or_computer):
 
     global points_this_round_player
+    global points_this_round_computer
 
     # Pick a random card:
     one_card = random.choice(all_playing_cards)
@@ -1014,16 +1015,31 @@ def kick_trump_card ():
     trump_card.append (one_card)
     all_playing_cards.remove (one_card)
 
-    # Assign points for kicking any Ace, any Jack:
-    if trump_card[0].card_value == 14:
-        points_this_round_player += 1
-        messagebox.showinfo ("","Congratulations! You kicked an Ace for 1 point")
-    elif trump_card[0].card_value == 11:
-        points_this_round_player += 3
-        messagebox.showinfo ("","Congratulations! You kicked a Jack for 3 points")
-    elif trump_card[0].card_value == 6:
-        points_this_round_player += 2
-        messagebox.showinfo ("","Congratulations! You kicked a 6 for 2 points")        
+    if player_or_computer == 'PLAYER1':
+
+        # Assign points for kicking any Ace, any Jack:
+        if trump_card[0].card_value == 14:
+            points_this_round_player += 1
+            messagebox.showinfo ("","Congratulations! You kicked an Ace for 1 point")
+        elif trump_card[0].card_value == 11:
+            points_this_round_player += 3
+            messagebox.showinfo ("","Congratulations! You kicked a Jack for 3 points")
+        elif trump_card[0].card_value == 6:
+            points_this_round_player += 2
+            messagebox.showinfo ("","Congratulations! You kicked a 6 for 2 points")        
+
+    elif player_or_computer == 'COMPUTER':
+
+        # Assign points for kicking any Ace, any Jack:
+        if trump_card[0].card_value == 14:
+            points_this_round_computer += 1
+            messagebox.showinfo ("","Computer kicked an Ace for 1 point")
+        elif trump_card[0].card_value == 11:
+            points_this_round_computer += 3
+            messagebox.showinfo ("","Computer kicked a Jack for 3 points")
+        elif trump_card[0].card_value == 6:
+            points_this_round_computer += 2
+            messagebox.showinfo ("","CComputer kicked a 6 for 2 points")     
 
 ###########################################################################################
 
@@ -1175,8 +1191,8 @@ def start_new_game ():
     # Allow user to kick the Trump card:
     messagebox.showinfo ("Trump Card", "Click to kick the Trump card!")
 
-    # Kick the trump card:
-    kick_trump_card()
+    # During the 1st turn, the computer is the dealer and gets to kick the trump card:
+    kick_trump_card('COMPUTER')
 
     # Place cards in the frames:
     put_cards_in_frames()
