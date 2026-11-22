@@ -1021,6 +1021,9 @@ def kick_trump_card ():
     elif trump_card[0].card_value == 11:
         points_this_round_player += 3
         messagebox.showinfo ("","Congratulations! You kicked a Jack for 3 points")
+    elif trump_card[0].card_value == 6:
+        points_this_round_player += 2
+        messagebox.showinfo ("","Congratulations! You kicked a 6 for 2 points")        
 
 ###########################################################################################
 
