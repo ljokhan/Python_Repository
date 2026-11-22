@@ -1049,12 +1049,15 @@ def create_new_deck ():
 
     # Create class to store each playing card:
     class class_playing_card:
-        def __init__(self, card_name, card_value, card_suit, card_image_path, board_location):
+        def __init__(self, card_name, card_value, card_suit, card_image_path, board_location, highest_trump_card_played, lowest_Trump_card_played, played_by):
             self.card_name = card_name
             self.card_value = card_value
             self.card_suit = card_suit
             self.card_image_path = card_image_path
             self.board_location = board_location
+            self.highest_trump_card_played = highest_trump_card_played
+            self.lowest_Trump_card_played = lowest_Trump_card_played
+            self.played_by = played_by
     
     # Create suits and individual cards:
     suits = ["Hearts","Diamonds","Clubs","Spades"]
@@ -1076,7 +1079,7 @@ def create_new_deck ():
             #deck_of_cards.append(tempcard)
 
             # Generate one instance of the playing card class:
-            one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png", None)
+            one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png", None, None, None, None)
 
             # Append playing card to list:
             all_playing_cards.append(one_card)
