@@ -448,11 +448,15 @@ def play_turn (player_or_computer):
 
     if player_or_computer.upper() == 'PLAYER1':
         # If Player 1 turn to play, enable Player 1 ability to click cards
+
+        print ("Enabling Player 1")
         enable_or_disable_player_1 ('ENABLE')
 
     elif player_or_computer.upper() == 'COMPUTER':
         # If Computer turn to play, disable Player 1 ability to click cards:
         enable_or_disable_player_1 ('DISABLE')
+
+        print ("Disabling Player 1")
 
         #def dealer_turn_to_play():
 
@@ -537,6 +541,8 @@ def player_frame_card_0_click (event):
 
     #dealer_turn_to_play()
     play_turn ('COMPUTER')
+
+    play_turn ('PLAYER1')
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     #board_hand[1] = computer_hand[0]
