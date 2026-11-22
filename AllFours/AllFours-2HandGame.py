@@ -31,6 +31,16 @@ points_this_round_player = 0
 global points_this_round_computer
 points_this_round_computer = 0
 
+# These variables stores the high card, low card during each round:
+global current_round_high_card_value
+global current_round_high_card_name
+global current_round_low_card_value
+global current_round_low_card_name
+current_round_high_card_value = 0
+current_round_high_card_name = ''
+current_round_low_card_value = 999
+current_round_low_card_name = ''
+
 # These set the size of the frames which holds the cards:
 global frame_width
 frame_width = 30
@@ -523,6 +533,11 @@ def player_frame_card_0_click (event):
 
     print("Frame 0 was clicked")
 
+    global current_round_high_card_value
+    global current_round_high_card_name
+    global current_round_low_card_value
+    global current_round_low_card_name
+
     # Player clicked the card to play, so move the card from the player hand to the board:
     board_hand[0] = player_1_hand[0]
 
@@ -530,7 +545,17 @@ def player_frame_card_0_click (event):
     my_image = resize_card_image(board_hand[0].card_name)
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image 
-    
+
+    # Is this the highest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
+        current_round_high_card_value = board_hand[0].card_value
+        current_round_high_card_name = board_hand[0].card_name
+
+    # Is this the lowest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
+        current_round_low_card_value = board_hand[0].card_value
+        current_round_low_card_name = board_hand[0].card_name
+
     # Replace the player card with NULL:
     player_1_hand[0] = None
 
@@ -538,6 +563,7 @@ def player_frame_card_0_click (event):
     my_image = resize_card_image("blank_card")
     player_frame_card_0_label.configure(image=my_image)
     player_frame_card_0_label.image = my_image 
+
 
     #dealer_turn_to_play()
     play_turn ('COMPUTER')
@@ -574,6 +600,11 @@ def player_frame_card_1_click (event):
 
     print("Frame 1 was clicked")
 
+    global current_round_high_card_value
+    global current_round_high_card_name
+    global current_round_low_card_value
+    global current_round_low_card_name  
+
     # Player clicked the card to play, so move the card from the player hand to the board:
     board_hand[0] = player_1_hand[1]
 
@@ -581,6 +612,16 @@ def player_frame_card_1_click (event):
     my_image = resize_card_image(board_hand[0].card_name)
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
+
+    # Is this the highest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
+        current_round_high_card_value = board_hand[0].card_value
+        current_round_high_card_name = board_hand[0].card_name
+
+    # Is this the lowest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
+        current_round_low_card_value = board_hand[0].card_value
+        current_round_low_card_name = board_hand[0].card_name
     
     # Replace the player card with NULL:
     player_1_hand[1] = None
@@ -618,6 +659,11 @@ def player_frame_card_2_click (event):
 
     print("Frame 2 was clicked")
 
+    global current_round_high_card_value
+    global current_round_high_card_name
+    global current_round_low_card_value
+    global current_round_low_card_name 
+
     # Player clicked the card to play, so move the card from the player hand to the board:
     board_hand[0] = player_1_hand[2]
 
@@ -625,6 +671,16 @@ def player_frame_card_2_click (event):
     my_image = resize_card_image(board_hand[0].card_name)
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
+
+    # Is this the highest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
+        current_round_high_card_value = board_hand[0].card_value
+        current_round_high_card_name = board_hand[0].card_name
+
+    # Is this the lowest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
+        current_round_low_card_value = board_hand[0].card_value
+        current_round_low_card_name = board_hand[0].card_name   
     
     # Replace the player card with NULL:
     player_1_hand[2] = None
@@ -661,6 +717,11 @@ def player_frame_card_3_click (event):
     
     print("Frame was 3 clicked")
 
+    global current_round_high_card_value
+    global current_round_high_card_name
+    global current_round_low_card_value
+    global current_round_low_card_name 
+
     # Player clicked the card to play, so move the card from the player hand to the board:
     board_hand[0] = player_1_hand[3]
 
@@ -668,6 +729,16 @@ def player_frame_card_3_click (event):
     my_image = resize_card_image(board_hand[0].card_name)
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
+
+    # Is this the highest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
+        current_round_high_card_value = board_hand[0].card_value
+        current_round_high_card_name = board_hand[0].card_name
+
+    # Is this the lowest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
+        current_round_low_card_value = board_hand[0].card_value
+        current_round_low_card_name = board_hand[0].card_name   
     
     # Replace the player card with NULL:
     player_1_hand[3] = None
@@ -705,6 +776,11 @@ def player_frame_card_4_click (event):
 
     print("Frame was 4 clicked")
 
+    global current_round_high_card_value
+    global current_round_high_card_name
+    global current_round_low_card_value
+    global current_round_low_card_name 
+
     # Player clicked the card to play, so move the card from the player hand to the board:
     board_hand[0] = player_1_hand[4]
 
@@ -712,6 +788,16 @@ def player_frame_card_4_click (event):
     my_image = resize_card_image(board_hand[0].card_name)
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
+
+    # Is this the highest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
+        current_round_high_card_value = board_hand[0].card_value
+        current_round_high_card_name = board_hand[0].card_name
+
+    # Is this the lowest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
+        current_round_low_card_value = board_hand[0].card_value
+        current_round_low_card_name = board_hand[0].card_name    
     
     # Replace the player card with NULL:
     player_1_hand[4] = None
@@ -749,6 +835,11 @@ def player_frame_card_5_click (event):
 
     print("Frame 5 was clicked")
 
+    global current_round_high_card_value
+    global current_round_high_card_name
+    global current_round_low_card_value
+    global current_round_low_card_name
+
     # Player clicked the card to play, so move the card from the player hand to the board:
     board_hand[0] = player_1_hand[5]
 
@@ -756,6 +847,16 @@ def player_frame_card_5_click (event):
     my_image = resize_card_image(board_hand[0].card_name)
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
+
+    # Is this the highest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
+        current_round_high_card_value = board_hand[0].card_value
+        current_round_high_card_name = board_hand[0].card_name
+
+    # Is this the lowest Trump card played this round?
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
+        current_round_low_card_value = board_hand[0].card_value
+        current_round_low_card_name = board_hand[0].card_name 
     
     # Replace the player card with NULL:
     player_1_hand[5] = None
@@ -929,9 +1030,14 @@ def update_round_summary ():
     global points_this_round_computer
     global points_this_round_player
     global round_summary_text
+    global current_round_high_card_value
+    global current_round_high_card_name
+    global current_round_low_card_value
+    global current_round_low_card_name    
 
     # Generate summary of points in this round:
-    summary = '\n  Dealer points: ' + points_this_round_computer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() + ' \n\n  High card: \n\n  Low card: \n\n  Hang jack:'
+    summary = '\n              Current round \n\n  Dealer points: ' + points_this_round_computer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() + \
+              ' \n\n  High card: ' + current_round_high_card_name.replace("_"," ") +  '\n\n  Low card: ' + current_round_low_card_name.replace("_"," ") + ' \n\n  Hang jack:'
 
     # Update summary box which list all points this round:
     current_round_point_summary_text.delete("1.0", "end")
@@ -1039,7 +1145,7 @@ def kick_trump_card (player_or_computer):
             messagebox.showinfo ("","Computer kicked a Jack for 3 points")
         elif trump_card[0].card_value == 6:
             points_this_round_computer += 2
-            messagebox.showinfo ("","CComputer kicked a 6 for 2 points")     
+            messagebox.showinfo ("","Computer kicked a 6 for 2 points")     
 
 ###########################################################################################
 
@@ -1212,4 +1318,5 @@ create_frames_and_buttons()
 
 # Start application:
 root.mainloop()
+
 
