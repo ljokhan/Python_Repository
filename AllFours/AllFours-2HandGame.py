@@ -50,6 +50,7 @@ frame_height = 180
 
 # These global variables hold the cards for each player and the trump card:
 deck_of_cards = []
+used_deck_of_cards = []
 player_1_hand = []
 computer_hand = []
 board_hand = ["placeholder1", "placeholder2"]
@@ -372,7 +373,14 @@ def create_frames_and_buttons ():
 
 def get_highest_Trump_card_played():
 
-    pass
+    local_highest_Trump_card_value = 0
+
+    for one_card in used_deck_of_cards:
+        if one_card.card_value > local_highest_Trump_card_value:
+            local_highest_Trump_card_value = one_card.card_value
+            card_to_return = one_card
+
+    return card_to_return
 
 def dealer_chooses_card():
 
@@ -550,15 +558,20 @@ def player_frame_card_0_click (event):
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image 
 
-    # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
-        current_round_high_card_value = board_hand[0].card_value
+    # Get highest Trump card played from history of all cards played:
+    my_highest_Trump_card_played = get_highest_Trump_card_played()
+    
+    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+        board_hand[0].highest_Trump_card_played = 1
         current_round_high_card_name = board_hand[0].card_name
 
     # Is this the lowest Trump card played this round?
     if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
         current_round_low_card_value = board_hand[0].card_value
         current_round_low_card_name = board_hand[0].card_name
+
+    # Add player card to the list of cards that have been used:
+    used_deck_of_cards.append (board_hand[0])
 
     # Replace the player card with NULL:
     player_1_hand[0] = None
@@ -568,25 +581,11 @@ def player_frame_card_0_click (event):
     player_frame_card_0_label.configure(image=my_image)
     player_frame_card_0_label.image = my_image 
 
-
-    #dealer_turn_to_play()
+    # It is the computer's turn to play:
     play_turn ('COMPUTER')
 
+    # Now it is player 1's turn to play:
     play_turn ('PLAYER1')
-
-    # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
-    #board_hand[1] = computer_hand[0]
-    #computer_hand[0] = None
-
-    # Generate image to place on the board:
-    #my_image = resize_card_image (board_hand[1].card_name)
-    #round_frame_card_1_label.configure(image=my_image)
-    #round_frame_card_1_label.image = my_image
-
-    # Generate image of a blank card and place it in dealer's hand:
-    #my_image = resize_card_image("blank_card")
-    #dealer_frame_card_0_label.configure(image=my_image)
-    #dealer_frame_card_0_label.image = my_image 
 
     determine_winner_of_this_hand()
 
@@ -626,6 +625,9 @@ def player_frame_card_1_click (event):
     if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
         current_round_low_card_value = board_hand[0].card_value
         current_round_low_card_name = board_hand[0].card_name
+
+    # Add player card to the list of cards that have been used:
+    used_deck_of_cards.append (board_hand[0])
     
     # Replace the player card with NULL:
     player_1_hand[1] = None
@@ -685,6 +687,9 @@ def player_frame_card_2_click (event):
     if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
         current_round_low_card_value = board_hand[0].card_value
         current_round_low_card_name = board_hand[0].card_name   
+
+    # Add player card to the list of cards that have been used:
+    used_deck_of_cards.append (board_hand[0])
     
     # Replace the player card with NULL:
     player_1_hand[2] = None
@@ -743,6 +748,9 @@ def player_frame_card_3_click (event):
     if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
         current_round_low_card_value = board_hand[0].card_value
         current_round_low_card_name = board_hand[0].card_name   
+
+    # Add player card to the list of cards that have been used:
+    used_deck_of_cards.append (board_hand[0])
     
     # Replace the player card with NULL:
     player_1_hand[3] = None
@@ -802,6 +810,9 @@ def player_frame_card_4_click (event):
     if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
         current_round_low_card_value = board_hand[0].card_value
         current_round_low_card_name = board_hand[0].card_name    
+
+    # Add player card to the list of cards that have been used:
+    used_deck_of_cards.append (board_hand[0])
     
     # Replace the player card with NULL:
     player_1_hand[4] = None
@@ -861,6 +872,9 @@ def player_frame_card_5_click (event):
     if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
         current_round_low_card_value = board_hand[0].card_value
         current_round_low_card_name = board_hand[0].card_name 
+
+    # Add player card to the list of cards that have been used:
+    used_deck_of_cards.append (board_hand[0])
     
     # Replace the player card with NULL:
     player_1_hand[5] = None
