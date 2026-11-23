@@ -1208,8 +1208,9 @@ def update_round_summary ():
     my_lowest_Trump_card_played = '' if get_lowest_Trump_card_played() is None else get_lowest_Trump_card_played()
 
     # Generate summary of points in this round:
-    summary = '\n              Current round \n\n  Dealer points: ' + points_this_round_computer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() + \
-              ' \n\n  High card: ' + my_highest_Trump_card_played.card_name.replace("_"," ") +  '\n\n  Low card: ' + my_lowest_Trump_card_played.card_name.replace("_"," ") + ' \n\n  Hang jack:'
+    summary = '\n              Current round \n\n  Dealer points: ' + points_this_round_computer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() \
+                + ' \n\n  High card: ' + my_highest_Trump_card_played.card_name.replace("_"," ") +  '\n\n  Low card: ' + my_lowest_Trump_card_played.card_name.replace("_"," ") \
+                + '\n\n  Pass jack:  \n\n  Hang jack:'
 
     # Update summary box which list all points this round:
     current_round_point_summary_text.delete("1.0", "end")
