@@ -537,6 +537,33 @@ def play_turn (player_or_computer):
         round_frame_card_1_label.configure(image=my_image)
         round_frame_card_1_label.image = my_image
 
+        # Get highest Trump card played from history of all cards played:
+        my_highest_Trump_card_played = get_highest_Trump_card_played()
+
+        # Is this the highest Trump card played this round?
+        if board_hand[1].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[1].card_value > my_highest_Trump_card_played.card_value:
+
+            # Clear the highest Trump card flag from history:
+            clear_highest_Trump_card_played_flag()
+
+            # Set this to be the "new" highest Trump card:
+            board_hand[1].highest_Trump_card_played = 1
+
+        # Get lowest Trump card played from history of all cards played:
+        my_lowest_Trump_card_played = get_lowest_Trump_card_played()
+
+        # Is this the lowest Trump card played this round?
+        if board_hand[1].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[1].card_value < my_lowest_Trump_card_played.card_value:
+
+            # Clear the lowest Trump card flag from history:   
+            clear_lowest_Trump_card_played_flag()
+
+            # Set this to be the "new" lowest Trump card:
+            board_hand[1].lowest_Trump_card_played = 1
+       
+        # Add computer's card to the list of cards that have been used:
+        used_deck_of_cards.append (board_hand[1])
+
         # Replace the dealer card with NULL. Then replace the card from with a blank card:
         if board_hand[1].board_location[1] == "0":
             computer_hand[0] = None
@@ -600,21 +627,27 @@ def player_frame_card_0_click (event):
 
     # Get highest Trump card played from history of all cards played:
     my_highest_Trump_card_played = get_highest_Trump_card_played()
-    
+
+    # Is this the highest Trump card played this round?
     if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+
+        # Clear the highest Trump card flag from history:
         clear_highest_Trump_card_played_flag()
+
+        # Set this to be the "new" highest Trump card:
         board_hand[0].highest_Trump_card_played = 1
-        #current_round_high_card_name = board_hand[0].card_name
 
     # Get lowest Trump card played from history of all cards played:
     my_lowest_Trump_card_played = get_lowest_Trump_card_played()
 
     # Is this the lowest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < current_round_low_card_value:
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+
+        # Clear the lowest Trump card flag from history:   
         clear_lowest_Trump_card_played_flag()
+
+        # Set this to be the "new" lowest Trump card:
         board_hand[0].lowest_Trump_card_played = 1
-        #current_round_low_card_value = board_hand[0].card_value
-        #current_round_low_card_name = board_hand[0].card_name
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
@@ -662,15 +695,29 @@ def player_frame_card_1_click (event):
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
 
+    # Get highest Trump card played from history of all cards played:
+    my_highest_Trump_card_played = get_highest_Trump_card_played()
+
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
-        current_round_high_card_value = board_hand[0].card_value
-        current_round_high_card_name = board_hand[0].card_name
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+
+        # Clear the highest Trump card flag from history:
+        clear_highest_Trump_card_played_flag()
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+
+    # Get lowest Trump card played from history of all cards played:
+    my_lowest_Trump_card_played = get_lowest_Trump_card_played()
 
     # Is this the lowest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
-        current_round_low_card_value = board_hand[0].card_value
-        current_round_low_card_name = board_hand[0].card_name
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+
+        # Clear the lowest Trump card flag from history:   
+        clear_lowest_Trump_card_played_flag()
+
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
@@ -724,15 +771,29 @@ def player_frame_card_2_click (event):
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
 
+    # Get highest Trump card played from history of all cards played:
+    my_highest_Trump_card_played = get_highest_Trump_card_played()
+
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
-        current_round_high_card_value = board_hand[0].card_value
-        current_round_high_card_name = board_hand[0].card_name
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+
+        # Clear the highest Trump card flag from history:
+        clear_highest_Trump_card_played_flag()
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+
+    # Get lowest Trump card played from history of all cards played:
+    my_lowest_Trump_card_played = get_lowest_Trump_card_played()
 
     # Is this the lowest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
-        current_round_low_card_value = board_hand[0].card_value
-        current_round_low_card_name = board_hand[0].card_name   
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+
+        # Clear the lowest Trump card flag from history:   
+        clear_lowest_Trump_card_played_flag()
+
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
@@ -785,15 +846,29 @@ def player_frame_card_3_click (event):
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
 
+    # Get highest Trump card played from history of all cards played:
+    my_highest_Trump_card_played = get_highest_Trump_card_played()
+
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
-        current_round_high_card_value = board_hand[0].card_value
-        current_round_high_card_name = board_hand[0].card_name
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+
+        # Clear the highest Trump card flag from history:
+        clear_highest_Trump_card_played_flag()
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+
+    # Get lowest Trump card played from history of all cards played:
+    my_lowest_Trump_card_played = get_lowest_Trump_card_played()
 
     # Is this the lowest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
-        current_round_low_card_value = board_hand[0].card_value
-        current_round_low_card_name = board_hand[0].card_name   
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+
+        # Clear the lowest Trump card flag from history:   
+        clear_lowest_Trump_card_played_flag()
+
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
@@ -847,15 +922,29 @@ def player_frame_card_4_click (event):
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
 
+    # Get highest Trump card played from history of all cards played:
+    my_highest_Trump_card_played = get_highest_Trump_card_played()
+
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
-        current_round_high_card_value = board_hand[0].card_value
-        current_round_high_card_name = board_hand[0].card_name
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+
+        # Clear the highest Trump card flag from history:
+        clear_highest_Trump_card_played_flag()
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+
+    # Get lowest Trump card played from history of all cards played:
+    my_lowest_Trump_card_played = get_lowest_Trump_card_played()
 
     # Is this the lowest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
-        current_round_low_card_value = board_hand[0].card_value
-        current_round_low_card_name = board_hand[0].card_name    
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+
+        # Clear the lowest Trump card flag from history:   
+        clear_lowest_Trump_card_played_flag()
+
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
@@ -909,16 +998,29 @@ def player_frame_card_5_click (event):
     round_frame_card_0_label.configure(image=my_image)
     round_frame_card_0_label.image = my_image
 
+    # Get highest Trump card played from history of all cards played:
+    my_highest_Trump_card_played = get_highest_Trump_card_played()
+
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value > current_round_high_card_value:
-        current_round_high_card_value = board_hand[0].card_value
-        current_round_high_card_name = board_hand[0].card_name
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+
+        # Clear the highest Trump card flag from history:
+        clear_highest_Trump_card_played_flag()
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+
+    # Get lowest Trump card played from history of all cards played:
+    my_lowest_Trump_card_played = get_lowest_Trump_card_played()
 
     # Is this the lowest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and board_hand[0].card_value < current_round_low_card_value:
-        current_round_low_card_value = board_hand[0].card_value
-        current_round_low_card_name = board_hand[0].card_name 
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
 
+        # Clear the lowest Trump card flag from history:   
+        clear_lowest_Trump_card_played_flag()
+
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
     
@@ -1072,10 +1174,10 @@ def determine_winner_of_this_hand ():
     elif points_this_hand > 1:
             winner_of_current_hand_label.configure(text=winner.title() + " wins \n" + points_this_hand.__str__() + " points!")
 
+    update_round_summary()
+
     # Determine if this round is over:
     is_this_round_over()
-
-    update_round_summary()
 
     return winner
 
