@@ -621,7 +621,13 @@ def player_frame_card_0_click (event):
     my_highest_Trump_card_played = get_highest_Trump_card_played()
 
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is None:
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
 
         # Clear the highest Trump card flag from history:
         clear_highest_Trump_card_played_flag()
@@ -635,6 +641,12 @@ def player_frame_card_0_click (event):
 
     # Is this the lowest Trump card played this round?
     if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+        
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
 
         # Clear the lowest Trump card flag from history:   
         clear_lowest_Trump_card_played_flag()
@@ -690,14 +702,19 @@ def player_frame_card_1_click (event):
     my_highest_Trump_card_played = get_highest_Trump_card_played()
 
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is None:
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
 
         # Clear the highest Trump card flag from history:
         clear_highest_Trump_card_played_flag()
 
         # Set this to be the "new" highest Trump card:
         board_hand[0].highest_Trump_card_played = 1
-        print ("setting hightest trmp card played by to Player")
         board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
@@ -705,6 +722,12 @@ def player_frame_card_1_click (event):
 
     # Is this the lowest Trump card played this round?
     if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+        
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
 
         # Clear the lowest Trump card flag from history:   
         clear_lowest_Trump_card_played_flag()
@@ -769,14 +792,19 @@ def player_frame_card_2_click (event):
     my_highest_Trump_card_played = get_highest_Trump_card_played()
 
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is None:
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
 
         # Clear the highest Trump card flag from history:
         clear_highest_Trump_card_played_flag()
 
         # Set this to be the "new" highest Trump card:
         board_hand[0].highest_Trump_card_played = 1
-        print ("setting hightest trmp card played by to Player")        
         board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
@@ -784,6 +812,12 @@ def player_frame_card_2_click (event):
 
     # Is this the lowest Trump card played this round?
     if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+        
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
 
         # Clear the lowest Trump card flag from history:   
         clear_lowest_Trump_card_played_flag()
@@ -847,14 +881,19 @@ def player_frame_card_3_click (event):
     my_highest_Trump_card_played = get_highest_Trump_card_played()
 
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is None:
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
 
         # Clear the highest Trump card flag from history:
         clear_highest_Trump_card_played_flag()
 
         # Set this to be the "new" highest Trump card:
         board_hand[0].highest_Trump_card_played = 1
-        print ("setting hightest trmp card played by to Player")        
         board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
@@ -862,6 +901,12 @@ def player_frame_card_3_click (event):
 
     # Is this the lowest Trump card played this round?
     if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+        
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
 
         # Clear the lowest Trump card flag from history:   
         clear_lowest_Trump_card_played_flag()
@@ -926,15 +971,19 @@ def player_frame_card_4_click (event):
     my_highest_Trump_card_played = get_highest_Trump_card_played()
 
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is None:
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
 
         # Clear the highest Trump card flag from history:
         clear_highest_Trump_card_played_flag()
 
         # Set this to be the "new" highest Trump card:
-        print ("setting highest trmp card playe flag")  
         board_hand[0].highest_Trump_card_played = 1
-        print ("setting hightest trmp card played by to Player")        
         board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
@@ -942,6 +991,12 @@ def player_frame_card_4_click (event):
 
     # Is this the lowest Trump card played this round?
     if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+        
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
 
         # Clear the lowest Trump card flag from history:   
         clear_lowest_Trump_card_played_flag()
@@ -1006,7 +1061,13 @@ def player_frame_card_5_click (event):
     my_highest_Trump_card_played = get_highest_Trump_card_played()
 
     # Is this the highest Trump card played this round?
-    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
+    if board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is None:
+
+        # Set this to be the "new" highest Trump card:
+        board_hand[0].highest_Trump_card_played = 1
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_highest_Trump_card_played is not None and board_hand[0].card_value > my_highest_Trump_card_played.card_value:
 
         # Clear the highest Trump card flag from history:
         clear_highest_Trump_card_played_flag()
@@ -1020,6 +1081,12 @@ def player_frame_card_5_click (event):
 
     # Is this the lowest Trump card played this round?
     if board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
+        
+        # Set this to be the "new" lowest Trump card:
+        board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
+
+    elif board_hand[0].card_suit == trump_card[0].card_suit and my_lowest_Trump_card_played is not None and board_hand[0].card_value < my_lowest_Trump_card_played.card_value:
 
         # Clear the lowest Trump card flag from history:   
         clear_lowest_Trump_card_played_flag()
@@ -1209,20 +1276,27 @@ def update_round_summary ():
     # Get highest Trump card played this round:
     my_highest_Trump_card_played = '' if get_highest_Trump_card_played() is None else get_highest_Trump_card_played()
 
+    print ("\\n Function Update_round_summary...")
+    #print ("The highest Trump card played...")
+    #print (my_highest_Trump_card_played.card_name)
+    print ("The highest Trump card was played by...")
+    if my_highest_Trump_card_played.highest_Trump_card_played_by is None:
+        print ("highest_Trump_card_played_by is None")
+    else:
+        print (my_highest_Trump_card_played.highest_Trump_card_played_by)
+
     # Get lowest Trump card played this round:
     my_lowest_Trump_card_played = '' if get_lowest_Trump_card_played() is None else get_lowest_Trump_card_played()
 
     # Generate summary of points in this round:
     summary = '\n              Current round ' \
                 + ' \n\n  Dealer points: ' + points_this_round_computer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() \
-                + ' \n\n  High card: '  \
-                + ' \n\n  Low card: '  \
+                + ' \n\n  High card: ' + my_highest_Trump_card_played.card_name \
+                + ' \n\n  Low card: '  + my_lowest_Trump_card_played.card_name \
                 + ' \n\n  Pass jack:  \n\n  Hang jack:'
 
-                #+ '' if my_highest_Trump_card_played.highest_Trump_card_played_by is None else my_highest_Trump_card_played.highest_Trump_card_played_by \    
-
     # Update summary box which list all points this round:
-    current_round_point_summary_text.delete("1.0", "end")
+    current_round_point_summary_text.delete ("1.0", "end")
     current_round_point_summary_text.insert ("1.0", summary)    
 
 ###########################################################################################
@@ -1241,7 +1315,7 @@ def create_new_deck ():
             self.highest_Trump_card_played = highest_Trump_card_played
             self.highest_Trump_card_played_by = highest_Trump_card_played_by
             self.lowest_Trump_card_played = lowest_Trump_card_played
-            self.lowest_Trump_card_played_by = highest_Trump_card_played_by
+            self.lowest_Trump_card_played_by = lowest_Trump_card_played_by
     
     # Create suits and individual cards:
     suits = ["Hearts","Diamonds","Clubs","Spades"]
