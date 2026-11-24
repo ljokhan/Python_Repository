@@ -113,11 +113,11 @@ def create_frames_and_buttons ():
     ###########################################################################################
 
     global frame_dealer_cards
-    frame_dealer_cards = LabelFrame(frame_main_board, width = 1200, height = 20, border=3, background=bgcolor_hands)  
+    frame_dealer_cards = LabelFrame(frame_main_board, width = 1200, height = 20, border=5, background=bgcolor_hands)  
     frame_dealer_cards.grid(row=1, column=0, columnspan=6,  padx=5, pady=5)  
     
     # Add text indicating this section contains the dealer hand:
-    frame_main_board_label = Label(frame_dealer_cards, text="Dealer cards", background=bgcolor_hands, foreground="white", font=(game_font, 14, "bold"), width=100)
+    frame_main_board_label = Label(frame_dealer_cards, text="Dealer cards", background="#c9344b", foreground="white", font=(game_font, 14), width=90)
     frame_main_board_label.grid(row=0, column=0, columnspan=6, padx=5, pady=5)
         
     global dealer_frame_card_0
@@ -232,7 +232,7 @@ def create_frames_and_buttons ():
 
     # Configure label to show messages for the current round. This label shows messages as the hands are played:
     global winner_of_current_hand_label
-    winner_of_current_hand_label = Label(frame_main_board, background=bgcolor, foreground="white", font=(game_font, 14, "bold"), width=16)
+    winner_of_current_hand_label = Label(frame_main_board, background=bgcolor, foreground="white", font=(game_font, 14, "bold"), width=12)
     winner_of_current_hand_label.grid(row=4, column=2, columnspan=2, padx=0, pady=0)
 
     ##########################################################################################################################
@@ -247,7 +247,7 @@ def create_frames_and_buttons ():
     frame_player_cards.grid(row=6, column=0, columnspan=6,  padx=5, pady=5)  
 
     # Add text indicating this section contains the dealer hand:
-    player_frame_card_label = Label(frame_player_cards, text="Your cards", background=bgcolor_hands, foreground="white", font=(game_font, 14, "bold"), width=100)
+    player_frame_card_label = Label(frame_player_cards, text="Your cards", background="#c9344b", foreground="white", font=(game_font, 14), width=90)
     player_frame_card_label.grid(row=7, column=0, columnspan=6, padx=5, pady=5)
 
     global player_frame_card_0
@@ -327,10 +327,6 @@ def create_frames_and_buttons ():
     # Add image of overturned card:
     player_frame_card_5_label.configure(image=my_image)
     player_frame_card_5_label.image = my_image   
-
-    # Add text indicating this section contains the dealer hand:
-    #player_frame_card_label = Label(frame_main_board, text="Your hand", background="black", foreground="white", font=("Arial", 12, "bold"), width=100)
-    #player_frame_card_label.grid(row=8, column=0, columnspan=6, padx=5, pady=5)
 
     ###########################################################################################
     # Create frames, buttons and counters for right side-bar:
@@ -1434,8 +1430,8 @@ def put_cards_in_frames ():
     player_1_hand[0].card_location = 'P5'     
 
     # Indicate to user they can start playing:
-    player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
-    player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
+    #player_frame_card_label = Label(frame_main_board, text="Your hand", background="red", foreground="white", font=("Arial", 12, "bold"), width=100)
+    #player_frame_card_label.grid(row=5, column=0, columnspan=6, padx=5, pady=5)
     
 ###########################################################################################
 
