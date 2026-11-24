@@ -394,10 +394,6 @@ def get_lowest_Trump_card_played():
             local_lowest_Trump_card_value = one_card.card_value
             card_to_return = one_card
 
-    #if card_to_return is None:
-    #    return None
-    #else:
-
     return card_to_return
 
 ###########################################################################################
@@ -412,11 +408,9 @@ def get_highest_Trump_card_played():
             local_highest_Trump_card_value = one_card.card_value
             card_to_return = one_card
 
-    #if card_to_return is None:
-    #    return None
-    #else:
-
     return card_to_return
+
+###########################################################################################
 
 def dealer_chooses_card():
 
@@ -544,6 +538,7 @@ def play_turn (player_or_computer):
 
             # Set this to be the "new" highest Trump card:
             board_hand[1].highest_Trump_card_played = 1
+            board_hand[1].highest_Trump_card_played_by = 'COMPUTER'
 
         # Get lowest Trump card played from history of all cards played:
         my_lowest_Trump_card_played = get_lowest_Trump_card_played()
@@ -556,6 +551,7 @@ def play_turn (player_or_computer):
 
             # Set this to be the "new" lowest Trump card:
             board_hand[1].lowest_Trump_card_played = 1
+            board_hand[1].lowest_Trump_card_played_by = 'COMPUTER'
        
         # Add computer's card to the list of cards that have been used:
         used_deck_of_cards.append (board_hand[1])
@@ -632,6 +628,7 @@ def player_frame_card_0_click (event):
 
         # Set this to be the "new" highest Trump card:
         board_hand[0].highest_Trump_card_played = 1
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
     my_lowest_Trump_card_played = get_lowest_Trump_card_played()
@@ -644,9 +641,15 @@ def player_frame_card_0_click (event):
 
         # Set this to be the "new" lowest Trump card:
         board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
+
+    print ('\n\n Printing used deck')
+    for one_card in used_deck_of_cards:
+        print (one_card.card_suit)
+        print (one_card.card_value)
 
     # Replace the player card with NULL:
     player_1_hand[0] = None
@@ -659,18 +662,10 @@ def player_frame_card_0_click (event):
     # It is the computer's turn to play:
     play_turn ('COMPUTER')
 
-    # Now it is player 1's turn to play:
-    play_turn ('PLAYER1')
-
     determine_winner_of_this_hand()
 
-    #if determine_winner_of_this_hand() == 'dealer':
-
-        #messagebox.showinfo ("","Dealer won this hand. Click to have dealer play first....")
-
-        #clear_board_for_next_round()
-
-    #update_round_summary ()
+    # Now it is player 1's turn to play:
+    play_turn ('PLAYER1')
 
 ###########################################################################################
 
@@ -702,6 +697,8 @@ def player_frame_card_1_click (event):
 
         # Set this to be the "new" highest Trump card:
         board_hand[0].highest_Trump_card_played = 1
+        print ("setting hightest trmp card played by to Player")
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
     my_lowest_Trump_card_played = get_lowest_Trump_card_played()
@@ -714,6 +711,7 @@ def player_frame_card_1_click (event):
 
         # Set this to be the "new" lowest Trump card:
         board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
@@ -728,6 +726,8 @@ def player_frame_card_1_click (event):
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     play_turn ('COMPUTER')
+
+    determine_winner_of_this_hand()
 
     play_turn ('PLAYER1')
 
@@ -746,8 +746,6 @@ def player_frame_card_1_click (event):
     #dealer_frame_card_1_label.configure(image=my_image)
     #dealer_frame_card_1_label.image = my_image 
     
-    determine_winner_of_this_hand()
-
 ###########################################################################################
 
 def player_frame_card_2_click (event):
@@ -778,6 +776,8 @@ def player_frame_card_2_click (event):
 
         # Set this to be the "new" highest Trump card:
         board_hand[0].highest_Trump_card_played = 1
+        print ("setting hightest trmp card played by to Player")        
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
     my_lowest_Trump_card_played = get_lowest_Trump_card_played()
@@ -790,6 +790,7 @@ def player_frame_card_2_click (event):
 
         # Set this to be the "new" lowest Trump card:
         board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
@@ -804,6 +805,8 @@ def player_frame_card_2_click (event):
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     play_turn ('COMPUTER')
+
+    determine_winner_of_this_hand()
 
     play_turn ('PLAYER1')
     #board_hand[1] = computer_hand[2]
@@ -820,8 +823,6 @@ def player_frame_card_2_click (event):
     #my_image = resize_card_image("blank_card")
     #dealer_frame_card_2_label.configure(image=my_image)
     #dealer_frame_card_2_label.image = my_image 
-
-    determine_winner_of_this_hand()
 
 ###########################################################################################
 
@@ -853,6 +854,8 @@ def player_frame_card_3_click (event):
 
         # Set this to be the "new" highest Trump card:
         board_hand[0].highest_Trump_card_played = 1
+        print ("setting hightest trmp card played by to Player")        
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
     my_lowest_Trump_card_played = get_lowest_Trump_card_played()
@@ -865,6 +868,7 @@ def player_frame_card_3_click (event):
 
         # Set this to be the "new" lowest Trump card:
         board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
@@ -879,6 +883,8 @@ def player_frame_card_3_click (event):
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     play_turn ('COMPUTER')
+
+    determine_winner_of_this_hand()    
 
     play_turn ('PLAYER1')
 
@@ -896,8 +902,6 @@ def player_frame_card_3_click (event):
     #my_image = resize_card_image("blank_card")
     #dealer_frame_card_3_label.configure(image=my_image)
     #dealer_frame_card_3_label.image = my_image 
-
-    determine_winner_of_this_hand()    
 
 ###########################################################################################
 
@@ -928,7 +932,10 @@ def player_frame_card_4_click (event):
         clear_highest_Trump_card_played_flag()
 
         # Set this to be the "new" highest Trump card:
+        print ("setting highest trmp card playe flag")  
         board_hand[0].highest_Trump_card_played = 1
+        print ("setting hightest trmp card played by to Player")        
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
     my_lowest_Trump_card_played = get_lowest_Trump_card_played()
@@ -941,6 +948,7 @@ def player_frame_card_4_click (event):
 
         # Set this to be the "new" lowest Trump card:
         board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
 
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
@@ -955,6 +963,8 @@ def player_frame_card_4_click (event):
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     play_turn ('COMPUTER')
+
+    determine_winner_of_this_hand()    
 
     play_turn ('PLAYER1')
 
@@ -972,8 +982,6 @@ def player_frame_card_4_click (event):
     #my_image = resize_card_image("blank_card")
     #dealer_frame_card_4_label.configure(image=my_image)
     #dealer_frame_card_4_label.image = my_image 
-
-    determine_winner_of_this_hand()    
 
 ###########################################################################################
 
@@ -1005,6 +1013,7 @@ def player_frame_card_5_click (event):
 
         # Set this to be the "new" highest Trump card:
         board_hand[0].highest_Trump_card_played = 1
+        board_hand[0].highest_Trump_card_played_by = 'PLAYER1'
 
     # Get lowest Trump card played from history of all cards played:
     my_lowest_Trump_card_played = get_lowest_Trump_card_played()
@@ -1017,6 +1026,8 @@ def player_frame_card_5_click (event):
 
         # Set this to be the "new" lowest Trump card:
         board_hand[0].lowest_Trump_card_played = 1
+        board_hand[0].lowest_Trump_card_played_by = 'PLAYER1'
+
     # Add player card to the list of cards that have been used:
     used_deck_of_cards.append (board_hand[0])
     
@@ -1030,6 +1041,8 @@ def player_frame_card_5_click (event):
 
     # Now is the computer's turn to play a card, so move the card from the computer frame to the board:
     play_turn ('COMPUTER')
+
+    determine_winner_of_this_hand()      
 
     play_turn ('PLAYER1')
 
@@ -1047,8 +1060,6 @@ def player_frame_card_5_click (event):
     #my_image = resize_card_image("blank_card")
     #dealer_frame_card_5_label.configure(image=my_image)
     #dealer_frame_card_5_label.image = my_image 
-
-    determine_winner_of_this_hand()        
 
 ###########################################################################################
 
@@ -1159,8 +1170,6 @@ def determine_winner_of_this_hand ():
     elif winner == 'dealer':
         points_this_round_computer += points_this_hand
 
-    # Determine who has played the highest Trump card:
-
 
     # Display message showing who won and how many points were won this hand:
     if points_this_hand == 0:
@@ -1204,9 +1213,13 @@ def update_round_summary ():
     my_lowest_Trump_card_played = '' if get_lowest_Trump_card_played() is None else get_lowest_Trump_card_played()
 
     # Generate summary of points in this round:
-    summary = '\n              Current round \n\n  Dealer points: ' + points_this_round_computer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() \
-                + ' \n\n  High card: ' + my_highest_Trump_card_played.card_name.replace("_"," ") +  '\n\n  Low card: ' + my_lowest_Trump_card_played.card_name.replace("_"," ") \
-                + '\n\n  Pass jack:  \n\n  Hang jack:'
+    summary = '\n              Current round ' \
+                + ' \n\n  Dealer points: ' + points_this_round_computer.__str__() + ' \n\n  Player points: ' + points_this_round_player.__str__() \
+                + ' \n\n  High card: '  \
+                + ' \n\n  Low card: '  \
+                + ' \n\n  Pass jack:  \n\n  Hang jack:'
+
+                #+ '' if my_highest_Trump_card_played.highest_Trump_card_played_by is None else my_highest_Trump_card_played.highest_Trump_card_played_by \    
 
     # Update summary box which list all points this round:
     current_round_point_summary_text.delete("1.0", "end")
@@ -1218,15 +1231,17 @@ def create_new_deck ():
 
     # Create class to store each playing card:
     class class_playing_card:
-        def __init__(self, card_name, card_value, card_suit, card_image_path, board_location, highest_Trump_card_played, lowest_Trump_card_played, played_by):
+        def __init__(self, card_name, card_value, card_suit, card_image_path, board_location, highest_Trump_card_played, highest_Trump_card_played_by, 
+                     lowest_Trump_card_played, lowest_Trump_card_played_by):
             self.card_name = card_name
             self.card_value = card_value
             self.card_suit = card_suit
             self.card_image_path = card_image_path
             self.board_location = board_location
             self.highest_Trump_card_played = highest_Trump_card_played
+            self.highest_Trump_card_played_by = highest_Trump_card_played_by
             self.lowest_Trump_card_played = lowest_Trump_card_played
-            self.played_by = played_by
+            self.lowest_Trump_card_played_by = highest_Trump_card_played_by
     
     # Create suits and individual cards:
     suits = ["Hearts","Diamonds","Clubs","Spades"]
@@ -1248,7 +1263,7 @@ def create_new_deck ():
             #deck_of_cards.append(tempcard)
 
             # Generate one instance of the playing card class:
-            one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png", None, None, None, None)
+            one_card = class_playing_card (tempcard, one_card_value, one_suit, "./AllFours/PlayingCardImages/" + tempcard + ".png", None, None, None, None, None)
 
             # Append playing card to list:
             deck_of_cards.append(one_card)
